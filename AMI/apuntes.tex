@@ -1,302 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Apuntes de la asignatura Análisis Matemático I.
-% Doble Grado de Informática y Matemáticas.
-% Universidad de Granada.
-% Curso 2016/17.
-% 
-% 
-% Colaboradores:
-% Javier Sáez (@fjsaezm)
-% Daniel Pozo (@danipozodg)
-% Pedro Bonilla (@pedrobn23)
-% Guillermo Galindo
-% Antonio Coín (@antcc)
-% Sofía Almeida (@SofiaAlmeida)
-%
-% Agradecimientos:
-% Andrés Herrera (@andreshp) y Mario Román (@M42) por
-% las plantillas base.
-%
-% Sitio original:
-% https://github.com/libreim/apuntesDGIIM/
-%
-% Licencia:
-% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%------------------------------------------------------------------------------
-%   ACKNOWLEDGMENTS
-%------------------------------------------------------------------------------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plantilla básica de Latex en Español.
-%
-% Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
-%
-% Es una plantilla básica para redactar documentos. Utiliza el paquete  fancyhdr para darle un
-% estilo moderno pero serio.
-%
-% La plantilla se encuentra adaptada al español.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%
-% Plantilla de Trabajo
-% Modificación de una plantilla de Latex de Frits Wenneker para adaptarla 
-% al castellano y a las necesidades de escribir informática y matemáticas.
-%
-% Editada por: Mario Román
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Short Sectioned Assignment
-% LaTeX Template
-% Version 1.0 (5/5/12)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Frits Wenneker (http://www.howtotex.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% Tipo de documento y opciones.
-\documentclass[11pt, a4paper, titlepage]{article}
-
-
-%---------------------------------------------------------------------------
-%   PAQUETES
-%---------------------------------------------------------------------------
-
-% Idioma y codificación para Español.
-\usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla, es-lcroman, es-noquoting]{babel}
-\selectlanguage{spanish} 
-%\usepackage[T1]{fontenc}
-
-% Fuente utilizada.
-\usepackage{courier}    % Fuente Courier.
-\usepackage{microtype}  % Mejora la letra final de cara al lector.
-
-% Diseño de página.
-\usepackage{fancyhdr}   % Utilizado para hacer títulos propios.
-\usepackage{lastpage}   % Referencia a la última página.
-\usepackage{extramarks} % Marcas extras. Utilizado en pie de página y cabecera.
-\usepackage[parfill]{parskip}    % Crea una nueva línea entre párrafos.
-\usepackage{geometry}            % Geometría de las páginas.
-
-% Símbolos y matemáticas.
-\usepackage{amssymb, amsmath, amsthm, amsfonts, amscd}
-\usepackage{upgreek}
-
-% Otros.
-\usepackage{enumitem}   % Listas mejoradas.
-\usepackage[hidelinks]{hyperref}
-\usepackage{graphicx}            % Gráficos.
-
-%---------------------------------------------------------------------------
-%   OPCIONES PERSONALIZADAS
-%---------------------------------------------------------------------------
-
-% Redefinir letra griega épsilon.
-\let\epsilon\upvarepsilon
-
-% Formato de texto.
-\linespread{1.1}            % Espaciado entre líneas.
-\setlength\parindent{0pt}   % No indentar el texto por defecto.
-\setlist{leftmargin=.5in}   % Indentación para las listas.
-
-% Estilo de página.
-\pagestyle{fancy}
-\fancyhf{}
-\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm}   % Márgenes y cabecera.
-
-% Ruta donde buscar gráficos
-\graphicspath{{../Recursos/Plantillas/}, {Recursos/Plantillas/}}
-
-% Redefinir entorno de demostración (reducir espacio superior)
-\makeatletter
-\renewenvironment{proof}[1][\proofname] {\vspace{-15pt}\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\it#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
-\makeatother
-
-% Aumentar el tamaño del interlineado
-\linespread{1.3}
-%---------------------------------------------------------------------------
-%   COMANDOS PERSONALIZADOS
-%---------------------------------------------------------------------------
-
-% Valor absoluto: \abs{}
-\providecommand{\abs}[1]{\lvert#1\rvert}    
-
-% Fracción grande: \ddfrac{}{}
-\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
-
-% Texto en negrita en modo matemática: \bm{}
-\newcommand{\bm}[1]{\boldsymbol{#1}}
-
-% Línea horizontal.
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
-
-% Renombrar la R de los reales
-
-\newcommand{\R}{\mathbb{R}}
-
-%---------------------------------------------------------------------------
-%   CABECERA Y PIE DE PÁGINA
-%---------------------------------------------------------------------------
-
-% Cabecera del documento.
-\renewcommand\headrule{
-	\begin{minipage}{1\textwidth}
-		\hrule width \hsize 
-	\end{minipage}
-}
-
-% Texto de la cabecera.
-\lhead{\subject}  % Izquierda.
-\chead{}            % Centro.
-\rhead{\docauthor}    % Derecha.
-
-% Pie de página del documento.
-\renewcommand\footrule{                                 
-	\begin{minipage}{1\textwidth}
-		\hrule width \hsize   
-	\end{minipage}\par
-}
-
-% Texto del pie de página.
-\lfoot{}                                                 % Izquierda
-\cfoot{}                                                 % Centro.
-\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Derecha.
-
-
-%---------------------------------------------------------------------------
-%   ENTORNOS PARA MATEMÁTICAS
-%---------------------------------------------------------------------------
-
-% Nuevo estilo para definiciones.
-\newtheoremstyle{definition-style} % Nombre del estilo.
-{10pt}               % Espacio por encima.
-{10pt}               % Espacio por debajo.
-{}                   % Fuente del cuerpo.
-{}                   % Identación.
-{\bf}                % Fuente para la cabecera.
-{.}                  % Puntuación tras la cabecera.
-{.5em}               % Espacio tras la cabecera.
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}     % Especificación de la cabecera (actual: nombre en negrita).
-
-% Nuevo estilo para notas.
-\newtheoremstyle{remark-style} 
-{10pt}                
-{10pt}                
-{}                   
-{}                   
-{\itshape}          
-{.}                  
-{.5em}               
-{}                  
-
-% Nuevo estilo para teoremas y proposiciones.
-\newtheoremstyle{theorem-style}
-{10pt}                
-{10pt}                
-{\itshape}           
-{}                  
-{\bf}             
-{.}                
-{.5em}               
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}                   
-
-% Nuevo estilo para ejemplos.
-\newtheoremstyle{example-style}
-{10pt}                
-{10pt}                
-{}                  
-{}                   
-{\scshape}              
-{:}                 
-{.5em}               
-{}                   
-
-% Teoremas, proposiciones y corolarios.
-\theoremstyle{theorem-style}
-\newtheorem*{nth}{Teorema}
-\newtheorem*{nprop}{Proposición}
-\newtheorem{ncor}{Corolario}
-
-% Definiciones.
-\theoremstyle{definition-style}
-\newtheorem*{ndef}{Definición}
-
-% Notas.
-\theoremstyle{remark-style}
-\newtheorem*{nota}{Nota}
-
-% Ejemplos.
-\theoremstyle{example-style}
-\newtheorem*{ejemplo}{Ejemplo}
-
-% Listas ordenadas con números romanos (i), (ii), etc.
-\newenvironment{nlist}
-{\begin{enumerate}
-\renewcommand\labelenumi{(\emph{\roman{enumi})}}}
-{\end{enumerate}}
-
-% División por casos con llave a la derecha.
-\newenvironment{rcases}
-  {\left.\begin{aligned}}
-  {\end{aligned}\right\rbrace}
-
-%---------------------------------------------------------------------------
-%   PÁGINA DE TÍTULO
-%---------------------------------------------------------------------------
-
-% Título del documento.
-\newcommand{\subject}{Análisis Matemático I}
-
-% Autor del documento.
-\newcommand{\docauthor}{Doble Grado de Informática y Matemáticas}
-
-% Título
-\title{
-  \normalfont \normalsize 
-  \textsc{Universidad de Granada} \\ [25pt]    % Texto por encima.
-  \horrule{0.5pt} \\[0.4cm] % Línea horizontal fina.
-  \huge \subject\\ % Título.
-  \horrule{2pt} \\[0.5cm] % Línea horizontal gruesa.
-}
-
-% Autor.
-\author{\Large{\docauthor}}
-
-% Fecha.
-\date{\vspace{-1.5em} \normalsize Curso 2016/17}
-
-
-%---------------------------------------------------------------------------
-%   COMIENZO DEL DOCUMENTO
-%---------------------------------------------------------------------------
-\begin{document}
-
-\maketitle  % Título.
-\tableofcontents    % Índice
-\vfill
-\begin{center}
-\includegraphics{by-nc-sa}  % Licencia.
-\end{center}
-\newpage
-
 %----------------------------
 %   Introducción.
 %----------------------------
@@ -367,7 +68,7 @@ En $\mathbb{R}^N$, todas las distancias mencionadas anteriormente son equivalent
 
 
 %%% Conceptos topológicos.
-\subsection{Conceptos topológicos.} 
+\subsection{Conceptos topológicos.}
 
 \begin{ndef}[Bola abierta]
 Sea $(X,d)$ un espacio métrico, y fijemos un $x\in X$ y un $\epsilon > 0$. Se llama \emph{bola abierta de centro $x$ y radio $\epsilon$} al conjunto $B(x,\epsilon) = \{ y\in X \ | \ d(x,y)<\epsilon\}$.
@@ -382,7 +83,7 @@ De forma análoga, se define la \emph{bola cerrada de centro $x$ y radio $\epsil
 
 
 \begin{ndef}[Conjunto abierto]
-Sea $(X,d)$ un espacio métrico, y sea $A\subseteq X$. Decimos que \mbox{$A\ es\ abierto \iff \forall a \in A\ \exists \epsilon > 0: B(x,\epsilon) \subseteq A$}.	
+Sea $(X,d)$ un espacio métrico, y sea $A\subseteq X$. Decimos que \mbox{$A\ es\ abierto \iff \forall a \in A\ \exists \epsilon > 0: B(x,\epsilon) \subseteq A$}.
 \end{ndef}
 
 
@@ -501,7 +202,7 @@ Sea $(X,d)$ un espacio métrico, y $A\subseteq X$. Entonces, se verifican las si
 
 
 \begin{ndef}[Frontera]
-Sea $(X,d)$ un espacio métrico, y $A\subseteq X$. Llamamos \textit{frontera de A} al conjunto $\partial A = \overline{A}-\mathring{A}$.	
+Sea $(X,d)$ un espacio métrico, y $A\subseteq X$. Llamamos \textit{frontera de A} al conjunto $\partial A = \overline{A}-\mathring{A}$.
 \end{ndef}
 
 
@@ -613,16 +314,25 @@ Si un conjunto $A\subseteq \mathbb{R}^N$ es acotado, entonces cualquier sucesió
 Sea $\{x_n\}\subseteq \mathbb{R}^N$ acotada. Entonces, existe una sucesión parcial suya $\{x_{\sigma_{(n)}}\}$ convergente.
 \end{nth}
 
+\begin{proof}
+	Notaremos $x_n = (x_n^1, \dots, x_n^N)$. Como $\{x_n^1\}$ es acotada en $\mathbb{R}$, existe $\sigma_1 : \mathbb{N} \rightarrow \mathbb{N}$ estrictamente creciente tal que $\{x_{\sigma_1(n)}^1\}$ es convergente.
+
+Ahora, como $\{x_n^2\}$ es acotada, $\{x_{\sigma_1(n)}^2\}$ también es acotada, y existe $\sigma_2 : \mathbb{N} \rightarrow \mathbb{N}$ estrictamente creciente tal que $\{x_{(\sigma_2\circ\sigma_1)(n)}^1\}$ es convergente.
+
+Procediendo de esta forma con cada componente de $x_n$, obtenemos $\sigma_1, \dots, \sigma_N$, y\\ $\{x_{\sigma_1(n)}^1\}, \{x_{(\sigma_2\circ\sigma_1)(n)}^2\}, \dots, \{x_{(\sigma_N\circ\dots\circ\sigma_2\circ\sigma_1)(n)}^N\}$ sucesiones convergentes en $\mathbb{R}$. Al ser $\sigma_i$ estrictamente creciente $\forall i=1,\dots,N$, $\{x_{(\sigma_N(n)\circ\dots\circ\sigma_{i+1}\sigma_i\circ\dots\circ\sigma_1)(n)}^i\}$ también es convergente (toda sucesión parcial de una sucesión convergente es convergente).
+
+Así, tomando $\sigma = \sigma_1\circ\dots\circ\sigma_N$, $\{x_{\sigma(n)}\}$ es convergente.
+\end{proof}
 
 
 \begin{ndef}[Sucesión de Cauchy]
-Sea $\{x_n\}\subseteq \mathbb{R}^N$. Decimos que $\{x_n\}$ es una \textit{sucesión de Cauchy} $\iff \forall \epsilon > 0\ \ \exists n_o \in \mathbb{N}: \ n,m\ge n_o \Rightarrow d(x_n,x_m) < \epsilon$.
+Sea $\{x_n\}\subseteq \mathbb{R}^N$. Decimos que $\{x_n\}$ es una \textit{sucesión de Cauchy} si $$ \forall \epsilon > 0\ \ \exists n_o \in \mathbb{N}: \ n,m\ge n_o \Rightarrow d(x_n,x_m) < \epsilon$$
 \end{ndef}
 
 
 
 \begin{nth} [$\bm{\mathbb{R}^N}$ es completo]
-Sea $\{x_n\}\subseteq \mathbb{R}^N$. Entonces: $$\{x_n\}\ es\ de\ Cacuchy\ \iff \{x_n\}\ es\ convergente.$$
+Sea $\{x_n\}\subseteq \mathbb{R}^N$. Entonces: $$\{x_n\}\ es\ de\ Cauchy\ \iff \{x_n\}\ es\ convergente.$$
 \end{nth}
 
 
@@ -630,6 +340,17 @@ Sea $\{x_n\}\subseteq \mathbb{R}^N$. Entonces: $$\{x_n\}\ es\ de\ Cacuchy\ \iff 
 \begin{nprop}
 Sea $\{x_n\} \subseteq \mathbb{R}^N\ con\ \{x_n\} \rightarrow x \in \mathbb{R}^N$. Entonces, toda sucesión parcial de $\{x_n\}$ es convergente a $x$.
 \end{nprop}
+\begin{proof}
+	Sea $\sigma :\mathbb N \to \mathbb N$ una aplicación tal que $\sigma(n+1) > \sigma(n) > n \quad \forall n \in \mathbb N$. Ahora, $\{x_{\sigma(n)}\}$ es una sucesión parcial de $\{x_n\}$. Como $x_n$ es convergente:
+	\[
+	\forall \epsilon > 0 \ \ \ \exists n_0 \in \mathbb N : \ \ n \geq n_0 \implies d(x_n,x) < \epsilon
+	\]
+	Pero $\sigma(n) \geq n \ \ \forall n$ así que
+	\[
+	\forall \epsilon > 0 \ \ \ \exists n_0 \in \mathbb N : \ \ \sigma(n) \geq n \geq n_0 \implies d(x_{\sigma(n)},x) < \epsilon
+	\]
+	Luego $\{x_{\sigma(n)}\}\to x$
+\end{proof}
 
 \newpage
 
@@ -643,7 +364,7 @@ Sea $\{x_n\} \subseteq \mathbb{R}^N\ con\ \{x_n\} \rightarrow x \in \mathbb{R}^N
 
 \begin{ndef}[Función continua]
 Sea $\emptyset \ne A\subseteq \mathbb{R}^N$, $f: A \longrightarrow \mathbb{R}^M$ y $a \in A$. Decimos que \textit{f es continua en $a$} si, y solo si: $$\forall \epsilon > 0\ \ \exists \delta > 0: \ x\in A, \ d(x,a)<\delta \Rightarrow d(f(x),f(a))<\epsilon.$$
-Además, se dice que $f$ es continua si lo es en todos sus puntos.	
+Además, se dice que $f$ es continua si lo es en todos sus puntos.
 \end{ndef}
 
 
@@ -668,12 +389,16 @@ Sea $(X,d)$ un espacio métrico, y sea $\emptyset \ne A \subseteq X$. $$A\ es\ c
 	\[
 		A \subseteq \bigcup_{i\in I} O_i
 	\]
-	
+
 	También, si $R_1$ y $R_2$ son recubrimientos abiertos de $A$ y $R_1 \subseteq R_2$, se dice que $R_1$ es un \emph{subrecubrimiento abierto} de $R_2$.
 \end{ndef}
 
 \begin{nprop}
-	Sea $A \subseteq \mathbb{R}^N$ compacto. Entonces existe un subrecubrimiento finito de $A$.
+	Sea $A \subseteq \mathbb{R}^N$ y $\bigcup_{i\in I} O_i$ un recubrimiento cualquiera de $A$. Entonces, $A$ es compacto si $\exists n\in \mathbb N$ tal que
+	\[
+	A \subseteq \bigcup_{i=1}^n O_i
+	\]
+	es decir, existe un subrecubrimiento de $A$ finito.
 \end{nprop}
 
 \begin{nprop}[Caracterización de cerrados]
@@ -686,7 +411,7 @@ Sea $(X,d)$ un espacio métrico, y $A\subseteq X$. Entonces, son equivalentes:
 
 \end{nprop}
 
-\begin{proof} 
+\begin{proof}
 Veamos las dos implicaciones:
 
 $\displaystyle \boxed{\Rightarrow}\ $ Supongamos $A \subseteq X$ un conjunto cerrado. Entonces, $X - A$ es abierto. Sea $\{x_n\}$ una sucesión de puntos de $A$ que converge a un $x\in X$. Para comprobar que, de hecho, $x\in A$, argumentamos por reducción al absurdo:
@@ -714,26 +439,65 @@ Así, se tiene que $0 < d(x,a_n) < \frac{1}{n}\ \forall n\in \mathbb{N}$, de don
 De esta forma, queda probada la equivalencia.
 \end{proof}
 
+Podemos dar ahora un teorema importante que caracteriza a los compactos de $\R^n$.
 
+\begin{nth}[Teorema de Heine-Borel]
+Sea $A\subseteq \R^n$. Entonces:
+\[
+A \ es \ compacto \iff \text{ A es cerrado y acotado}
+\]
+\end{nth}
+\begin{proof}\hfill\\
+	\boxed{\Rightarrow}\\
+	Suponemos que $A \subset \mathbb{R}^n$ es compacto. Entonces, por su definición, $\forall \{x_n\} \subset A \ \exists \{x_{\sigma(n)}\}$ parcial de $\{x_n\}$ con $\{x_{\sigma(n)}\} \to x \in A$. Supongamos que $A$ no está acotado. Entonces, $\forall n \in \mathbb{N}, \ \exists a_n \in A : \ |a_n| \geq n$, por lo que $\{a_n\}$ no converge y por tanto $\sigma(n) \geq n \implies \{a_{\sigma(n)}\}$ no converge, por lo que $A$ está acotado.
 
-\begin{nprop}[Caracterización de compactos]
-Sea $A \subseteq \mathbb{R}^N$. Entonces: $$A\ es\ compacto \iff A\ es\ cerrado\ y\ acotado.$$
-\end{nprop}
+	Supongamos ahora que $\{x_n\} \to x \implies \exists \{x_{\sigma(n)}\} \to x \in A$, y como sabemos que si una sucesión es convergente todas sus parciales convergen al mismo límite, entonces eso implica que $\{x_n\}\to x \in A$ por lo que toda sucesión converge a un punto de $A$, y así $A$ es cerrado.
+	\\
+	\boxed{\Leftarrow}\\
+	Supongamos ahora que $A$ es cerrado y acotado. Sea $\{x_n\}$ una sucesión cualquiera de puntos de $A$.
 
+	Como $A$ es acotado, entonces $\exists R > 0 : \ \ A \subset B(0,R)$. Además, como $\{x_n\} \subset A \ \forall n \implies |x_n| < R \ \forall n \in \mathbb{N}$, así $\{x_n\}$ es acotada.
 
+	Como $\{x_n\}$ es acotada, por el teorema de Bolzano Weierstrass, $\exists \sigma: \mathbb{N} \to \mathbb{N}$ estrictamente creciente con $\{x_{\sigma(n)}\}\to x \in \mathbb{R}^n$, y como $\{x_{\sigma(n)}\}$ es una subsucesión de puntos de $A$ que converge a $x$ y el conjunto $A$ es cerrado, entonces el límite de esta sucesión está en $A$ , es decir:
+	\[
+	\{x_{\sigma(n)}\}\to x \in A
+	\]
+Por lo que tenemos la definición de conjunto compacto.
+\end{proof}
 
 \begin{nprop}
-Sea $\{x_n\} \subseteq \mathbb{R}^N$ convergente a un $x_o \in \mathbb{R}^N$. Entonces, el conjunto \hfill \\$A = \{x_n:\ n=0,1,2,\dots \}$ es compacto.
+Sea $\{x_n\} \subseteq \mathbb{R}^N$ convergente a un $x_0 \in \mathbb{R}^N$. Entonces, el conjunto \hfill \\$A = \{x_n:\ n=0,1,2,\dots \}$ es compacto.
 \end{nprop}
 
+\begin{proof}\hfill\\
+  Probaremos que es cerrado y acotado.
+
+  \begin{itemize}
+  \item \textbf{Acotado:} Sea $\epsilon>0$ fijo. Entonces existe $n_0 \in \mathbb{N}$ tal que $n \ge n_0 \implies x_n \in B(x_0, \epsilon)$, que es acotado.
+    Por tanto $A \subset B(x_0, \epsilon) \cup \{ x_m : m < n_0 \}$.
+
+  \item \textbf{Cerrado:} Veamos que $A = \bar{A}$. Ya sabemos que $A \subseteq \bar{A}$. Ahora, supongamos que $\exists a_0 \in \bar{A} : a_0 \notin \bar{A}$.
+    Entonces $a_0$ verificaría que $\forall \epsilon > 0 \ \ B(a_0, \epsilon) \cap A \ne \emptyset$, es decir, $\forall n \in \mathbb{N} \ \ \exists n_0\in \mathbb{N} \ \ x_{n_0} \in B\left(a_0, \frac{1}{n}\right)$.
+    Sabiendo esto, vamos a probar que existe una sucesión parcial convergente a $a_0$, con lo que $a_0 = x_0$, llegando a contradicción. Definimos
+
+    \[
+       \varphi(n) := \min \left\{ m\in \mathbb{N} : x_m \in B\left(a_0, \frac{1}{n}\right) \right\}
+       \]
+
+       De la definición se deduce que $\varphi(n+1) \ge \varphi(n)$ (el mínimo de un subconjunto es mayor que el del conjunto). Supongamos que $\varphi$ es constante a partir de un punto.
+       Entonces existiría $m \in \mathbb{N} : x_m \in B(a_0, \frac{1}{n}) \ \ \forall n\in \mathbb{N} \implies x_m = a_0$, pero esto es una contradicción. Por tanto, para cada $n \in \mathbb{N} \ \ \exists m \in \mathbb{N} : \varphi(m) > \varphi(n)$. Luego, si definimos $B = \{ n \in \mathbb{N} : \varphi(n+1) > \varphi(n) \}$ y $\sigma$ como la única aplicación estrictamente creciente que lleva $\mathbb{N}$ en $B$, $\{x_{(\varphi \circ \sigma)(n)}\}$ es una sucesión parcial convergente a $a_0$, como queríamos.
+  \end{itemize}
+\end{proof}
 
 
 %%% Clasificación de conjuntos en R^N.
-\subsection{Clasificación de conjuntos en $\mathbb{R}^N$}
 
+\subsection{Clasificación de conjuntos en $\mathbb{R}^N$}
+En esta sección, vamos a intentar definir una serie de tipos de conjuntos sobre los que luego trataremos de establecer ciertas propiedades
 \begin{ndef}[Conjunto convexo]
 Un conjunto $A\subseteq \mathbb{R}^N$ se dice \textit{convexo} si $\forall x,y \in A$ se tiene que el segmento de extremos $x$ e $y$ está incluido en $A$. En otras palabras: $$A\ convexo\ \iff [x,y] = \{tx + (1-t)y: \ t\in [0,1]\} \subseteq A.$$
 \end{ndef}
+
 
 
 
@@ -846,17 +610,20 @@ Sean $(X,\tau_x),\ (Y,\tau_y)$ dos espacios topológicos, $A\subseteq X$, y $f:A
 %%% Teoremas sobre funciones continuas en R^N.
 \subsection{Teoremas sobre funciones continuas en $\mathbb{R}^N$}
 
+A continuación, daremos ciertos de los teoremas más usados en el análisis elemental. Se revisitarán los teoremas dados con anterioridad para funciones continuas en $\R$ y se enunciarán y probarán sus versiones correspondientes en $\R^n$ o en espacios métricos en general.
+
 
 
 \begin{nth}[Weierstrass]
 Sea $(X,d)$ un espacio métrico, $\emptyset \ne A \subseteq X$ compacto, y $f:A \longrightarrow \mathbb{R}$ continua en $A$. Entonces, $\exists x_1,x_2 \in A: \ f(x_1)\le f(x) \le f(x_2)\ \ \forall x\in A$. En otras palabras, la función $f$ alcanza su mínimo y su máximo.
 \end{nth}
 
-
-
 \begin{nth}[Weierstrass generalizado]
-Sean $(X,d)$, $(Y,d)$ espacios métricos, $\emptyset \ne A \subseteq X$ compacto, y $f: A \longrightarrow Y$ continua. Entonces, $f(A)$ es compacto.
+Sean $(X,d)$, $(Y,d)$ espacios métricos, $\emptyset \ne K \subseteq X$ compacto, y $f: K \longrightarrow Y$ continua. Entonces, $f(K)$ es compacto.
 \end{nth}
+\begin{proof}
+		Sea $\{y_n\}\subseteq f(K)$ una sucesión cualquiera en $f(K)$. Para demostrar que $f(K)$ es compacto debemos demostrar que $\{y_n\}$ tiene una subsucesión convergente a algún punto de $f(K)$. Sea $y_n$ = $f(x_n)$ con $x_n \in K$, por ser A compacto $\{x_n\}$ tiene una subsucesión $\{x_{\sigma(n)}\}$ convergente a un $a \in K$. Por lo tanto, $\{f(x_{\sigma(n)})\}$ convergente a un $f(a) \in f(K)$, siendo $\{f(x_{\sigma(n)})\}$ una subsucesión de $\{f(x_{n})\}$, es decir, de $\{y_n\}$.
+\end{proof}
 
 
 
@@ -878,6 +645,7 @@ Por tanto, queda probado que $f(A)$ es arco-conexo en $\mathbb{R}^M$.
 Sea $\emptyset \ne A\subseteq \mathbb{R}^N$ conexo, y $f:A \longrightarrow \mathbb{R}^M$ continua. Entonces, $f(A)$ es conexo en $\mathbb{R}^M$.
 \end{nth}
 
+El siguiente resultado, tiene mucha relevancia en el estudio de la continuidad uniforme de funciones en un espacio métrico como es $\R^n$.
 \begin{nth}[Heine-Cantor]
 	Sea $\emptyset\ne A \subseteq \mathbb{R}^N$ compacto, y $f : A \longrightarrow \mathbb{R}^N$ continua. Entonces $f$ es uniformemente continua en $A$.
 \end{nth}
@@ -890,26 +658,26 @@ Sea $\emptyset \ne A\subseteq \mathbb{R}^N$ conexo, y $f:A \longrightarrow \math
 	\]
 
 	Tomamos un recubrimiento abierto de $A$, y como $A$ es compacto, encontramos un subrecubrimiento finito.
-	
+
 	\[
 		A \subseteq \bigcup_{a\in A} B(a, \frac{\delta_a}{2}) \implies \exists a_1,\dots,a_n \in A: A \subseteq \bigcup_{i=1}^n B\left(a_i, \frac{\delta_{a_i}}{2}\right)
 	\]
-	
+
 	Por esta última inclusión:
 	\[
 		\forall x\in A\quad \exists i \in \left \{ 1,\dots,n \right \} : x\in B\left(a_i,\frac{\delta_{a_i}}{2}\right)\cap A \implies f(x)\in B(f(a_i),\epsilon)
 	\]
-	
+
 	Sean $\delta = \min\left\{\ddfrac{\delta_{a_i}}{2} : i \in \left \{ 1,\dots,n \right \}\right\} > 0$ y $y\in A : d(x,y) < \delta < \delta_{a_i}$ para un $x\in A$ fijo. Tomamos el $a_i$ proporcionado por la proposición anterior para $x$.
 	\[
 		d(y,a_i) \le d(y,x)+d(x,a_i) < \delta_{a_i} \implies y\in B(a_i,\delta_{a_i}) \implies f(y) \in B(f(a_i), \epsilon)
 	\]
-	
+
 	Finalmente,
 	\[
 		d(f(x), f(y)) \le d(f(x),f(a_i)) + d(f(a_i), f(y)) < \epsilon
 	\]
-	
+
 	Para cualquier $\epsilon$ para el que se desee que se verifique la condición de la continuidad uniforme, basta tomar $\ddfrac{\epsilon}{2}$ en la continuidad.
 \end{proof}
 
@@ -918,22 +686,22 @@ Sea $\emptyset \ne A\subseteq \mathbb{R}^N$ conexo, y $f:A \longrightarrow \math
 	\[
 		\forall \varepsilon > 0 \  \exists \delta > 0 \ \forall x, y \in A : d(x,y) < \delta \implies d (f(x) , f(y) ) < \varepsilon
 	\]
-	
+
 	Vamos a proceder por reducción al absurdo, para lo cual negamos esta condición:
 	\[
 		\exists \varepsilon_0 > 0 \ \forall \delta > 0 \ \exists x, y \in A : d (x,y) < \delta \wedge d (f(x) , f(y) ) \ge \varepsilon_0
 	\]
-	
+
 	Tomamos este $\epsilon_0$, lo que nos da, para cada $\delta>0$, un par de puntos $x$ e $y$ que cumplen la propiedad expresada arriba. Tomamos $\delta = \frac{1}{n} \ \forall n\in \mathbb{N}$. Esto nos da dos sucesiones $\{x_n\}$ e $\{y_n\}$ tales que
 	\[
 		d(x_n,y_n) < \frac{1}{n} \wedge d(f(x_n),f(y_n)) \ge \epsilon_0
 	\]
-	
+
 	Por ser A compacto, el teorema de Bolzano-Weierstrass nos da dos sucesiones parciales $\{x_{n_k}\}$ a $x_0$ e $\{y_{n_k}\}$ a $y_0$. Por tanto:
 	\[
 		d(x_{n_k},y_{n_k}) < \frac{1}{n_k} \wedge d(f(x_{n_k}),f(y_{n_k})) \ge \epsilon_0
 	\]
-	
+
 	Sin embargo, $\{x_{n_k}\}$ e $\{y_{n_k}\}$ convergen al mismo punto (por converger su distancia a cero), y como $f$ es continua, esta proposición no puede ser verdadera. Hemos llegado por tanto a una contradicción, luego $f$ debe ser uniformemente continua.
 \end{proof}
 
@@ -942,7 +710,7 @@ Sea $\emptyset \ne A\subseteq \mathbb{R}^N$ conexo, y $f:A \longrightarrow \math
 
 \begin{ndef}[Límite funcional]
 	Sean $\emptyset \ne A \subseteq \mathbb{R}^N$, $a\in A'$ y $f: A \longrightarrow \mathbb{R}^M$. Entonces $f$ tiene límite $l$ en $x=a$, y se denota $\displaystyle\lim_{x\to a} f(x)$ si:
-	
+
 \[
 	\forall \epsilon>0\quad \exists \delta>0 : \begin{rcases}
 	0<d(x,a)<\delta\\
@@ -959,7 +727,7 @@ Sea $(X,d)$ un espacio métrico, y $A\subseteq X$. Consideremos un punto $x\in X
 \begin{nlist}
 \item x es punto de acumulación de A.
 \item $\exists \{a_n\}\subseteq A-\{x\}$ tal que $\{a_n\} \rightarrow x$.
-\item $\forall \epsilon > 0\ B(x,\epsilon)\cap (A-\{x\})$ es un conjunto infinito. 
+\item $\forall \epsilon > 0\ B(x,\epsilon)\cap (A-\{x\})$ es un conjunto infinito.
 \end{nlist}
 \end{nprop}
 
@@ -973,7 +741,7 @@ Sea $A$ un abierto de $\mathbb{R}^N$. Partimos de la siguiente observación:
 	\forall x_0 \in A\quad \exists \delta >0 : B(x_0, \delta) \subset A \implies \forall v \in \mathbb{R}^N\quad \exists \epsilon > 0 : [\; t \in (-\epsilon, \epsilon) \implies x_0+tv\in B(x_0,\delta)\;]
 \]
  En particular, si $|v| = 1 \implies \epsilon = \delta$.
- 
+
 \begin{ndef}[Función derivable] Sean $f : A \longrightarrow \mathbb{R}^M$ y $x_0\in A$. Se dice que $f$ es derivable en $x_0$, según Fréchet, si
 \[
 	\exists L\in Lin(\mathbb{R}^N, \mathbb{R}^M) : \lim_{x\to x_0} \frac{|f(x)-f(x_0)- L(x-x_0)|}{|x-x_0|} =0
@@ -990,11 +758,11 @@ Notamos $Df(x_0) = L$.
 \end{nota}
 
 \begin{nota}[2]
-	$A$ es abierto $\implies$ $L$ (si existe) es única. De aquí se exige que $A$ sea un abierto. 
+	$A$ es abierto $\implies$ $L$ (si existe) es única. De aquí se exige que $A$ sea un abierto.
 \end{nota}
 
 \begin{proof}[Demostración (Nota 2)]
-	Suponemos que $\exists L_1,L_2\in Lin(\mathbb{R}^N, \mathbb{R}^M)$ tales que 
+	Suponemos que $\exists L_1,L_2\in Lin(\mathbb{R}^N, \mathbb{R}^M)$ tales que
 \[
 \lim_{x\to x_0} \frac{|f(x)-f(x_0)- L_1(x-x_0)|}{|x-x_0|} =0= \frac{|f(x)-f(x_0)- L_2(x-x_0)|}{|x-x_0|}
 \]
@@ -1013,7 +781,7 @@ $$\lim_{x\to x_0}(L_1-L_2)(x-x_0)=0=\lim_{y\to 0}(L_1-L_2)(y)\implies L_1=L_2$$
 \end{proof}
 
 \begin{nprop} En los mismos términos: si $f$ es derivable en $x_0$ $\implies$ $f$ es continua en $x_0$.
-	
+
 \end{nprop}
 
 \begin{proof} Para probar esta proposición, hay que probar que $\lim_{x\to x_0} (f(x)-f(x_0)) = 0$
@@ -1027,7 +795,7 @@ $$\lim_{x\to x_0}(L_1-L_2)(x-x_0)=0=\lim_{y\to 0}(L_1-L_2)(y)\implies L_1=L_2$$
 	\[
 		\exists \lim_{t\to 0} \frac{f(x_0+tv)-f(x_0)}{t} = D_v f(x_0) \iff
 	\]
-	
+
 	\begin{center}
 	$\iff f_1,f_2,\cdots f_m$ derivable direccionalmente en $x_0$ en la dirección v. $\iff$
 	\[
@@ -1041,7 +809,7 @@ $$\lim_{x\to x_0}(L_1-L_2)(x-x_0)=0=\lim_{y\to 0}(L_1-L_2)(y)\implies L_1=L_2$$
 	Sea $f$ derivable en $x_0\implies f$ derivable a lo largo de la dirección v y $D_vf(x_0) = Df(x_0)(v)$
 	\begin{proof}
 	$f$ derivable en $x_0$. Tomo $y=tv  $. Podemos ver entonces:
-	
+
 	\[
 	\lim_{t \to 0} \frac{f(x_0 +tv) - f(x_0) - Df(x_0)(tv)}{t} = 0 \implies
 	\]
@@ -1059,7 +827,7 @@ Hemos probado que $\exists D_vf(x_0)$
 %% Introducir definición alternativa (usando la definición de límite directamente).
 \section{Matriz asociada a $Df(x_0)$.}
 	Si $f : B \longrightarrow \mathbb{R}^M$, con $\emptyset \ne B \in \mathbb{R}^N$, la matriz asociada a $Df(x_0)$ es una matriz de orden $M \times N$, (que notaremos $A$ en lo sucesivo), como ya sabemos, por ser una aplicación lineal. Ahora, nuestro siguiente objetivo es encontrar esa matriz. Observemos cómo podemos obtenerla por filas, aplicándole los vectores de la base canónica:
-	
+
 	\[
 		e_i = (0, \dots, \stackrel{i)}{1}, \dots, 0) \implies Df(x_0)(e_i) = D_{e_i}f(x_0) = Ae_i = \begin{pmatrix}
 	a_{1i}\\ \vdots\\ a_{Mi}
@@ -1102,15 +870,15 @@ Además, $D_vf(x_0) = (D_vf_1(x_0), \dots, D_vf_M(x_0))$.
 
 \begin{nprop}
 	Sea $L$ una aplicación lineal. Entonces L es derivable y $DL(a) = L$
-	
+
 \end{nprop}
 \begin{proof}
-	
+
 	Tomaremos:
 	\[
 	lim_{x\to a} \frac{||Lx -La - M(x-a)||}{||x-a||}= 0
 	\]
-	Entonces, tenemos que encontrar : $M: R^n \to R^m$ lineal para que sea derivable. Entonces, podemos tomar $L=M$ y como $L$ es lineal, es trivial que es verdad (por la linealidad de L) y esto implica que $L$ es derivable y $DL(a) = M = L$. 
+	Entonces, tenemos que encontrar : $M: R^n \to R^m$ lineal para que sea derivable. Entonces, podemos tomar $L=M$ y como $L$ es lineal, es trivial que es verdad (por la linealidad de L) y esto implica que $L$ es derivable y $DL(a) = M = L$.
 \end{proof}
 
 \begin{nprop}
@@ -1119,7 +887,7 @@ Además, $D_vf(x_0) = (D_vf_1(x_0), \dots, D_vf_M(x_0))$.
 \begin{proof}
 	Como $L$ es lineal, entonces L es derivable y por tanto continua. Entonces:
 	\[
-	||Lx|| \leq M||x|| \quad \forall x \in R^n	
+	||Lx|| \leq M||x|| \quad \forall x \in R^n
 	\]
 	\[
 	 ||Lx-Ly|| = ||L(x-y) || \leq M||x-y|| \implies L\ es \ Lipschitziana
@@ -1142,17 +910,17 @@ Además, $D_vf(x_0) = (D_vf_1(x_0), \dots, D_vf_M(x_0))$.
 \end{rcases} B \ es \ continua$.
 
 Es más, $\exists M \geq 0 : |B(x,y)| \leq M||x||\||y|| \quad \forall x,y \in R^n$
-	
+
 	Se deja como ejercicio la demostración. Se debe usar que :
-	
+
 	\[
-	B(x,y) = ||x||\ ||y|| B(\frac{x}{||x||},\frac{y}{||y||}) 
+	B(x,y) = ||x||\ ||y|| B(\frac{x}{||x||},\frac{y}{||y||})
 	\]
-	
+
 	Y tomar el $M = sup\{|B(x,y): ||x|| = 1 \ y \ ||y|| = 1\}$ y para ello necesito ver que $S_{R^n}(0,1)xS_{R^n}(0,1)\{(x,y) \in R^nxR^n : ||x|| = 1 \ y \ ||y|| = 1\}$ es compacto.
-	
+
 	Quién sería en este caso el candidato a $DB(x_0,y_0)(u,v) = D(x_0,v)+B(u,y_0)$.
-	
+
 \[
 \lim_{(x,y) \to (x_0,y_0)}\frac{|B(x,y) - B(x_0,y_0) - B(x_0,y-y_0) + B(x-x_0,y_0)}{||(x-x_0,y-y_0)||}
 \]
@@ -1174,16 +942,16 @@ Estudiando ese límite por cualquier método, nos saldría 0. Luego, tenemos que
 
 \begin{ejemplo}
 	Sea $f:R^2 \to R$ bilineal con $f(x,y) = xy$.
-	
+
 	Entonces, en un punto $(x_0,y_0)$:
-	
+
 	\[
-	\lim_{(x,y) \to (x_0, y_0)} \frac{|x(x,y) - f(x_0,y_0) - L(x-x_0, y-y_0)|}{||(x-x_0,y-y_0||} = 
+	\lim_{(x,y) \to (x_0, y_0)} \frac{|x(x,y) - f(x_0,y_0) - L(x-x_0, y-y_0)|}{||(x-x_0,y-y_0||} =
 	\]
 	\[
 	 =  \lim_{(x,y) \to (x_0,y_0)} \frac{|xy-x_0y_0 - L(x-x_0,y-y_0)}{||(x-x_0,y-y_0||}
 	\]
-	
+
 	Pero, ¿cuál es esa $L$?. Si tomáramos $L(x-x_0,y-y_0) = y_0(x-x0) - x_0(y-y_0)$ en el numerador nos quedaría $|xy - x_0y_0 - y_0(x-x0) + x_0(y-y_0)| = |xy- x_0y_0 -y_0x -x_0y_0 - x_0y+x_0y_0 |= | (x-x_0)(y-y_0)|$. Y tenemos en el límite que:
 	\[
 	 = \lim_{(x,y) \to (x_0,y_0)} \frac{|(x-x_0)(y-y_0)|}{||(x-x_0,y-y_0))||} = 0
@@ -1193,26 +961,26 @@ Estudiando ese límite por cualquier método, nos saldría 0. Luego, tenemos que
 
 \begin{nprop}
 	Sea $g,f: R^n \to R^m$ derivable en $a \in R^n$. El producto escalar es derivable.
-	
+
 \begin{proof}
 		Construyo $h: R^n \to R$ con $h(x) = < f(x), g(x)>$. Probar que es derivable:
-	
+
 	$h = B o (f,g)$ con $B(x,y) = <x,y> \quad \forall x,y \in R^n$
-	
+
 	La derivada de la h es:
 	\[
-	Dh(x_0)(x) = [DB(f(x_0)g(x_0) o D(f,g)(x_0)](x) =\]\[DB(f(x_0),g(x_0))[D(f,g)(x_0)(x)] = DB(f(x_0),g(x_0))*[Jacob(f)](x) = 
+	Dh(x_0)(x) = [DB(f(x_0)g(x_0) o D(f,g)(x_0)](x) =\]\[DB(f(x_0),g(x_0))[D(f,g)(x_0)(x)] = DB(f(x_0),g(x_0))*[Jacob(f)](x) =
 	\]
 	\[
 	= B(f(x_0),[Jacob(g)(x)]) + B([Jacob(f)(x), g(x_0)] = \]
 	\[
-	 = B(f(x_0),Dg(x_0)(x)) + B(Df(x_0)(x),g(x_0)) = 
+	 = B(f(x_0),Dg(x_0)(x)) + B(Df(x_0)(x),g(x_0)) =
 	\]
 	\[
 	<f(x_0),Dg(x_0)(x) > + < Df(x_0)(x),g(x_0)>
 	\]
 \end{proof}
-	
+
 \end{nprop}
 
 \begin{nota}
@@ -1240,7 +1008,7 @@ Podemos escribir:
 \[
 S_{k,h}(x) =[f(x+h,y+k) - f(x,y+k)] - [f(x+h,y) -f(x,y)]
 \]
-	
+
 Como $f$ es de clase 2, es de clase 1 y podemos usar el TVM para evaluar cuánto valen las diferencias que hemos expresado en $S_{k,h}(x)$. Esa diferencia se puede estimar como la derivada en el segmento aplicado al vector diferencia de esos dos puntos.
 \[
 TVM \implies Df(c)[(x+h-x,(y+k)-(y-k)] -Df(d)[(x+h-x,y-y)]= \frac{\partial f}{\partial x}(c)h - \frac{\partial f}{\partial x}(d)h
@@ -1296,7 +1064,7 @@ S_{k,h}(x) =[f(x+h,y+k) - f(x,y+k)] - [f(x+h,y) -f(x,y) = F_h(k) - F_h(0)
 
 Vamos a ver primero que
 \[
-F_h'(K) = [\frac{\partial f}{\partial x}(x+h,y+K)*0 + \frac{\partial f}{\partial y}(x+h,y+K)*1] - 
+F_h'(K) = [\frac{\partial f}{\partial x}(x+h,y+K)*0 + \frac{\partial f}{\partial y}(x+h,y+K)*1] -
 \]
 \[
 \frac{\partial f}{\partial x}(x,y+K)*0 + \frac{\partial f}{ \partial y}(x,y+K)*1] = \frac{\partial f}{\partial y}(x+h,y+K) - \frac{\partial f}{\partial y}(x,y+K)
@@ -1307,7 +1075,7 @@ Luego:
 \end{proof}
 \begin{proof}[Demostración para el caso general]
 	Tenemos $f:A \to R$ y $x=(x_1,...,x_i,...,x_j,...,x_n) \mapsto f(x_1,...,x_i,...,x_j,...,x_n)$.
-	
+
 	Definimos $g(s,t) = f(x_1,...,x_{i-i},s,...,x_{j-1},t,...,x_n)$
 	Si ahora hacemos
 	\[
@@ -1317,9 +1085,9 @@ Luego:
 		\[
 	\frac{\partial g}{\partial t \partial s}(x_i,x_j) = \frac{\partial^2 f}{\partial x_j \partial x_i}
 	\]
-	
+
 	Y como lo teníamos probado para $N=2$, entonces ya tenemos que las dos son iguales pues $g$ es una función de $N=2$ variables.
-	
+
 
 \end{proof}
 
@@ -1342,7 +1110,7 @@ Se podría ver que se llega a lo mismo e incluso podemos notarlo como:
 	D^{(\alpha_1,...,\alpha_n)}f = \frac{\partial^{|\alpha|}f}{\partial x_1^{\alpha_1}... \partial x_k^{\alpha_n}}
 	\]
 	Con $\alpha = (\alpha_1,...,\alpha_n) \in \mathcal{N}\cup \{0\}$. A esto se le llama multiíndice.
-	
+
 \end{nota}
 \begin{nota}
 	Si $v\in R^n$ con $|v| = 1 $ y $D_vf(a) = Df(a)(v)$. Así:
@@ -1369,7 +1137,7 @@ Entonces $\forall x \in A :$ el segmento que une $x$ con $a$ está contenido en 
 f(x) = \sum_{|\alpha| = 0}^n \frac{D^\alpha f(a)}{\alpha !}(x-a)^\alpha + \sum_{|\alpha| = n+1}\frac{D^\alpha f(c)}{\alpha !}(x-a)^\alpha
 \]
 
-	
+
 \end{nth}
 
 \begin{nth}
@@ -1384,20 +1152,20 @@ Sea $\empty \ne A \subset R^n \ abierto \ , \ x_0 \in A$ con $f:A \to R$ de clas
 	Df(x_0) = 0\\
 	\mathcal{H}f(x_0) \ es \ definida \ negativa
 \end{rcases} \implies $ f tiene un máximo relativo
-\end{enumerate}	
+\end{enumerate}
 \end{nth}
 
-\begin{proof} Probaremos 1 y 2: 
+\begin{proof} Probaremos 1 y 2:
 	\begin{enumerate}
 	\item Como $f$ presenta un máximo relativo en $x_0\in A=abierto$ entonces $\exists r > 0 : B(x_0,r) \subseteq A $ y $f(x) \leq f(x_0) \ \forall x \in B(x_0,r)\subset A$. Por ello, ya sabemos que $Df(x_0) = 0$. Entonces, aplicamos Taylor $\forall x \in B(x_0,r)$ segmento que une $x$ con $x_0$ está contenido en $B(x_0,r) \subset A \implies $
 	\[
 	0 \geq f(x) - f(x_0) =  \frac{1}{2}(x-x_0)^t \mathcal{H}f(c)(x-x_0)
 	\]
-	Por tanto, podemos ver que 
+	Por tanto, podemos ver que
 	\[
 	0 \geq (x-x_0)^t \mathcal{H}f(x_0)(x-x_0) \quad \forall x \in B(x_0,r)
 	\]
-	
+
 	Pues como la matriz hessiana está llena de las derivadas segundas en $c$, cuando $c \to x_0$ entonces $\mathcal{H}f(c) \to \mathcal{H}f(x_0)$.
 \[
 	0 \geq f(x) - f(x_0) =  \frac{1}{2}(x-x_0)^t \mathcal{H}f(c)(x-x_0) \iff \mathcal{H}f(c) \ semidefinida \ negativa
@@ -1406,7 +1174,7 @@ Sea $\empty \ne A \subset R^n \ abierto \ , \ x_0 \in A$ con $f:A \to R$ de clas
 	 \iff y^t\mathcal{H}f(c) \ y \leq 0 \quad \forall y \in B(0,r)
 	\]
 	Y como hemos dicho que cuando $c \to x_0$ entonces $\mathcal{H}f(c) \to \mathcal{H}f(x_0)$ entonces $0 \geq z^t \mathcal{H}f(x_0)z \quad \forall z \in R^n \implies 0 \geq <^t \mathcal{H}f(x_0)< \quad \forall z \in R^n$ y así la matriz Hessiana es semidefinida negativa.
-	
+
 	\item Como $f$ presenta un máximo relativo en $x_0\in A=abierto$ entonces $\exists r > 0 : B(x_0,r) \subseteq A $ y $f(x) \leq f(x_0) \ \forall x \in B(x_0,r)\subset A$. Por ello, ya sabemos que $Df(x_0) = 0$.Usando el teorema de Taylor, obtenemos que:
 	\[
 	f(x)-f(x_0) = \frac{1}{2!}(x-x_0)^t \mathcal{H}f(c)(x-x_0)
@@ -1416,7 +1184,7 @@ Sea $\empty \ne A \subset R^n \ abierto \ , \ x_0 \in A$ con $f:A \to R$ de clas
 	z^t \mathcal{H}f(x_0)z < 0 \quad \forall z \in R^n-\{0\}
 	\]
 	Ahora, si el límite es menor estricto que cero implica que los números que se aproximen tienen que ser estrictamente menor que cero, por eso es definida negativa.
-	
+
 	Por tanto, tenemos que demostrar la implicación:
 	\[
 	\begin{rcases}
@@ -1426,7 +1194,7 @@ Sea $\empty \ne A \subset R^n \ abierto \ , \ x_0 \in A$ con $f:A \to R$ de clas
 	\]
 
 	Y teniendo eso, podemos ver que
-	
+
 	\[
 	z^t \mathcal{H}f(c) < 0 \quad \forall z \in R^n-\{0\} \iff \forall x \in B(x_0,r)-\{x_0\}
 	\]
@@ -1443,7 +1211,7 @@ Sea $\empty \ne A \subset R^n \ abierto \ , \ x_0 \in A$ con $f:A \to R$ de clas
 	\[
 	\triangledown f(a) = (\frac{\partial f}{\partial x_1}(a),...,\frac{\partial f}{\partial x_n}(a))\in R^n
 	\]
-	Además, a 
+	Además, a
 	\[
 	\triangledown f: A \to R^n
 	\]
@@ -1476,15 +1244,15 @@ Sea $a \in R$ y $S =\{x \in A :f(x) = a\}$. Entonces, $\forall x_0 \in S \quad \
 	\[
 	S=\{ x\in A:g_1(x)=...=g_k(x) = 0\}
 	\]
-	
+
 \end{ndef}
 
-	
+
 
 \begin{ndef}[Mínimo relativo condicionado]
 	Si $a$ es un punto de $S$, diremos que $f$ presenta un mínimo relativo en $A$ condicionado por las restricciones $g_1(x)=...=g_k(x) = 0$ si y solamente si :
 	\[
-	\exists \upvarepsilon_0 > 0 : f(a) \leq f(x) \quad \forall x \in A\cap B(a,\upvarepsilon_0) \cap S 
+	\exists \upvarepsilon_0 > 0 : f(a) \leq f(x) \quad \forall x \in A\cap B(a,\upvarepsilon_0) \cap S
 	\]
 \end{ndef}
 
@@ -1492,7 +1260,7 @@ Sea $a \in R$ y $S =\{x \in A :f(x) = a\}$. Entonces, $\forall x_0 \in S \quad \
 
 \begin{nth}[de los Multiplicadores de Lagrange]
 	En las condiciones que hemos expuesto, las dos definiciones dadas que suponemos ciertas:
-	
+
 	Sea $a\in S$ en el que presenta un mínimo relativo condicionado a $S$, entonces $\exists \lambda_0,...,\lambda_k \in R:$
 	\begin{nlist}
 	\item $(\lambda_0,...,\lambda_k) \ne (0,...,0)$ y $\lambda_0 \geq 0$
@@ -1506,16 +1274,16 @@ FALTARLA UN HUECO
 	Vamos a hacer la prueba en dos pasos:
 	\begin{enumerate}
 	\item $\forall \upvarepsilon \in (0,\upvarepsilon_0) \ \exists M > 0 : f(x) + |x-a|^2 + M \sum_{i=1}^kg_i(x)^2 > f(a) \quad \forall |x-a|= \upvarepsilon$,
-	
+
 	Esta prueba se hará por contradicción. Es decir, probando:
-	
+
 	$\exists \upvarepsilon > 0 \ \ \forall M> 0 \ \ \exists x\in A: |x-a|=\upvarepsilon$ y $f(x) + |x-a|^2 + M \sum_{i=1}^kg_i(x)^2 \leq f(a) \quad \forall |x-a|= \upvarepsilon$.
-	
+
 	Ahora, si tomamos $M=n$, $\exists x_n \in A:$
 	\[
 	f(x_n) + |x_n-a|^2 + M \sum_{i=1}^kg_i(x_n)^2 \leq f(a) \quad \forall |x-a|= \upvarepsilon
 	\]
-	Y como $\{x_n\}$ está acotada, existirá $\sigma :N \to N: \{x_{\sigma(n)}\}\to x^{*}$, por lo que 
+	Y como $\{x_n\}$ está acotada, existirá $\sigma :N \to N: \{x_{\sigma(n)}\}\to x^{*}$, por lo que
 	\[
 	|x^{*}-a|= \lim_{n\to \infty}|x_{\sigma(n)}-a| = \upvarepsilon
 	\]
@@ -1525,22 +1293,22 @@ FALTARLA UN HUECO
 	\]
 	Pero ahora, los dos segundos términos de la izquierda del $\geq$ convergen a 0 si tomamos límites cuando $n\to \infty$ nos queda que:
 	$0 \geq \sum_i g_i (x^*)^2$ y por ello $x^* \in S$
-	
+
 	De esta forma, hemos obtenido que $f(x^*) \geq f(a)$ y que
-	
+
 	\textbf{FALTAN COSAS QUE NO HE COPIADO}
-	
-	
+
+
 	Hemos encontrado por ello $\forall \epsilon \in (0,\epsilon_0)$ un $M>0: f(x) + |x-a|^2 + M \sum_{i=1}^kg_i(x)^2 > f(a) \quad \forall |x-a|= \upvarepsilon$
 	\item  $\forall \epsilon \in (0,\epsilon_0) \ \ \exists x^\epsilon$ ( x depende de epsilon, no es x elevado a epsilon) verificando $|x^\epsilon -a| < \epsilon, \ \ \exists(\lambda_0^\epsilon,...,\lambda_k^\epsilon)\in \mathbb{R}^{k+1} : |(\lambda_0^{\epsilon},...,\lambda_k^\epsilon)|= 1$ y $$\lambda_0^\epsilon\{\frac{\partial f}{\partial x_j}(x^\epsilon) + 2(x_j^\epsilon -a_j\}+ \sum_i^k \lambda_i^\epsilon \frac{\partial g_i}{\partial x_j}(x^\epsilon) = 0$$
-	
+
 	Utilizando el paso 1, definiendo:
 	\[
 	F(x):=f(x) + |x-a|^2 + M \sum_{i=1}^kg_i(x)^2
 	\]
 	Por el teorema de Weierstrass, existe el mínimo de $F(x)$ en $\overline{B}(a,\epsilon)$. Es equivalente a decir:
 	\[
-	\exists x^\epsilon \in \overline{B}(x,\epsilon) : \ \ F(x^\epsilon)= Min F \ 
+	\exists x^\epsilon \in \overline{B}(x,\epsilon) : \ \ F(x^\epsilon)= Min F \
 	\]
 	Y además, por el paso 1:
 	\[
@@ -1553,7 +1321,7 @@ FALTARLA UN HUECO
 	 \[
 	 \implies \frac{\partial f}{\partial x_j}(x^\epsilon) + 2(x_j^\epsilon -a_j) + M \sum_i^k 2 g_i(x^\epsilon)*\frac{\partial g_i}{\partial x_j}(x^\epsilon) = 0
 	 \]
-	
+
 	Esa es la derivada de F. Ahora, si dividiéramos esa derivada por:
 	\[
 	\frac{1}{\sqrt{1+\sum_i^k4M^2g_i(x^\epsilon)^2}}
@@ -1565,28 +1333,28 @@ FALTARLA UN HUECO
 \textbf{Definición.} Sea $(E,||\cdot||)$ un espacio normado, y sea $G: E \longrightarrow E$. Decimos que $G$ es una \textit{contracción} si es Lipschitziana con constante de Lipschitz menor que 1, es decir, si $\exists c \in (0,1): \ || G(x) - G(y) || \ \le c||x-y|| \ \ \forall x, y \in E$.\\
 
 \textbf{Teorema (del punto fijo de Banach).}
-Sea $E$ un espacio de Banach (i.e, un espacio normado y completo), y sea $G:E\longrightarrow E$ una contracción. Entonces, $G$ tiene un único punto fijo, esto es, $\exists !\ x_0 \in E\ tal\ que\ x_0$ = G($x_0$). Además, se verifica lo siguiente: 
+Sea $E$ un espacio de Banach (i.e, un espacio normado y completo), y sea $G:E\longrightarrow E$ una contracción. Entonces, $G$ tiene un único punto fijo, esto es, $\exists !\ x_0 \in E\ tal\ que\ x_0$ = G($x_0$). Además, se verifica lo siguiente:
 
 \begin{nlist}
-\item $\forall y \in E$, si defino inductivamente $y_1 = y$, $y_n = G(y_{n-1})\ \forall n > 1$, entonces $\{y_n\} \rightarrow x_0$. 
+\item $\forall y \in E$, si defino inductivamente $y_1 = y$, $y_n = G(y_{n-1})\ \forall n > 1$, entonces $\{y_n\} \rightarrow x_0$.
 \item  $\displaystyle \forall y \in E \ \ ||y - x_o|| \le \frac{||y-G(y)||}{1-c}$
 \end{nlist}
 \vspace{1em}
 
 \begin{proof} \hfill \\
-\underline{Probemos primero $(i)$, y la existencia del punto fijo.} 
+\underline{Probemos primero $(i)$, y la existencia del punto fijo.}
 
 Por simplicidad, trabajaremos en un espacio métrico. La primera observación que hacemos es la siguiente: dado $n \in \mathbb{N}$, $n \ge 2$, y usando que $G$ es una contracción, se tiene que
 \begin{equation} \label{eq:1} \tag{$\ast$}
 d(y_{n+1}, y_{n}) = d(G(y_{n}), G(y_{n-1})) \le c\cdot d(y_{n}, y_{n-1}) \le \dots \le c^{n-1}\cdot d(y_{2}, y_{1})
 \end{equation}
 Entonces, dados $m,n \in \mathbb{N}$, $m > n$, podemos usar la desigualdad triangular, la desigualdad \eqref{eq:1}, y la fórmula de la suma de los primeros términos de una progresión geométrica, para ver que:
-$$0 < d(y_{m}, y_{n}) \leq d(y_m,y_{m-1}) + d(y_{m-1},y_{m-2}) + \cdots + d(y_ {n+1},y_{n})  \leq \left( \sum_{k=n-1}^{m-2}c^k \right) \cdot d(y_2,y_1) = $$ 
+$$0 < d(y_{m}, y_{n}) \leq d(y_m,y_{m-1}) + d(y_{m-1},y_{m-2}) + \cdots + d(y_ {n+1},y_{n})  \leq \left( \sum_{k=n-1}^{m-2}c^k \right) \cdot d(y_2,y_1) = $$
 \begin{equation} \label{eq:2} \tag{$\ast \ast$}
 = \frac{c^{n-1}(c^{m-n} - 1)}{c-1} \cdot d(y_2,y_1) = \left( \frac{c^{n-1}}{1-c} - \frac{c^{m-1}}{1-c} \right) \cdot d(y_2,y_1)
 \end{equation}
 
-Como sabemos también que para $c \in (0,1)$ la sucesion $\{\frac{c^{k-1}}{c-1}\} \rightarrow 0$, podemos decir que dicha sucesión es de Cauchy, pues $E$ es completo. Ahora, dado $\epsilon > 0$, escogemos $\epsilon / (d(y_2,y_1) + 1) > 0$, y usando \eqref{eq:2} tenemos que: $$ \exists n_{0} \in \mathbb{N} \ tal\ que\ m,n\geq n_{0} \implies d(y_{m}, y_{n}) \leq \left| \frac{c^{n-1}}{1-c} - \frac{c^{m-1}}{1-c} \right| \cdot d(y_2,y_1) < \frac{\epsilon}{d(y_2,y_1) + 1} \cdot d(y_2,y_1) < \epsilon $$ 
+Como sabemos también que para $c \in (0,1)$ la sucesion $\{\frac{c^{k-1}}{c-1}\} \rightarrow 0$, podemos decir que dicha sucesión es de Cauchy, pues $E$ es completo. Ahora, dado $\epsilon > 0$, escogemos $\epsilon / (d(y_2,y_1) + 1) > 0$, y usando \eqref{eq:2} tenemos que: $$ \exists n_{0} \in \mathbb{N} \ tal\ que\ m,n\geq n_{0} \implies d(y_{m}, y_{n}) \leq \left| \frac{c^{n-1}}{1-c} - \frac{c^{m-1}}{1-c} \right| \cdot d(y_2,y_1) < \frac{\epsilon}{d(y_2,y_1) + 1} \cdot d(y_2,y_1) < \epsilon $$
 
 Esto nos garantiza que $\{y_{n}\}$ es de Cauchy. Entonces, como el espacio $E$ es completo, tenemos que $\{y_n\}$ es convergente, es decir, $\exists x_0 \in E:\ \{y_{n}\}\rightarrow x_0$. Veamos ahora que $x_0$ es necesariamente un punto fijo de $G$.
 
@@ -1596,7 +1364,7 @@ En efecto, por ser $x_0$ el límite de la sucesión, dado $\epsilon > 0, \exists
 \underline{Veamos ahora la unicidad del punto fijo.}
 
 \vspace{0.5em}
-Supongamos que existe otro punto fijo $y_0 \in E$. Entonces, como $G$ es una contracción, se tendría que: 
+Supongamos que existe otro punto fijo $y_0 \in E$. Entonces, como $G$ es una contracción, se tendría que:
 $$d(G(y_0),G(x_{0})) \le c\cdot d(y_0, x_0) \Rightarrow d(y_0, x_0) \le c \cdot d(y_0, x_0)\ con\ 0 < c < 1$$ Esto implica que $d(y_0,x_0) = 0 \Rightarrow x_0 = y_0$. Por tanto, si hay dos puntos fijos, han de ser necesariamente iguales.\\
 
 \underline{Por último, probemos $(ii)$.}
@@ -1612,13 +1380,13 @@ donde hemos usado la fórmula de la suma de los términos de una \textit{serie g
 	 Entonces, $\exists I $ un intervalo abierto con $I \subset A$ y $a \in I$, y $\exists J$ intervalo abierto con $J\subset \R$ con $f(a) \in J$ tal que $f|_I: I \to J$ es invertible si $g = (f|_U)^{-1} \implies g'(f(a)) = \frac{1}{f'(a)}$
 \end{nth}
 
-Ahora, como podemos ver una relación: 
+Ahora, como podemos ver una relación:
 \[
 Df(a) \equiv Jf(a) = ( f'(a))
 \]
 Por lo que, el determinante de $Jf(a) \ne 0$, es decir que $Df(a)$ es invertible
 \begin{nth}[Teorema de la función inversa. Caso general.]
-	Sea $V \subset \R^n$ abierto y $a\in A$ y $f:V \to \R^n$ de clase 1. Si  
+	Sea $V \subset \R^n$ abierto y $a\in A$ y $f:V \to \R^n$ de clase 1. Si
 $Df(a): \R^n \to \R^n$ es invertible \\
 $\implies \exists U\subset V$ abierto y $\exists W\subset\R^n$ abierto tales que $a\in U $, $f(a) \in W$ y $f|_U : U \to W$ es biyectiva, y por tanto existe la inversa de la función $g = (f|_U)^{-1}: W \to U$ es de clase 1 y:
 	\[
@@ -1629,9 +1397,9 @@ Y decir que $Dg(f(a)) = (Df(a))^{-1}$ es lo mismo que decir $Jg(f(a)) = (Jf(a))^
 \end{nth}
 \begin{proof}
 	El caso complicado de la demostración estaría en el caso en el que $0 = a$ y $f(a) = 0$. Ahora, si pudiéramos demostrar que la derivada es la aplicación identidad, entonces podremos demostrarlo en general. Lo que vamos  a probar es lo siguiente:
-	
+
 	\begin{nth}[Caso particular]
-		Sea $V \subset \R^n$ abierto y $0=a\in A$ ,y $f:V \to \R^n$ de clase 1 con $f(0) = 0$. Si  
+		Sea $V \subset \R^n$ abierto y $0=a\in A$ ,y $f:V \to \R^n$ de clase 1 con $f(0) = 0$. Si
 $Df(a): \R^n \to \R^n$ es invertible \\
 $\implies \exists U\subset V$ abierto y $\exists W\subset\R^n$ abierto tales que $0\in U $, $0 \in W$ y $f|_U : U \to W$ es biyectiva, y por tanto existe la inversa de la función $g = (f|_U)^{-1}: W \to U$ es de clase 1 y:
 	\[
@@ -1650,7 +1418,7 @@ Ahora, como $Df(0)=I$, $\forall \epsilon > 0 \ \exists \delta > 0$ tal que $B(0,
 Sean $x,y \in B(0,r)$ tales que $f(x) = f(y)$. Entonces, por el TVM, $\exists z \in B(0,r)$ tal que $f(x)-f(y) = Df(z)(x-y) \implies Df(z)(x-y) = 0$.\\
 Es fácil ver que $||Df(z) -I || < \frac{1}{2}$ pues $z \in B(0,r) = B(0,2\delta(\frac{1}{2})$\\
 	Ahora, si tomamos\\
-	$ 0=(y-x)*Df(z)(y-x) = (y-x)[Df(z)(y-x) -I(y-x) +(y-x)] = (y-x)[(Df(z)-I)(y-x) +(y-x)] = ||y-x||^2 +(y-x)(Df(z)-I)(y-x)$\\ 
+	$ 0=(y-x)*Df(z)(y-x) = (y-x)[Df(z)(y-x) -I(y-x) +(y-x)] = (y-x)[(Df(z)-I)(y-x) +(y-x)] = ||y-x||^2 +(y-x)(Df(z)-I)(y-x)$\\
 	Y , como es una aplicación lineal, usamos que es Lipschitziana y nos queda que eso es mayor o igual que
 y por la desigualdad de Cauchy Schwarz\\
 	$ ||y-x||^2 +(y-x)(Df(z)-I)(y-x) \geq || y-x||^2 - ||Df(z) -I|| \ || y-x||^2 \implies ||y-x|| = 0$ por lo que $x=y$, por lo que $f$ es inyectiva.
@@ -1675,9 +1443,9 @@ $\forall \epsilon \in (0,1/2)$ se tiene:
 \begin{proof}[Demostración del lema]
 	\begin{nlist}
 	\item Sea $h \in B(0, \delta(\epsilon)/2) $. Definimos $G(y) =  y-f(y) +h$, con $G: \overline{B(0, \delta(\epsilon)/2)} \to \R^n$.
-	
+
 	Si $x \text{ fijo } \in G \iff x = G(x) = x-f(x) +h \iff f(x) = h$. Definimos también $r(y):= y - f(y)$.
-	
+
 	Ahora, vamos entonces a probar que $G$ es una contracción para poder usar el teorema del punto fijo de Banach. Tenemos que:
 	\[
 	DG(y) = I - Df(y) = Dr(y)
@@ -1688,12 +1456,12 @@ $\forall \epsilon \in (0,1/2)$ se tiene:
 	\]
 	Con $y,\bar{y} \in \overline{B(0, \delta(\epsilon)/2)} \implies  $ G es una contracción en $\overline{B(0, \delta(\epsilon)/2)}$
 	Y como el teorema del punto fijo de Banach dice que la función G va de un espacio métrico en el mismo, tenemos que probar que $G(\overline{B(0, \delta(\epsilon)/2)}) \subset \overline{B(0, \delta(\epsilon)/2)}$.
-	
+
 	Probamos esto, vemos que $G(0) = 0-f(0) + h = h$, y ahora $\forall x \in \overline{B(0, \delta(\epsilon)/2)} \quad ||G(x)|| \leq ||G(x)-G(0)|| +||G(0)||$, y como es una contraccion, tenemos que eso es $\leq ||x|| + || h || < \epsilon \delta(\epsilon) + \frac{\delta(\epsilon)}{2} < \delta (\epsilon)$, lo que significa que $G(x) \in B(0, \delta(\epsilon)/2)$
-	
+
 	Ahora, sí podemos usar el teorema del punto fijo de Banach, $\exists ! x \in \overline{B(0, \delta(\epsilon)/2)}: \ \ G(x) = x \implies f(x) = h$, como queriamos probar
-	\item Deducimos que $||x-h || \leq \frac{||h-G(x)||}{1-\epsilon} \frac{1}{1-\epsilon} || h - G(h)|| = \frac{1}{1-\epsilon} || -r(y)|| =  \frac{1}{1-\epsilon} || r(h)|| \frac{1}{1-\epsilon} || r(h) - r(0)|| \leq \frac{1}{1-\epsilon} \epsilon|| h|| = \frac{1}{1-\epsilon} ||h||$ 
-	
+	\item Deducimos que $||x-h || \leq \frac{||h-G(x)||}{1-\epsilon} \frac{1}{1-\epsilon} || h - G(h)|| = \frac{1}{1-\epsilon} || -r(y)|| =  \frac{1}{1-\epsilon} || r(h)|| \frac{1}{1-\epsilon} || r(h) - r(0)|| \leq \frac{1}{1-\epsilon} \epsilon|| h|| = \frac{1}{1-\epsilon} ||h||$
+
 	Y queda así probado el lema
 \end{nlist}
 \end{proof} %del lema
@@ -1724,14 +1492,6 @@ Nos queda por último comprobar la derivabilidad de la función inversa. Habría
 \end{proof} %del caso particular
 \end{proof} %del caso general
 
-
-
-
-
-
-
-
-
 El teorema de la función inversa lo usaremos si tenemos las mismas ecuaciones que incógnitas. Si tenemos menos ecuaciones que incógnitas, usaremos el teorema de la función implícita.
 
 \begin{nth}[Teorema de la función implícita]
@@ -1740,15 +1500,14 @@ El teorema de la función inversa lo usaremos si tenemos las mismas ecuaciones q
 	det(\begin{pmatrix}
  \frac{\partial F_1}{\partial n_1}(x_0,y_0) & \cdots & \frac{\partial F_1}{\partial x_n}(x_0,y_0) \\
  \cdots& & \cdots\\
- 
+
  \frac{\partial F_n}{\partial x_1}(x_0,y_0) & \cdots & \frac{\partial F_n}{\partial x_n} (x_0,y_0)
 \end{pmatrix}) \ne 0
 	\]
-	
+
 	Entonces, existe $U$ un entorno abierto de $x_0$ en $\R^n$ y también existe $V$ un entorno abierto de $y_0$ en $\R^m$ tal que $UxV \subset A$ y $\forall y \in V \ \ \exists! x \in U : F(x,y) = 0$
 \end{nth}
 \begin{proof}
 	Lo demostraremos a partir del teorema de la función inversa.\\
 	Sea $f:\R^nx\R^m \to \R^nx\R^m$ definida por $f(x,y) = (F(x,y),y-y_0)$.
 \end{proof}
-\end{document}

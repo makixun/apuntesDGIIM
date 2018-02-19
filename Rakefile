@@ -2,17 +2,25 @@
 require_relative "rake_helpers"
 
 task :default => [
-       :algebra1,
-       :analisis1,
-       :analisis2,
-       :ecomputadores,
-       :edatos,
-       :sistemas,
-       :geometria3,
-       :modelos1,
-       :acomputadores,
+       :ac,
+       :algi,
+       :algo,
+       :ami,
+       :amii,
+       :ec,
+       :ed,
+       :edf,
+       :fbd,
+       :fr,
+       :geoiii,
+       :ies,
+       :mc,
+       :mmi,
        :pdoo,
-       :algoritmica
+       :prob,
+       :scd,
+       :so,
+       :vci,
        # add your task here
      ] do
   TARGET = "apuntes.tar.gz"
@@ -44,23 +52,34 @@ end
 #       task :example => (pdf_for FileList["tema*.tex"])
 #
 #-------------------------------------------#
-task :algebra1 => (pdf_for FileList["ALGI/*.tex"])
-task :analisis1 => (pdf_for FileList["AMI/*.tex"])
-task :ecomputadores => (pdf_for FileList["EC/*.md"])
-task :edatos => (pdf_for FileList["ED/*.org", "ED/*.md"])
-task :sistemas => (pdf_for FileList["SO/repasoFS.md", "SO/Prácticas/Modulo2/LlamadasSistema.md", "SO/Resúmenes/Temas 1, 2/*.md", "SO/Resúmenes/Temas 3, 4/*.md", "SO/Ejercicios relación 1,2/*.md", "SO/Ejercicios relación 3,4/*.md"])
-task :analisis2 => (pdf_for FileList["AMII/*.tex"])
-task :geometria3 => (pdf_for FileList["GEOIII/*.tex"])
-task :modelos1 => (pdf_for FileList["MMI/*.tex"])
+
 #task :algoritmica=> (pdf_for Filelist["Algorítmica/Algorítmica.org"])
-task :acomputadores => (pdf_for FileList["AC/Resúmenes/Tema*.md"])
-task :pdoo => (pdf_for FileList["PDOO/guia_ruby.md"])
-task :algoritmica => (pdf_for FileList["ALGO/*.md"])
+task :ac => (pdf_for FileList["AC/apuntes.md"])
+task :algi => (pdf_for FileList["ALGI/algi.tex"])
+task :algo => (pdf_for FileList["ALGO/apuntes.md"])
+task :ami => (pdf_for FileList["AMI/ami.tex", "AMI/resumen.tex"])
+task :amii => (pdf_for FileList["AMII/amii.tex"])
+task :ec => (pdf_for FileList["EC/apuntes.md"])
+task :ed => (pdf_for FileList["ED/apuntes.md"])
+task :edf => (pdf_for FileList["EDF/edf.tex"])
+task :fbd => (pdf_for FileList["FBD/apuntes.md"])
+task :fr => (pdf_for FileList["FR/apuntes.md"])
+task :geoiii => (pdf_for FileList["GEOIII/geoiii.tex"])
+task :ies => (pdf_for FileList["IES/apuntes.md"])
+task :mc => (pdf_for FileList["MC/apuntes.md"])
+task :mmi => (pdf_for FileList["MMI/mmi.tex"])
+task :pdoo => (pdf_for FileList["PDOO/apuntes.md"])
+task :prob => (pdf_for FileList["PROB/prob.tex"])
+task :scd => (pdf_for FileList["SCD/apuntes.md"])
+task :so => (pdf_for FileList["SO/apuntes.md"])
+task :vci => (pdf_for FileList["VCI/Ejercicios.tex"])
 
 # Generating pdfs from Latex sources
 rule ".pdf" => ->(f){sources_for f, :tex} do |t|
   begin
-    2.times { sh %(pdflatex --shell-escape --interaction=nonstopmode "#{t.source}") }
+    2.times {
+        sh %(TEXINPUTS="./#{t.source.split("/")[0...-1].join("/")}:" pdflatex --shell-escape --interaction=nonstopmode "#{t.source}")
+    }
   rescue StandardError => e
     puts "\e[31m[ERROR] Couldn't generate #{t.name}\e[m"
   ensure

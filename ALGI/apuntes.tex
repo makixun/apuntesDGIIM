@@ -1,346 +1,81 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Apuntes de la asignatura Álgebra I.
-% Doble Grado de Informática y Matemáticas.
-% Universidad de Granada.
-% Curso 2016/17.
-% 
-% 
-% Colaboradores:
-% Javier Sáez (@fjsaezm)
-% Daniel Pozo (@danipozodg)
-% Pedro Bonilla (@pedrobn23)
-% Guillermo Galindo
-% Antonio Coín (@antcc)
-% Sofía Almeida (@SofiaAlmeida)
-%
-% Agradecimientos:
-% Andrés Herrera (@andreshp) y Mario Román (@M42) por
-% las plantillas base.
-%
-% Sitio original:
-% https://github.com/libreim/apuntesDGIIM/
-%
-% Licencia:
-% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%------------------------------------------------------------------------------
-%   ACKNOWLEDGMENTS
-%------------------------------------------------------------------------------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plantilla básica de Latex en Español.
-%
-% Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
-%
-% Es una plantilla básica para redactar documentos. Utiliza el paquete  fancyhdr para darle un
-% estilo moderno pero serio.
-%
-% La plantilla se encuentra adaptada al español.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%
-% Plantilla de Trabajo
-% Modificación de una plantilla de Latex de Frits Wenneker para adaptarla 
-% al castellano y a las necesidades de escribir informática y matemáticas.
-%
-% Editada por: Mario Román
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Short Sectioned Assignment
-% LaTeX Template
-% Version 1.0 (5/5/12)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Frits Wenneker (http://www.howtotex.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% Tipo de documento y opciones.
-\documentclass[11pt, a4paper, titlepage]{article}
-
-
-%---------------------------------------------------------------------------
-%   PAQUETES
-%---------------------------------------------------------------------------
-
-% Idioma y codificación para Español.
-\usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla, es-lcroman, es-noquoting]{babel}
-\selectlanguage{spanish} 
-%\usepackage[T1]{fontenc}
-
-% Fuente utilizada.
-\usepackage{courier}    % Fuente Courier.
-\usepackage{microtype}  % Mejora la letra final de cara al lector.
-
-% Diseño de página.
-\usepackage{fancyhdr}   % Utilizado para hacer títulos propios.
-\usepackage{lastpage}   % Referencia a la última página.
-\usepackage{extramarks} % Marcas extras. Utilizado en pie de página y cabecera.
-\usepackage[parfill]{parskip}    % Crea una nueva línea entre párrafos.
-\usepackage{geometry}            % Geometría de las páginas.
-
-% Símbolos y matemáticas.
-\usepackage{amssymb, amsmath, amsthm, amsfonts, amscd, stmaryrd}
-%\usepackage{upgreek}
-
-% Otros.
-\usepackage{enumitem}   % Listas mejoradas.
-\usepackage[hidelinks]{hyperref}
-\usepackage{graphicx}            % Gráficos.
-
-%---------------------------------------------------------------------------
-%   OPCIONES PERSONALIZADAS
-%---------------------------------------------------------------------------
-
-% Redefinir letra griega épsilon.
-\let\epsilon\upvarepsilon
-
-% Formato de texto.
-\linespread{1.1}            % Espaciado entre líneas.
-\setlength\parindent{0pt}   % No indentar el texto por defecto.
-\setlist{leftmargin=.5in}   % Indentación para las listas.
-
-% Estilo de página.
-\pagestyle{fancy}
-\fancyhf{}
-\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm}   % Márgenes y cabecera.
-
-% Ruta donde buscar gráficos
-\graphicspath{{../Recursos/Plantillas/}, {Recursos/Plantillas/}}
-
-% Redefinir entorno de demostración (reducir espacio superior)
-\makeatletter
-\renewenvironment{proof}[1][\proofname] {\vspace{-15pt}\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\it#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
-\makeatother
-
-% Aumentar el tamaño del interlineado
-\linespread{1.3}
-%---------------------------------------------------------------------------
-%   COMANDOS PERSONALIZADOS
-%---------------------------------------------------------------------------
-
-% Números enteros: \ent
-\providecommand{\ent}{\mathbb{Z}}
-
-% Números racionales: \rac
-\providecommand{\rac}{\mathbb{Q}}
-
-% Números naturales: \nat
-\providecommand{\nat}{\mathbb{N}}
-
-
-% Valor absoluto: \abs{}
-\providecommand{\abs}[1]{\lvert#1\rvert}    
-
-% Fracción grande: \ddfrac{}{}
-\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
-
-% Texto en negrita en modo matemática: \bm{}
-\newcommand{\bm}[1]{\boldsymbol{#1}}
-
-% Línea horizontal.
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
-
-
-%---------------------------------------------------------------------------
-%   CABECERA Y PIE DE PÁGINA
-%---------------------------------------------------------------------------
-
-% Cabecera del documento.
-\renewcommand\headrule{
-	\begin{minipage}{1\textwidth}
-		\hrule width \hsize 
-	\end{minipage}
-}
-
-% Texto de la cabecera.
-\lhead{\subject}  % Izquierda.
-\chead{}            % Centro.
-\rhead{\docauthor}    % Derecha.
-
-% Pie de página del documento.
-\renewcommand\footrule{                                 
-	\begin{minipage}{1\textwidth}
-		\hrule width \hsize   
-	\end{minipage}\par
-}
-
-% Texto del pie de página.
-\lfoot{}                                                 % Izquierda
-\cfoot{}                                                 % Centro.
-\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Derecha.
-
-
-%---------------------------------------------------------------------------
-%   ENTORNOS PARA MATEMÁTICAS
-%---------------------------------------------------------------------------
-
-% Nuevo estilo para definiciones.
-\newtheoremstyle{definition-style} % Nombre del estilo.
-{10pt}               % Espacio por encima.
-{10pt}               % Espacio por debajo.
-{}                   % Fuente del cuerpo.
-{}                   % Identación.
-{\bf}                % Fuente para la cabecera.
-{.}                  % Puntuación tras la cabecera.
-{.5em}               % Espacio tras la cabecera.
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}     % Especificación de la cabecera (actual: nombre en negrita).
-
-% Nuevo estilo para notas.
-\newtheoremstyle{remark-style} 
-{10pt}                
-{10pt}                
-{}                   
-{}                   
-{\itshape}          
-{.}                  
-{.5em}               
-{}                  
-
-% Nuevo estilo para teoremas y proposiciones.
-\newtheoremstyle{theorem-style}
-{10pt}                
-{10pt}                
-{\itshape}           
-{}                  
-{\bf}             
-{.}                
-{.5em}               
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}                   
-
-% Nuevo estilo para ejemplos.
-\newtheoremstyle{example-style}
-{10pt}                
-{10pt}                
-{}                  
-{}                   
-{\scshape}              
-{:}                 
-{.5em}               
-{}                   
-
-% Teoremas, proposiciones y corolarios.
-\theoremstyle{theorem-style}
-\newtheorem*{nth}{Teorema}
-\newtheorem*{nprop}{Proposición}
-\newtheorem{ncor}{Corolario}
-
-% Definiciones.
-\theoremstyle{definition-style}
-\newtheorem*{ndef}{Definición}
-
-% Notas.
-\theoremstyle{remark-style}
-\newtheorem*{nota}{Nota}
-
-% Ejemplos.
-\theoremstyle{example-style}
-\newtheorem*{ejemplo}{Ejemplo}
-
-% Listas ordenadas con números romanos (i), (ii), etc.
-\newenvironment{nlist}
-{\begin{enumerate}
-\renewcommand\labelenumi{(\emph{\roman{enumi})}}}
-{\end{enumerate}}
-
-% División por casos con llave a la derecha.
-\newenvironment{rcases}
-  {\left.\begin{aligned}}
-  {\end{aligned}\right\rbrace}
-
-
-
-%---------------------------------------------------------------------------
-%   PÁGINA DE TÍTULO
-%---------------------------------------------------------------------------
-
-% Título del documento.
-\newcommand{\subject}{Álgebra I}
-
-% Autor del documento.
-\newcommand{\docauthor}{Doble Grado de Informática y Matemáticas}
-
-% Título
-\title{
-  \normalfont \normalsize 
-  \textsc{Universidad de Granada} \\ [25pt]    % Texto por encima.
-  \horrule{0.5pt} \\[0.4cm] % Línea horizontal fina.
-  \huge \subject\\ % Título.
-  \horrule{2pt} \\[0.5cm] % Línea horizontal gruesa.
-}
-
-% Autor.
-\author{\Large{\docauthor}}
-
-% Fecha.
-\date{\vspace{-1.5em} \normalsize Curso 2016/17}
-
-
-%---------------------------------------------------------------------------
-%   COMIENZO DEL DOCUMENTO
-%---------------------------------------------------------------------------
-\begin{document}
-\maketitle
-\tableofcontents
-\vfill
-\begin{center}
-\includegraphics{by-nc-sa}  % Licencia.
-\end{center}
-\newpage
-
 \section{Anillo conmutativo}
 
-\begin{ndef}[Anillo conmutativo]
-Un conjunto A es un anillo conmutativo si en él hay definidas dos operaciones; una aplicacion de adición y una aplicación de multiplicación, tales que cumplen las siguientes propiedades:
-\begin{nlist}
-\item Asociativa: $a+(b+c) = (a+b)+c$\hspace{1cm} $a(bc) = (ab)c$
-\item Conmutativa: $a+b = b+a$ \hspace{1cm} $ab = ba$
-\item Existencia elemento neutro: $a+0 = a$ \hspace{1cm} $a*1 = a$
-\item Existencia del elemento opuesto para la suma: $a+(-a) = 0$
-\item Distributiva del producto en la suma: $a(b+c) = ab+ ac$
+\begin{ndef}[Monoide]
+  Un monoide es un par $(X, \cdot)$, donde $X$ es un conjunto y $\cdot$ es una aplicación $\cdot: X\times X\to X$ con las siguientes propiedades:
+  \begin{nlist}
+  \item Asociatividad: $a\cdot (b \cdot c) = (a \cdot b) \cdot c \ \forall a,b,c \in X$
+  \item Existencia de elemento neutro: $\exists e \in X : a \cdot e = e \cdot a \ \forall a \in X$
+  \end{nlist}
 
-\end{nlist}
+  En ocasiones, si la operación $\cdot$ queda clara por el contexto, se dirá simplemente que ``X es un monoide''.
+\end{ndef}
 
+Nótese que la definición de $\cdot$ implica la \emph{clausura} de la misma, es decir, para cualesquiera $a,b \in X$, $a\cdot b \in X$.
+
+Un grupo se define similarmente, como un conjunto con una operación y ciertas propiedades.
+
+\begin{ndef}[Grupo]
+  Un grupo es un monoide $(X, \cdot)$, con la siguiente propiedad adicional:
+
+  \begin{itemize}
+  \item Existencia de elementos inversos: $\forall a\in X \ \exists a^{-1} : a\cdot a^{-1} = a^{-1}\cdot a = e$, donde $e$ es el elemento neutro de $X$ como monoide con $\cdot$.
+  \end{itemize}
+
+\end{ndef}
+
+\begin{ndef}[Monoide conmutativo]
+  Un monoide $(X, \cdot)$ se dice \emph{conmutativo} o \emph{abeliano} si $\cdot$ es una aplicación simétrica.
 \end{ndef}
 
 \begin{ndef}[Grupo conmutativo]
-	Denominamos un grupo conmutativo o abeliano a aquellos conjuntos que cumplen las propiedades asociativa, conmutativa y existencia de elemento neutro para la suma, y existencia de elemento opuesto.
+  Un grupo $(X, \cdot)$ se dice \emph{conmutativo} o \emph{abeliano} si $\cdot$ es una aplicación simétrica.
 \end{ndef}
 
-\begin{ndef}[monoide]
-	Denominamos monoide a un conjunto con una operación binaria interna que cumple la propiedad asociativa y tiene un elemento neutro a izquierda y derecha. En el caso del producto, se denomina monoide multiplicativo.
+
+\begin{ndef}[Anillo]
+
+  Un anillo es una tripla $(X, +, \cdot)$ tal que:
+
+  \begin{nlist}
+  \item $(X, +)$ es un grupo conmutativo.
+  \item $(X, \cdot)$ es un monoide.
+  \item $\cdot$ es distributiva a izquierda y a derecha respecto de $+$:
+    \[
+    \begin{cases}
+      (a + b) \cdot c = (a \cdot c) + (b \cdot c)\\
+      c \cdot (a + b) = (c \cdot a) + (c \cdot b)
+    \end{cases} \ \forall a,b,c \in X
+    \]
+
+  \end{nlist}
+
 \end{ndef}
+
+\begin{ndef}[Anillo conmutativo]
+  Un anillo $(X, +, \cdot)$ se dice \emph{conmutativo} o \emph{abeliano} si $(X, \cdot)$ es un monoide conmutativo.
+\end{ndef}
+
+Nótese que en este caso, la distributividad de $\cdot$ a izquierda y a derecha son dos propiedades equivalentes.
 
 \begin{nota}
-	Llamaremos anillo aquellos conjuntos que cumplan todas las propiedades excepto la propiedad conmutativa para la multiplicación.
+  En todas las estructuras provistas de una operación de las notadas con $\cdot$, se notará $a \cdot b = ab$.
 \end{nota}
 
 
 \section*{Caracterización de $\mathbb{Z}_{n}$}
 
+Si $a,n\in \mathbb{Z}$, entonces existen $q,r \in \mathbb{Z},\ 0 \le r < n$ tales que:
+
+\[
+    a = qn + r
+\]
+
 Llamaremos $R_n:\mathbb{N} \rightarrow \mathbb{Z}_n$ a la aplicación definida como:
 
 \[
-R_n(a) = a - nq = a- nE(\frac{a}{n})
-\] 
-Para esta aplicación, definimos las siguientes propiedades:
+R_n(a) = a - qn = a- nE\left(\frac{a}{n}\right)
+\]
+Para esta aplicación, observamos las siguientes propiedades:
 
 \begin{itemize}
 \item Si $0 \leq a < n  \Rightarrow R_n(a) = a$
@@ -351,10 +86,10 @@ Para esta aplicación, definimos las siguientes propiedades:
 	\item $R_n(ab) = R_n(R_n(a)*R_n(b))$
 \end{itemize}
 
-\end{itemize} 
+\end{itemize}
 
 
-Una vez que tenemos definida una suma y producto con la aplicación $R_n$, definimos las suma y el producto de $\mathbb{Z}_n$.
+Una vez observadas estas propiedades de la aplicación $R_n$, definimos las suma y el producto de $\mathbb{Z}_n$.
 \begin{ndef}[Suma y producto en $\ent_n$] Se define la suma y el producto en $\ent_n$ de la forma:
 	\begin{itemize}
 	\item $a\oplus b = R_n(a+b)$
@@ -368,35 +103,39 @@ Una vez que tenemos definida una suma y producto con la aplicación $R_n$, defin
 Es fácil verificar que $\mathbb{Z}_n$ es un anillo conmutativo con estas operaciones.\\
 
 \begin{ndef}[Unidad]
-	Si A es un anillo conmutativo (a.c) $a \in A$ es una "\textbf{unidad}” o "\textbf{invertible}” si $\exists a^{-1}$ tal que $ aa^{-1} = 1$.\\ $U(A) = \{ a \in A$ : $a$ es una unidad\} = conjunto de las unidades de A.\\
+  Si A es un anillo conmutativo (a.c.) $a \in A$ es ``una unidad'' o ``invertible'' si $\exists a^{-1}$ tal que $ aa^{-1} = 1$.
+
+  El conjunto de las unidades de $A$ se nota $U(A) = \{ a \in A : a \text{ es una unidad} \}$.
 \end{ndef}
 
 
 
-\begin{ndef}[Cuerpo] Se dice que A es un \textbf{cuerpo} si siendo un anillo conmutativo, $U(A) = A - \{0\}$, es decir, $\exists a^{-1}$ $\forall a \in A$ con $a \neq 0$.
+\begin{ndef}[Cuerpo] Se dice que $A$ es un cuerpo si siendo un anillo conmutativo, $U(A) = A - \{0\}$, es decir, $\forall a \in A \ \exists a^{-1}$  con $a \neq 0$.
 \end{ndef}
 
 
 \begin{nprop}[Asociatividad generalizada]
 	Sea A un anillo conmutativo, y $a_1, ..., a_n$ una lista de elementos de A.
 La propiedad de la \textbf{asociatividad generalizada} nos dice que:
-$\forall m$ tal que $1 \leq m < n$ se verifican: \[\sum_{i=1}^{n}a_i = (\sum_{i=1}^{m}a_i) + (\sum_{i=m+1}^{n}a_i)\]\[\prod_{i=1}^{n}a_i = (\prod_{i=1}^{m}a_i)(\prod_{i=m+1}^{n}a_i)\]\\
+$\forall m$ tal que $1 \leq m < n$ se verifican: \[\sum_{i=1}^{n}a_i = \left(\sum_{i=1}^{m}a_i\right) + \left(\sum_{i=m+1}^{n}a_i\right)\]\[\prod_{i=1}^{n}a_i = \left(\prod_{i=1}^{m}a_i\right)\left(\prod_{i=m+1}^{n}a_i\right)\]\\
 \end{nprop}
 
 
-\begin{ndef}[Distributividad generalizada]
-Definimos también la distributividad generalizada en un anillo como:
-	\[(\sum_{i=1}^{n} a_i)(\sum_{j=1}^{m}b_j) = \sum_{i=1}^{n}\sum_{j=1}^{m}a_i b_j \hspace{1cm} \forall a,b\in A\]
-\end{ndef}
+\begin{nprop}[Distributividad generalizada]
+Se tiene la propiedad análoga a la asociatividad generalizada para la distributividad:
+	\[\left(\sum_{i=1}^{n} a_i\right)\left(\sum_{j=1}^{m}b_j\right) = \sum_{i=1}^{n}\sum_{j=1}^{m}a_i b_j \hspace{1cm} \forall a,b\in A\]
+\end{nprop}
 
 \begin{ndef}[Subanillo]
 
-Si A es un anillo conmutativo y B es un subconjunto de A. Se dice que B es un \textbf{subanillo} de A ($B \leq A$) si se verifican:
+Si $A$ es un anillo conmutativo y $B \subseteq A$, se dice que $B$ es un subanillo de $A$ ($B \leq A$) si $\left(B, \restr{+}{B\times B}, \restr{\cdot}{B\times B}\right)$ es un anillo conmutativo y $1\in B$.
+
+Esto equivale a:
 \begin{itemize}
 \item $1,-1 \in B$
 \item B es cerrado para la suma y el producto.
 \end{itemize}
-	
+
 \end{ndef}
 
 \newpage
@@ -421,12 +160,12 @@ Se puede comprobar que $\mathbb{Z}[\sqrt{n}]$ $\leq$ $\mathbb{Q}[\sqrt{n}]$ y qu
 \item $ \overline{(\alpha+ \beta)} $ = $\bar{\alpha} + \bar{\beta}$
 \item $\overline{\alpha \beta}$ = $\bar{\alpha}\bar{\beta}$
 \item $\alpha = \bar{\alpha} \Leftrightarrow b = 0$
-	
-\end{enumerate} 
+
+\end{enumerate}
 \end{ndef}
 
 \begin{ndef}[Norma]
-	Se define entonces la Norma $N(\alpha) = \alpha \bar{\alpha} = a^2 - nb^2 \in \rac $. Así:
+	Si $\alpha \in \mathbb{Z}[\sqrt{n}]$ o $\alpha \in \mathbb{Q}[\sqrt{n}]$, se define la norma $N(\alpha) = \alpha \bar{\alpha} = a^2 - nb^2 \in \rac $. Así:
 \begin{enumerate}
 	\item $N(\alpha \beta) = N(\alpha) * N(\beta)$
 	\item $N(\alpha) = 0 \iff \alpha = 0$
@@ -435,37 +174,40 @@ Se puede comprobar que $\mathbb{Z}[\sqrt{n}]$ $\leq$ $\mathbb{Q}[\sqrt{n}]$ y qu
 
 
 \begin{nprop}
-	$\alpha \in a + b \sqrt{n} \in \ent[\sqrt{n]}$ es invertible $\iff$ $N(\alpha) \in \{-1,1\}$
+	$\alpha = a + b \sqrt{n} \in \ent[\sqrt{n]}$ es invertible $\iff$ $N(\alpha) \in \{-1,1\}$
 \end{nprop}
 
+\end{itemize}
 
-
-\item Anillos de series.
+\subsection*{Anillos de series.}
 \begin{ndef}
-	Si A es un anillo conmutativo y $x$ es un símbolo que no denota ningún elemento de A. El anillo de series con coeficientes en A, denotado con A[[$x$]] esta definido como:\begin{center}
-$A[[x]] = \{a = \displaystyle\sum_{n\in \mathbb{N}} a_n x^n , a_n \in A\ \forall	n \in \mathbb{N}\}$\end{center}
+  Si $A$ es un anillo conmutativo y $x$ es un símbolo que no denota ningún elemento de $A$, el anillo de series con coeficientes en $A$, denotado con $A[[x]]$ esta definido como:
+
+\[
+    A[[x]] = \left\{a = \displaystyle\sum_{n\in \mathbb{N}} a_n x^n , a_n \in A\ \forall	n \in \mathbb{N}\right\}
+\]
+
 Y definimos la suma y el producto de la siguiente forma:\\
 \[(a+b) = \sum_{n\in \mathbb{N}}(a_n+b_n)x^n\]
 
-\[ (ab) = \sum_{n=0}^\infty \left(\sum_{k=0}^n a_k b_{n-k}\right)x^n\]
+\[ (ab) = \sum_{n\in \mathbb{N}} \left(\sum_{k=0}^n a_k b_{n-k}\right)x^n\]
 
 \end{ndef}
-\end{itemize}
 
-Se puede probar que con estas operaciones de suma y producto, $A[[x]]$ es un anillo y $A[x]$ es un subanillo de $A[[x]]$ (los elementos de $A[x]$ son los de $A[[x]]$ para los que $a_n = 0$ a partir de un cierto $n\in \mathbb{N}$).
+Se puede probar que con estas operaciones de suma y producto, $A[[x]]$ es un anillo.
 
 \section{Homomorfismos}
 
 \begin{ndef}
-Si $A,B$ son anillos conmutativos, una aplicacion $\varphi: A \to B$ es un homomorfismo si:
+Si $(A, +, \cdot), (B, \ddagger, \ast)$ son anillos conmutativos, una aplicación $\varphi: A \to B$ es un homomorfismo si:
 
 \begin{enumerate}
-	\item $\varphi(1) = 1$
-	\item $\varphi(a+b) = \varphi(a) + \varphi(b)$
+	\item $\varphi(1_A) = 1_B$, donde $1_A$ y $1_B$ son los elementos neutros de $\cdot$ en $A$ y $\ast$ en $B$, respectivamente.
+	\item $\varphi(a+b) = \varphi(a) \ddagger \varphi(b)$
 	\item $\varphi(ab) = \varphi(a)  \varphi(b)$
-	
+
 \end{enumerate}
-	
+
 \end{ndef}
 
 Además, decimos que:
@@ -484,28 +226,28 @@ Además, decimos que:
 
 \item $\varphi(-a) = -\varphi(a) $
 
-\item $\varphi(\sum_{i = 1}^n a_i) = \sum_{i = 1}^n\varphi(a_i)$. 
+\item $\varphi(\sum_{i = 1}^n a_i) = \sum_{i = 1}^n\varphi(a_i)$.
 
 $\varphi(\prod_{i = 1}^n a_i) = \prod_{i = 1}^n\varphi(a_i)$
 
 \item $\varphi(na) = n\varphi(a)$
 
 \item $\varphi(a^n) = \varphi(a)^n$
-	
+
 \end{itemize}
 
 
-Ya sabemos que $Im(\varphi) = \{ \varphi(x): x \in A\} \leq B$ es un subanillo.
+Estas propiedades nos dicen que $\img(\varphi) = \{ \varphi(x): x \in A\} \leq B$ es un subanillo.
 
 \begin{nprop}
 	Si $\varphi$ es monomorfismo, entonces la aplicación restringida:
 \[
-A \to Im(\varphi)\]
+A \to \img(\varphi)\]
 \[
 a \mapsto \varphi(a)
 \]
 
-es un epimorfismo y por ello es un isomorfismo, podemos decir que $A \cong Im(\varphi)$.\\
+es un epimorfismo y por ello es un isomorfismo, podemos decir que $A \cong \img(\varphi)$.\\
 \end{nprop}
 
 
@@ -513,31 +255,50 @@ es un epimorfismo y por ello es un isomorfismo, podemos decir que $A \cong Im(\v
 	Se puede probar que $R_n: \ent \to \ent_n$ es un homomorfismo, llamado \emph{Homomorfismo de reducción módulo n}\\
 \end{nota}
 
+\begin{ndef}[Anillo de polinomios sobre un anillo conmutativo]
+  Sean $A$ un anillo conmutativo y $x$ un símbolo que no denote ningún elemento de $A$. Entonces se define el anillo de polinomios sobre $A$ (también ``con coeficientes en $A$'') como:
+
+  \[
+       A[x] = \{ a_nx^n + \dots + a_1x + a_0 : n \in \mathbb{N}, a_i \in A \ \forall i \in \{0, \dots, n\} \}
+  \]
+
+  Las operaciones de suma y producto en $A[x]$ son las usuales. Con las convenciones de que $x^0 = 1, x^1 = x$ y $\sum_{i=m}^n a_i = 0$ si $m>n$:
+
+  \[
+  \begin{array}{lllll}
+    \sum_{i=0}^n a_ix^i + \sum_{i=0}^m b_ix^i & = & \sum_{i=0}^m (a_i + b_i)x^i + \sum_{i=m+1}^n a_ix^i, \text{ con $m \le n$.} & & \\
+    \left(\sum_{i=0}^n a_ix^i\right) \cdot \left(\sum_{i=0}^m b_ix^i\right) & = & \sum_{i=0}^n \sum_{j=0}^m a_i b_j x^{i+j} =  \sum_{k=0}^{m+n} \sum_{i+j=k} a_ib_j x^k
+  \end{array}
+  \]
+
+\end{ndef}
+
+$A[x]$ es un subanillo de $A[[x]]$ (los elementos de $A[x]$ son los de $A[[x]]$ para los que $a_n = 0$ a partir de un cierto $n\in \mathbb{N}$).
 
 \begin{nprop}[Homomorfismo de cambio de coeficientes)(1]
  Dado $A$ cualquier anillo conmutativo, conocido $A[x]$.
- 
+
  Si $\varphi:A \to B$ es un homomorfismo de anillos conmutativos, entonces:
  \[
- \exists \varphi: A[x] \to B[x] : \varphi\left(\sum_i a_i x^i\right) = \sum_i\varphi(a_i) x^i
+ \exists \psi: A[x] \to B[x] : \psi\left(\sum_i a_i x^i\right) = \sum_i\varphi(a_i) x^i
  \]
 
-	
+
 \end{nprop}
 
 \begin{nprop}[Sustitución en un polinomio)(2]
-	
+
 Si $A$ es un anillo y $a \in A$ entonces: existe un homomorfismo $E_a: A[x] \to A$ tal que $E_a(\sum_i a_i x^i) = \sum_i a_i a^i$.
-	
+
 \end{nprop}
 
 \begin{nprop}[3]
-Si $A \leq B$ es un subanillo y $b\in B$, la aplicación $E_b:A[x] \to B$ definida como $E_b(\sum_i a_i x^i) = \sum_i a_i b^i$ es un homomorfismo
-	
+Si $A \leq B$ es un subanillo y $b\in B$, la aplicación $E_b:A[x] \to B$ definida como $E_b(\sum_i a_i x^i) = \sum_i a_i b^i$ es un homomorfismo.
+
 \end{nprop}
 
 \begin{nprop}[Engloba a las anteriores]
-Si $\varphi:A \to B$ es un homomorfismo y $b\in B$, la aplicación $\Phi:A[x] \to B$ definida como $\Phi ( \sum_i a_i x^i) = \sum_i \varphi(a_i)b^i \in B$ es un homomorfismo 
+Si $\varphi:A \to B$ es un homomorfismo y $b\in B$, la aplicación $\Phi:A[x] \to B$ definida como $\Phi ( \sum_i a_i x^i) = \sum_i \varphi(a_i)b^i \in B$ es un homomorfismo.
 
 \end{nprop}
 
@@ -547,58 +308,68 @@ Veamos primero cómo (4) engloba a las demás:
 
 \item $4 \Rightarrow 3$. Se ve tomando como $\varphi$ la inclusión en $B$
 \item $4 \Rightarrow 2$. Tomamos esta vez como $\varphi$ la identidad
-\item $4 \Rightarrow 1$. Suponemos 4 válido. Probaremos que $\exists\varphi: A \to B[x]$ que lleva $a \to \varphi(a)$.
-Ahora, podemos ver que esa aplicación es como usar primero $\varphi$ para ir de A a B y luego usar la inclusión de $B$ en $B[x]$:
-\[
-A\to B \to B[x]
-\]
-\[
-a \mapsto a \mapsto \varphi(a)
-\]
+\item $4 \Rightarrow 1$. Suponemos 4 válido. Probaremos que $\exists\psi: A \to B[x]$ que lleva $a \mapsto \psi(a) = \varphi(a)$.
+  En efecto, basta tomar $\psi = i_{B[x]} \circ \varphi$, donde $i_{B[x]} : B \to B[x]$ es la inclusión en $B[x]$.
+
 
 De esta forma, tomamos $x\in B[x]$. Entonces:
-\begin{center}
-	$A[x]\to B[x]$\\
-	$\sum_i a_i x^i \to \sum_i \varphi(a_i)x^i$
-\end{center}
 
-Que es justamente el enunciado de la primera proposición.
+\[
+\begin{array}{lll}
+
+  A[x] & \to & B[x] \\
+  \sum_i a_i x^i & \mapsto & \sum_i \varphi(a_i)x^i
+\end{array}
+\]
+
+es un homomorfismo, que es justamente el enunciado de la primera proposición.
 
 \end{nlist}
 
-Pasamos ahora a la demostración de la Proposición 4.
+Pasamos ahora a la demostración de la proposición 4.
 
 
-Sean $f = \sum a_i x^i$ y $g = \sum b_i x^i \in A[x]$. Entonces: $f+g = \sum c_i x^i$ con $c_i = a_i + b_i$
+Sean $f = \sum a_i x^i$ y $g = \sum b_i x^i \in A[x]$.
+Si ahora aplicamos $\Phi(f+g) = \sum \varphi(a_i + b_i)b^i$, como $\varphi$ es homomorfismo, eso es igual a:
+\[
+    \sum (\varphi(a_i) + \varphi(b_i))b^i
+\]
 
-Si ahora aplicamos $\Phi(f+g) = \sum \varphi(c_i)b^i = \sum \varphi(a_i + b_i)b^i$. 
+Usando que $B$ es un anillo y por ello hay distributividad, eso es igual a
 
-Como $\varphi$ es homomorfismo, eso es igual a:
- $\sum (\varphi(a_i) + \varphi(b_i))b^i$.
- 
- Usando que $B$ es un anillo y por ello hay distributividad, eso es igual a: $\sum (\varphi(a_i)b^i + \varphi(b_i)b^i)$.
- 
- Por la asociatividad generalizada eso es igual a: $\sum \varphi(a_i)b^i + \sum \varphi(b_i)b^i = \Phi(f) + \Phi(g)$ Por lo que queda probado para la suma.
- 
- Ahora probaremos el producto:
- 
- $fg = \sum c_i x^i$ con $c_n  = \sum_{i+j = n} a_ib_j$\\
- 
- Así: \[\Phi(f*g) = \sum_n\varphi(c_n)b^n = \sum \varphi(\sum_{i+j = n} a_ib_j)b^n = \sum_n ( \sum_{i+j = n} \varphi(a_i)\varphi(b_j))b^n\]
- 
+\[
+    \sum (\varphi(a_i)b^i + \varphi(b_i)b^i).
+\]
+
+Por la asociatividad generalizada, es igual a:
+
+\[
+\sum \varphi(a_i)b^i + \sum \varphi(b_i)b^i = \Phi(f) + \Phi(g)
+\]
+
+Por lo que queda probado para la suma.
+
+Ahora probaremos el producto. Recordemos que, de la definición:
+
+\[
+fg = \sum c_k x^k \text{ con $c_k$ }  = \sum_{i+j = k} a_ib_j
+\]
+
+ Así: \[\Phi(f*g) = \sum_n\varphi(c_n)b^n = \sum \varphi\left(\sum_{i+j = n} a_ib_j\right)b^n = \sum_n \left( \sum_{i+j = n} \varphi(a_i)\varphi(b_j)\right)b^n\]
+
  Desarrollamos por otro lado
+
  \[
- \Phi(f) * \Phi(g) = (\sum_i \varphi(a_i)b^i)(\sum_j \varphi(b_j)b^j) =^{(1)} \sum_{i,j} \varphi(a_i)b^i\varphi(b_j)b^j =^{(2)} \sum_{i,j} \varphi(a_ib_j)b^{i+j}=
+ \begin{array}{>{\displaystyle}l}
+   \Phi(f) * \Phi(g) = \left(\sum_i \varphi(a_i)b^i\right)\left(\sum_j \varphi(b_j)b^j\right) =^{(1)} \sum_{i,j} \varphi(a_i)b^i\varphi(b_j)b^j \\
+   =^{(2)} \sum_{i,j} \varphi(a_ib_j)b^{i+j} = \sum_n\left(\sum_{i,j: i+j = n} \varphi(a_ib_j)b^n\right)
+ \end{array}
  \]
- 
- \[
-  = \sum_n(\sum_{i,j: i+j = n} \varphi(a_ib_j)b^n)
- \]
- 
- Donde en $(1)$ hemos usado la distributividad general y en $(2)$ hemos usado que estamos en un anillo conmutativo y que $\varphi$ es un homomorfismo. 
- 
+
+ Donde en $(1)$ hemos usado la distributividad general y en $(2)$ hemos usado que estamos en un anillo conmutativo y que $\varphi$ es un homomorfismo.
+
  Hemos llegado a dos expresiones que son iguales, probando así el resultado.
- 
+
 \end{proof}
 
 
@@ -610,93 +381,108 @@ f(x):B \to B
 \hspace{1cm}b \mapsto f(b)
 \]
 
-Sin embargo, un polinomio es mucho más que la función de evaluación que él mismo define. Estudiaremos el caso $A[x_1,...,x_r]$
+Sin embargo, un polinomio es mucho más que la función de evaluación que él mismo define.
 
-\begin{ndef}[Polinomios de $r$ variables con coeficientes en $A$]
-Sea $A$ un anillo conmutativo. Consideramos $A[x_1,...x_r]$ inductivamente en $r$:\\
-Si $r>1$ entonces $A[x_1,...,x_r] = A[x_1,...,x_{r-1}][x_r]$\\
-	
-\begin{proof}\hfill 
+Estudiaremos el anillo de polinomios en varias variables.
 
-\begin{itemize}
+\begin{ndef}[Monomio en $r$ variables]
+  Sean $A$ un anillo conmutativo, $p_1, \dots, p_r \in \mathbb{N}$ y $x_1, \dots, x_r$ símbolos que no denoten ningún elemento de $A$.
+  Entonces
 
-	\item $r=1$:
-\[
-f(x_1) \in A[x_1] \hspace{1cm} \sum_{i \geq 0}a_i x^i \hspace{0.5cm} a_i \in A \hspace{0.5cm} \exists K: a_{i1} = 0 \hspace{0.3cm} \forall i > K
-\]
-	\item $r> 1$
-\[
-f(x_1,...,x_r) = \sum_{i1,\dots,ir \ge 0} a_{i1,...,ir} x_1^{i1}...x_r^{ir}: \hspace{0.3cm} \exists K: a_i,...,a_r  = 0 \iff i_s > K
-\]
-Ahora, si vemos que:
-\[
-f_{ir}(x_1,...,x_{r-1}) = \sum_{i1,...ir > 0} a_{i1},...,a_{ir} x_1^{i1},...,x_r^{ir-1} \in A[x_1,...,x_{r-1}]
-\]
-Entonces:
-\[
-\sum_{ir \geq 0} f_{ir}(x_1,...,x_{r-1})x_r^{ir}= \sum_{ir \geq 0}(\sum_{i1,...,ir > 0}a_1,...,a_r x_1^{i1},...,x_{r-1}^{ir-1})x_r^{ir} = 
-\]
-\[
-=\sum_{i1,...ir} a_{i1},...,a_{ir} x_1^{i1},...,x_r^{ir}
-\]
+  \[
+      \prod_{i=1}^r x_i^{p_i}
+  \]
 
-
-Ahora, definimos $g(x_1,...,x_r) = \sum_{i1,...ir} b_{i1},...,b_{ir} x_1^{i1},...,x_r^{ir}$. Ahora, sumamos:
-
-\[
-f(x_1,...,x_r)+g(x_1,...,x_r) = \sum_{i1,...ir} a_{i1},...,a_{ir} x_1^{i1},...,x_r^{ir} + \sum_{i1,...ir} b_{i1},...,b_{ir} x_1^{i1},...,x_r^{ir} = 
-\]
-\[
- = \sum_{i1,...,ir} (a_i+bi)x^{i1+ij}
-\]
-
-Ahora, podemos desarrollar de la misma forma el producto y ver que:
-
-\[
-(ax_1^{i1},...,x_r^{ir})(bx_1^{j1},...,x_r^{jr}) = abx_i^{i+j}x_2^{i_2+j_2}...x_r^{i_r+j_r}
-\]
-
-\end{itemize}
-Por lo que queda probado nuestro resultado.
-\end{proof}
-
+  es un monomio en $r$ variables con coeficientes en $A$. Si $p = (p_1, \dots, p_r)$, denotamos $X^p = \prod \limits_{i=1}^r x_i^{p_i}$.
 \end{ndef}
 
-\begin{ndef} \textbf{($A[x][y]$)}
-\hfill \\
-Definimos $f=\sum f_i y^i\ |\ f_i \in A[x] : f_i = \sum_j a_{ij}x^j$\\
-Luego, $f = \sum_i (\sum_j a_{ij}x^j)y^i = \sum_{i,j} a_{ij}x^iy^j$\\
+\begin{ndef}[Anillo de polinomios en $r$ variables sobre un anillo conmutativo]
+  Sean $A$ un anillo conmutativo y $x_1, \dots, x_r$, con $r \in \mathbb{N}$ símbolos que no denoten ningún elemento de $A$. Entonces, se define el anillo de polinomios en
+  $r$ variables sobre $A$ como
 
-Ahora, tomamos $g =\sum_{i,j} b_{ij}x^iy^j$ y sumamos:
+  \[
+      A[x_1, \dots, x_r] = \left\{ \sum_{i=1}^n b_iX^{p_i} :
+      \begin{array}{l}
+        B = \{b_1, \dots, b_n\} \subseteq A \\
+        P = \{p_1, \dots, p_n\} \subset \mathbb{N}^r \\
+        n \in \mathbb{N}
+      \end{array} \right\}
+   \]
 
-\[
-f+g = \sum_{i,j}(a_{ij}+b_{ij})x^iy^j
-\]
-
-Y, si $A[x][y]$ es un anillo, vemos que la multiplicación se realiza:
-\[
-(a_{ij}x^iy^j)(b_{mn}x^my^n) = a_{ij}b_{mn} x^{i+m}y^{j+n}
-\]
-
-
-Además, como es un anillo conmutativo $\Rightarrow$ $A[x][y] = A[y][x] = A[x,y]$
-
-	
+      Es decir, el conjunto de las combinaciones lineales finitas con coeficientes en $A$ de monomios en $r$ variables sobre $A$.
 \end{ndef}
 
+Este anillo de polinomios es igual al que se puede obtener tomando anillos de polinomios sobre anillos de polinomios sucesivamente,
+es decir:
 
-\begin{ndef}
-	$A[x_1,...,x_n] = A[x_1,...,x_{n-1}][x_n]$
+\[
+    A[x_1, \dots, x_{s}][x_{s+1}, \dots, x_{r}] = A[x_1, \dots, x_r]
+\]
 
-Se puede probar que $A[x_1,...,x_n] = A[x_{\sigma(1)},...,x_{\sigma(n)}]$ siendo $\sigma$ una permutación de $\{1,2,...,n \}$
-\end{ndef}
+para cualquier número de variables $x_1, \dots, x_r$ y cualquier permutación de ellas.
+
+Ilustraremos este hecho en el caso $r=2$, $A[x][y]$.
+
+Definimos
+
+\[
+f=\sum f_i y^i,\ f_i = \sum_j a_{ij}x^j
+\]
+
+Luego
+
+\[
+f = \sum_i \left(\sum_j a_{ij}x^j \right)y^i = \sum_{i,j} a_{ij}x^iy^j
+\]
+
+Como $A$ es un anillo conmutativo, se tiene que $A[x][y] = A[y][x] = A[x,y]$.
+
+Después de esto, vamos a demostrarlo en el caso general.
 
 \begin{nprop}
-	
+  Sea $A$ un anillo conmutativo. Entonces
+
+  \[
+     A[x_1, \dots, x_{r-1}][x_r] \text{ y } A[x_1, \dots, x_r]
+  \]
+
+   son isomorfos.
+\end{nprop}
+
+\begin{proof}
+  Si $f \in A[x_1, \dots, x_{r-1}][x_r]$,
+
+  \[
+       f = \sum_{i=0}^n f_i x_r^i,\ f_i = \sum_{j\in J} a_{ij} X^j,\ J = \{j_0, \dots, j_m\} \subset \mathbb{N}^{r-1}
+  \]
+
+  Luego
+
+  \[
+      f = \sum_{(i,j) \in \{1,\dots,n\}\times J} a_{ij}X^j x_r^i
+  \]
+
+  Definimos $\Phi : A[x_1, \dots, x_{r-1}][x_r] \to A[x_1, \dots, x_r]$:
+
+  \[
+    \Phi \left(\sum_{(i,j) \in \{1,\dots,n\}\times J} a_{ij}X^j x_r^i\right) = \sum_{i=0}^{nm} b_i X^{p_i},\
+    \begin{array}{l}
+      B = \{ b_k = a_{ij} : jn + i = k \} \\
+      P = \{ p_k = q_{ij} : q_{ij} \in \{1, \dots, n \} \times J, jn+i = k \}
+    \end{array}
+  \]
+
+  Se puede comprobar que este es un isomorfismo de anillos conmutativos.
+
+\end{proof}
+
+
+\begin{nprop}
+
 Si $\varphi :A \to B$ es un homomorfismo, $\forall(b_1,...,b_n) \in B^n$ la aplicación:
 
 \[
-\Phi:A[x_1,...x_n] \to B \iff \Phi(\sum_{i1,...,in}a_{i1}...a_{in}x^{i1}... x^{in}) = \sum_{i1,...,in}a_{i1}...a_{in}b^{i1}... b^{in} \in B
+\Phi:A[x_1,...x_n] \to B \iff \Phi\left(\sum_{i1,...,in}a_{i1}...a_{in}x^{i1}... x^{in}\right) = \sum_{i1,...,in}a_{i1}...a_{in}b^{i1}... b^{in} \in B
 \]
 
 es un homomorfismo de anillos conmutativos. Es conocido como evaluación de un polinomio en n variables.
@@ -706,16 +492,16 @@ es un homomorfismo de anillos conmutativos. Es conocido como evaluación de un p
 
 
 \begin{nprop}
-	Si $\varphi:A \to B$ es un homomorfismo, $\forall\  b \in B\  \exists ! $ homomorfismo definido como:
-	
+	Si $\varphi:A \to B$ es un homomorfismo, $\forall\  b \in B$ existe un único homomorfismo definido como:
+
 \[
 \Phi:A[x] \to B : \begin{cases}
 	\Phi(a) = \varphi(a)\ \forall a \in A \\
-	\Phi(x) = b 
+	\Phi(x) = b
 \end{cases}
 \]
 \[
-\Phi(\sum a_i x^i) = \sum \Phi(a_i x^i) =  \sum \Phi(a_i) \Phi(x)^i = \sum \varphi(a_i) b^i
+\Phi\left(\sum a_i x^i\right) = \sum \Phi(a_i x^i) =  \sum \Phi(a_i) \Phi(x)^i = \sum \varphi(a_i) b^i
 \]
 
 Además, ya se probó que esto es un homomorfismo de anillos conmutativos.
@@ -723,14 +509,14 @@ Además, ya se probó que esto es un homomorfismo de anillos conmutativos.
 \end{nprop}
 
 \begin{ncor}
-	$A \leq B$ subanillo, $\forall b \in B$ $\exists !$ homomorfismo
+	$A \leq B$ subanillo, $\forall b \in B$ existe un único homomorfismo
 \[
 E_b: A[x] \to B: \begin{cases}
 E_b(a) = a \hspace{0.3cm} \forall a \in A\\
 E_b(x) = b
-	
+
 \end{cases}
-\] 
+\]
 \end{ncor}
 
 \begin{nota}
@@ -769,16 +555,16 @@ E_b(x) = b
       \phi(x_r) = b_r
     \end{cases}
   \]
-  
+
   ¿Es único?
   \[
-    \phi(\sum_{i1,\cdots,ir} a_{1i}\cdots a_{ir}x_1^{i1}\cdots x_r^{ir} )= \sum _{i1,\cdots,ir} \varphi(a_{i1}\cdots a_{ir})b_1^{i1}\cdots b_r^{ir}
+    \phi\left(\sum_{i1,\cdots,ir} a_{1i}\cdots a_{ir}x_1^{i1}\cdots x_r^{ir} \right)= \sum _{i1,\cdots,ir} \varphi(a_{i1}\cdots a_{ir})b_1^{i1}\cdots b_r^{ir}
   \]
 \end{proof}
 
 \begin{nprop}[Evaluación en subanillos $r$ variables]
 	Si $A\leq B, \forall b_1,\cdots,b_r \in B$ lista ordenada:
-	
+
 \[
 \exists !\ E_{b_1,\cdots,b_r}: A[x_1,\cdots,x_r] \to B :
 \begin{cases}
@@ -790,63 +576,64 @@ E_b(x) = b
 Se suele notar $f(x_1,\cdots,x_r) \to f(b_1,\cdots,b_r)$
 \end{nprop}
 
-\section{Dominio de Integridad}
+\section{Dominio de integridad}
 
 \begin{ndef}[Dominio de integridad]
-A (anillo conmutativo) es un dominio de integridad si verifica la propiedad:
+Un anillo conmutativo $A$ es un dominio de integridad si verifica la propiedad:
 \[
-a \neq 0\ \wedge\ b \neq 0 \Rightarrow ab \neq 0 \] 
+a \neq 0\ \wedge\ b \neq 0 \Rightarrow ab \neq 0 \ \ \forall a,b \in A
+\]
 
 Equivalentemente,
 
 \[ \hspace{0.1cm} ab=0 \implies \begin{cases}
 	a = 0,\text{ o}\\
 	b = 0
-\end{cases}
+\end{cases} \ \forall a,b \in A
 \]
-	
+
 \end{ndef}
 
 \begin{nprop}[Propiedad de simplificación]
-	
+
 A es un dominio de integridad $\iff$ se verifica: $ax=ay$ con $a\neq 0 \Rightarrow x = y$
 \end{nprop}
-\begin{proof}
+\begin{proof}\hfill\\
 	\boxed{\Rightarrow} $a(x-y) = 0$, por ser A dominio de integridad, $x-y = 0 \Rightarrow x=y$ \\
-	\boxed{\Leftarrow} $ab = 0$ con $a\neq 0 \Rightarrow b= 0$ pues $a0 = 0; ab = a0; b = 0;$
+	\boxed{\Leftarrow} $ab = 0$ con $a\neq 0$, tomo $x,y \in A : b = x-y$, entonces $ab = a(x-y) = 0 \implies x=y \implies b = 0$.
 \end{proof}
 
 \begin{ndef}[Divisor de 0]
-	$a\in A$ es divisor de 0 si $\exists b\neq 0 : ab = 0$
+	$a\in A$ es divisor de 0 si $\exists b\neq 0 : ab = 0$.
 \end{ndef}
 
 \begin{nprop}
 	Si A es un dominio de integridad $\Rightarrow$ el 0 es el único divisor de 0.
-	
+
 	Equivalentemente: A es dominio de integridad $\iff$ no tiene divisores de cero no nulos.
 \begin{nlist}
 	\item $A\leq B$ y $B$ es D.I. $\Rightarrow$ A es D.I.
 	\item Todo cuerpo es D.I.
-	\item Si $u \in U(A) \Rightarrow$ u no es divisor de 0 (Supongamos $u*b = 0 \Rightarrow u*u^{-1}*b = u^{-1}*0 \Rightarrow b=0$)
+	\item Si $u \in U(A) \Rightarrow$ u no es divisor de 0 (supongamos $u*b = 0 \Rightarrow u*u^{-1}*b = u^{-1}*0 \Rightarrow b=0$)
 \end{nlist}
 \end{nprop}
 
 \begin{nprop}
 	Si $A$ es finito, $A$ es dominio de integridad $\iff$ $A$ es un cuerpo
 \end{nprop}
-\begin{proof}
+\begin{proof}\hfill\\
 	\boxed{\Leftarrow} Trivial\\
 	\boxed{\Rightarrow} $0 \neq a \in A$.
-Tomo $\{1,a,a^2,\cdots,a^n\} = \{a^n: n\in N\} \subseteq A$
-Como tiene cardinalidad finita: $\exists k \in N : a^n = a^{n+k}$.\\
-Pero, por ello: $a^n = a^n a^k; a^n * 1 = a^n * a^k$, luego $a^n$ no es 0 porque A es Dominio de integridad y por ser D.I entonces:
+Tomo $\{1,a,a^2,\dots\} = \{a^n: n\in \mathbb{N}\} \subseteq A$
+Como $A$ tiene cardinal finito y es cerrado para el producto: $\exists n,k \in \mathbb{N} : a^n = a^{n+k}$.\\
+Pero, por ello: $a^n = a^n a^k; a^n * 1 = a^n * a^k$, luego $a^n$ no es 0 porque $A$ es dominio de integridad y por ser D.I. entonces:
 \[
 1=a^k \begin{cases}
 	k = 1 \Rightarrow a = 1\\
 	k > 1 \Rightarrow a^{k-1}*a = 1
-	
+
 \end{cases}\]
-Con lo que $\exists$ inverso de a = $a^{k-1}$ y como a es un elemento cualquiera, todo elemento tiene inverso, luego es un cuerpo.
+Con lo que $\exists$ inverso de $a = a^{k-1}$ y como $a$ es un elemento cualquiera, todo elemento tiene inverso, luego es un cuerpo.
 \end{proof}
 
 
@@ -855,41 +642,67 @@ Con lo que $\exists$ inverso de a = $a^{k-1}$ y como a es un elemento cualquiera
 \end{nprop}
 
 
-Primero, presentaremos otros conceptos:
+Antes de probar esta proposición, presentaremos otros conceptos. Comenzaremos por repasar brevemente los conceptos de relación binaria y
+relación de equivalencia, y definir el cociente de un conjunto por una relación de equivalencia. Esto nos servirá
+para construir el cuerpo de fracciones de un dominio de integridad, del que el dominio de integridad será un subanillo.
+
+\begin{ndef}[Relación binaria]
+  Una relación binaria en un conjunto $A$ es un subconjunto de $A^2$.
+  Si $\sim \ \subseteq A^2$ es una relación binaria y $(a,b) \in \sim$, se nota $a \sim b$
+  y se dice que ``$a$ está relacionado con $b$ mediante $\sim$''.
+\end{ndef}
+
+\begin{ndef}[Relación de equivalencia]
+  Una relación de equivalencia en un conjunto $A$ es una relación binaria $\sim$ en $A$ que verifica las siguientes propiedades:
+
+  \begin{nlist}
+  \item \textbf{\emph{Reflexividad}}. $a \sim a \ \ \forall a \in A$.
+  \item \textbf{\emph{Transitividad}}. Si $a \sim b$ y $b \sim c$, entonces $a \sim c \ \ \forall a,b,c \in A$.
+    \item \textbf{\emph{Simetría}}. $a \sim b \implies b \sim a \ \ \forall a,b \in A$.
+  \end{nlist}
+\end{ndef}
+
+\begin{ndef}[Clase de equivalencia]
+  Sean $A$ un conjunto, $a\in A$ y $\sim$ una relación de equivalencia en $A$. Se define la clase de equivalencia
+  de $a$ respecto de $\sim$:
+
+  \[
+     [a] = \{ b \in A : a \sim b \}
+  \]
+\end{ndef}
+
+\begin{ndef}[Cociente de un conjunto por una relación de equivalencia]
+  Sean $A$ un conjunto y $\sim$ una relación de equivalencia en $A$. Entonces se define el cociente de $A$ por $\sim$:
+
+  \[
+     A/\sim \ = \{ [a] : a \in A\}
+  \]
+\end{ndef}
 
 \begin{ndef}[Cuerpo de fracciones de un D.I.]
-Sea A un dominio de integridad con $|A| \geq 2$. Consideramos $A\times (A-\{0\}) = \{(a,b), a,b \in A\ |\ b\neq 0\}$
+  Sea $A$ un dominio de integridad con $|A| \geq 2$. Consideramos
 
-\begin{ndef} Decimos que (a,b) es equivalente a (c,d):
-	$(a,b)\sim(c,d) \iff ad = bc$
-	
-Esta relación es reflexiva, simétrica y transitiva.
-\end{ndef}
-	
-Ahora, considero $a,b\in A \hspace{0.2cm}$. Llamo $\displaystyle\frac{a}{b} = \{(c,d)\hspace{0.2cm} c,d \in A : (c,d) \sim (a,b)\} \subseteq A$x$A-\{0\}$
+  $$A\times (A-\{0\}) = \{(a,b), a,b \in A\ |\ b\neq 0\}$$
 
-Y llamo a $\displaystyle\frac{a}{b}$ la fracción $a$ entre $b$.
+  y en este conjunto la relación de equivalencia:
 
-\begin{ncor}
-	\[\frac{a}{b}= \frac{u}{v} \iff av = bu \iff (a,b) \sim (u,v)\]
-\end{ncor}
-\begin{proof}
-	
-	\boxed{\Rightarrow} $(a,b) \in \dfrac{a}{b} = \dfrac{u}{v} \Rightarrow (a,b) \sim (u,v) \Rightarrow (av = ub)$
-	
-	\boxed{\Leftarrow} $(a,b) \sim (u,v)$ Por la transitividad: $\dfrac{a}{b} \subseteq \dfrac{u}{v}$ y $\dfrac{u}{v} \subseteq \dfrac{a}{b} \Rightarrow \dfrac{a}{b}= \dfrac{u}{v}$
-\end{proof}
-\end{ndef}
+  \[
+     (a,b) \sim (c,d) \iff ad = bc
+  \]
 
-Ahora, llamamos $Q(A) = \left\{\dfrac{a}{b}\ |\ a,b \in A: \hspace{0.25cm} b\neq 0\right\}$ que es un conjunto de conjuntos, pues ya habíamos definido la fracción $\dfrac{a}{b}$ como un conjunto.
+  Definimos el cuerpo de fracciones de $A$ como
 
-Sobre él, definimos unas operaciones que nos permitirán ver que es un cuerpo:
+  $$\mathbb{Q}(A) = [A\times (A-\{0\})]/\sim$$
+
+    Se nota $[(a,b)] = \displaystyle\frac{a}{b}$ y se le llama ``fracción $a$ entre $b$''.
+
+  Sobre él, definimos unas operaciones con las que será un cuerpo:
 \begin{nlist}
 	\item Suma: \[\frac{a}{b}+ \frac{c}{d} = \frac{ad + cb}{bd}\]
 
-Ahora, como la fracción $\frac{a}{b}$ es un conjunto, hay que probar que el resultado es único, es decir:
+Ahora, como la fracción $\dfrac{a}{b}$ es un conjunto, hay que probar que el resultado es único, es decir:
 \[
-\frac{a}{b}= \frac{a'}{b'} \hspace{0.25cm}y\hspace{0.25cm} \frac{c}{d}= \frac{c'}{d'}  \Rightarrow ab' = a'b \hspace{0.25cm} y \hspace{0.25cm} cd' = c'd
+\frac{a}{b}= \frac{a'}{b'} \text{ y } \frac{c}{d}= \frac{c'}{d'}  \Rightarrow ab' = a'b \text{ y } cd' = c'd
 \]
 Hay que probar que se cumple:
 \[
@@ -910,8 +723,8 @@ Donde en (1) hemos usado la equivalencia que habíamos dado de $ab' = a'b$ y $cd
 bd(a'd'+c'b') = bda'd' + bdc'b' = a'bdd' + bb'c'd
 \]
 
-Probando la unicidad. 
-	
+Probando la unicidad.
+
     \item Producto: \[\frac{a}{b} \frac{c}{d} = \frac{ac}{bd}\]
 
 La unicidad del producto se hace desarrollando de la misma manera.
@@ -919,19 +732,29 @@ La unicidad del producto se hace desarrollando de la misma manera.
 
 
 
-Para finalizar, se puede probar que es un cuerpo probando las propiedades de anillo conmutativo y que existe inverso para todo $\frac{a}{b}$.
+Para finalizar, se puede probar que es un cuerpo probando las propiedades de anillo conmutativo y que existe inverso para todo $\dfrac{a}{b}$.
+\end{ndef}
+
+\begin{ncor}
+	\[\frac{a}{b}= \frac{u}{v} \iff av = bu \iff (a,b) \sim (u,v)\]
+\end{ncor}
 
 \begin{nprop}[Fracciones de denominador 1]
-  Existe un homomorfismo
-  \begin{align}
-    i :& A \longrightarrow \mathbb{Q}(A)\notag\\
-     \quad  &a \longmapsto \frac{a}{1} = i(a)\notag
-  \end{align}
+  Si $A$ es un dominio de integridad, existe un homomorfismo
+
+  \[
+  \begin{array}{llll}
+    i :& A & \longrightarrow & \mathbb{Q}(A) \\
+       &a & \longmapsto &  i(a) = \dfrac{a}{1}
+  \end{array}
+  \]
 
   Que cumple que $i(a+b) = i(a)+i(b)$ y que $i(ab)=i(a)i(b)$, y además es un monomorfismo.
-  Así, $A \stackrel{i}{\cong} Img(i) = \{\frac{a}{1} : a\in A\}$ es un isomorfismo y $A\le\mathbb{Q}(A) \text{ con } a=\frac{a}{1}$.
-  Con esta identificaión $\frac{a}{b} = \frac{a}{1}\frac{1}{b} = ab^{-1}$
+  Así, $A \stackrel{i}{\cong} \img(i)$ es un isomorfismo y $A\le\mathbb{Q}(A) \text{ con } a=\dfrac{a}{1}$.
+  Con esta identificación $\dfrac{a}{b} = \dfrac{a}{1}\dfrac{1}{b} = ab^{-1}$.
 \end{nprop}
+
+A partir de ahora usaremos la identificación $a = \dfrac{a}{1}$.
 
 \begin{nprop}
   Sea $K$ un cuerpo y $A\le K$, $a,b\in A\ (b\not=0)$.
@@ -966,108 +789,161 @@ Para finalizar, se puede probar que es un cuerpo probando las propiedades de ani
 \end{ejemplo}
 
 \begin{nprop}
-	Si $A$ es un D.I. $\implies$ $A[x]$ es un D.I. 
+	Si $A$ es un D.I. $\implies$ $A[x]$ es un D.I.
 \end{nprop}
 
 \begin{ndef}[Grado de un polinomio]
 
-Si $f=\sum a_i x^i \neq 0$ $\implies gr(f)=n\in \mathbb{N}$ si $a_n\neq 0$ y $a_m=0 \hspace{0.3cm} \forall m>n$ 
+  Si $f=\sum a_i x^i \neq 0$, entonces
+
+  $$gr(f)=n\in \mathbb{N} : a_n\neq 0 \text{ y } a_m=0 \hspace{0.3cm} \forall m>n$$
 
 El coeficiente $a_n$ se denomina coeficiente líder.
 
-\begin{itemize}
-	\item Si A es D.I, $f,g \in A[x]\implies gr(fg) = gr(f)+gr(g)$\\
-	(Si no es D.I, tenemos que $gr(fg) \le gr(f)+gr(g)$)
-\end{itemize}
-	
 \end{ndef}
 
+\begin{nprop}
+	Si A es D.I., $f,g \in A[x]\implies gr(fg) = gr(f)+gr(g)$.
+	En caso contrario, tenemos que $gr(fg) \le gr(f)+gr(g)$.
+\end{nprop}
+
 \begin{ndef}[Divisibilidad en D.I.]
-	
-Sea $A$ un D.I. Sean $a,b\in A$. Decimos entonces que a divide a b (a es un divisor de b, b es un múltiplo de a):
+
+Sea $A$ un D.I. Sean $a,b\in A$. Decimos entonces que $a$ divide a $b$ ($a$ es un divisor de $b$, $b$ es un múltiplo de $a$) si
+\[
+	\exists c \in A : b = ac
+\]
+\end{ndef}
+
+\begin{nprop}
+  En las condiciones anteriores:
+
 \begin{align}
-	& \exists c \in A : b = ac 
+	&\exists c \in A : b = ac
 \\
-	\iff& La \hspace{0.2cm} ecuacion \hspace{0.2cm} ax=b \hspace{0.2cm} tiene\hspace{0.2cm}solucion
+	\iff& \text{La ecuación } ax=b \text{ tiene solución}
 \\
 \iff& \frac{b}{a} \in A
 \end{align}
+\end{nprop}
 
-\begin{proof}
-	$\boxed{\implies}$ Si a divide a b $\implies$ $\exists c: b=ac \implies \dfrac{b}{a} = \dfrac{ac}{a} = \dfrac{c}{1} = c \in A$\\
-	$\boxed{\Longleftarrow}$ si $\dfrac{b}{a}\in A \implies \dfrac{b}{a} = \dfrac{c}{1} \implies b = ac$
+\begin{proof}\hfill\\
+  \begin{itemize}
+  \item $\boxed{(1) \iff (2)}$ Es la definición de que la ecuación $ax = b$ tenga solución.
+  \item $\boxed{(1) \iff (3)}$
+
+    $\boxed{\Longrightarrow}$ Si $a$ divide a $b$ $\implies$ $\exists c: b=ac \implies \dfrac{b}{a} = \dfrac{ac}{a} = \dfrac{c}{1} = c \in A$\\
+    $\boxed{\Longleftarrow}$ si $\dfrac{b}{a}\in A \implies \dfrac{b}{a} = \dfrac{c}{1} \implies b = ac$
+  \end{itemize}
+
 \end{proof}
-\end{ndef}
-\textbf{Notación:} Si a divide a b, escribiremos $a/b$
 
-\begin{nlist}
-	\item Los divisores de 1 son las unidades del anillo, los elementos del grupo $U(A)$
-	\item Las unidades son divisores de todos los elementos del anillo.
-	\item Dado $a\in A$, los elementos $ua$ con $u\in U(A)$ se llaman \emph{asociados de a}.
-	\item Si $u\in U(A)$, $\forall a \in A$, $ua/a$
-	
-\end{nlist}
+\textbf{Notación:} Si $a$ divide a $b$, escribiremos $a/b$.
+
+\begin{ndef}[Asociados de un elemento de un D.I.]
+  Sean $A$ un dominio de integridad y $a\in A$. Entonces los elementos $ua$ con $u\in U(A)$ se llaman \emph{asociados de a}.
+\end{ndef}
+
+\begin{nprop}\hfill
+  \begin{nlist}
+  \item Los divisores de 1 son las unidades del anillo, los elementos del grupo $U(A)$.
+  \item Las unidades son divisores de todos los elementos del anillo.
+  \item Si $u\in U(A)$, $\forall a \in A$, $ua/a$.
+
+  \end{nlist}
+\end{nprop}
 
 \begin{ndef}
-	Los divisores triviales de un número son las unidades y sus asociados.
+	Los divisores triviales de $a \in A$ son las unidades y sus asociados.
+\end{ndef}
+
+\begin{ndef}
+  Los divisores propios de $a \in A$ son los no triviales.
 \end{ndef}
 
 \begin{nprop}
 	Sean $a,b\neq 0$. Son equivalentes:
 	\begin{nlist}
-	\item a es asociado de b
-	\item b es asociado de a
-	\item $a/b \wedge b/a$, los asociados son los elementos que se dividen mutuamente
-	
+	\item $a$ es asociado de $b$.
+	\item $b$ es asociado de $a$.
+	\item $a/b \wedge b/a$, los asociados son los elementos que se dividen mutuamente.
+
 \end{nlist}
 \end{nprop}
 
-\begin{ndef}[Irreducible]
-	
-	Sea $a\in A$ (D.I), $a\neq 0, a \notin U(A)$ es irreducible si sus únicos divisores son los triviales
+\begin{nprop} La divisibilidad verifica algunas propiedades:
 
-\begin{align}
-	\iff& si\hspace{0.2cm} b/a \implies b\in U(A) \vee b \sim a
+  \begin{nlist}
+  \item Reflexión: $a/a$
+  \item Transitividad: $a/b \wedge b/c \implies a/c$
+  \item Si $a/b \wedge a/c \implies a/bx +cy\hspace{0.2cm} \forall x,y \in A$
+  \item Si $a/b \implies \hspace{0.2cm} \forall c\in A \hspace{0.2cm} a/bc$
+  \item Si $c\neq 0$ entonces $a/b \iff ac/bc$
+  \end{nlist}
+\end{nprop}
+
+\textbf{Notación:} si $a$ y $b$ son asociados, escribiremos $a \sim b$.
+
+\begin{ndef}[Irreducible]
+
+	Sean $A$ un dominio de integridad, $a\in A$, $a\neq 0, a \notin U(A)$. Se dice que $a$ es irreducible si sus únicos divisores son los triviales
+
+\begin{align*}
+	\iff& \text{si } b/a \implies b\in U(A) \vee b \sim a
 \\
-	\iff& si \hspace{0.2cm} a=bc \implies b\in U(A) \vee c \in U(A)
+	\iff& \text{si } a=bc \implies b\in U(A) \vee c \in U(A)
 \\
-	\iff& si \hspace{0.2cm} a=bc \implies a\sim b \vee c \sim a
+	\iff& \text{si } a=bc \implies a\sim b \vee c \sim a
 \\
-	\iff& si \hspace{0.2cm}a=bc \wedge b \notin U(A) \implies c \in U(A)
-\end{align}
-	
-Propiedades elementales:
-\begin{nlist}
-	\item Reflexión: $a/a$
-	\item Transitividad: $a/b \wedge b/c \implies a/c$
-	\item Si $a/b \wedge a/c \implies a/bx +cy\hspace{0.2cm} \forall x,y \in A$ 
-	\item Si $a/b \implies \hspace{0.2cm} \forall c \hspace{0.2cm} a/bc$
-	\item Si $c\neq 0$ entonces $a/b \iff ac/bc$
-\end{nlist}
+	\iff& \text{si } a=bc \wedge b \notin U(A) \implies c \in U(A)
+\end{align*}
 \end{ndef}
+
 
 \section{Dominios euclídeos}
 \begin{ndef}[Dominios euclídeos]
 
-	Un dominio euclídeo es un dominio de integridad, A, tal que haya definida una función $\varphi: A- \{0\} \to \mathbb{N} $ verificando:
+	Un dominio euclídeo es un dominio de integridad, $A$, tal que se pueda definir una función $\varphi: A- \{0\} \to \mathbb{N} $ que verifique:
 
 \begin{nlist}
 	\item $\varphi(ab) \ge \varphi(a)$
 	\item $\forall a,b \in A,\ b \neq 0 \quad \exists q,r \in A : a = bq + r $ con $r=0 \vee \varphi(r) < \varphi(b)$
-	\item $\forall a,b \in A,\ b \neq 0 \quad \exists q \in A : a - bq = 0 \vee  \varphi(a-bq) < \varphi(b)$
-\end{nlist}	
+	%%\item $\forall a,b \in A,\ b \neq 0 \quad \exists q \in A : a - bq = 0 \vee  \varphi(a-bq) < \varphi(b)$
+\end{nlist}
 \end{ndef}
 
 \begin{nota}
-	Si A es dominio euclídeo, entonces: 
-$b/a \iff$ un resto de dividir a entre b es cero $\iff$ cualquier resto de dividir a entre b es 0 
+  En algunos textos, se omite la primera propiedad, dado que a partir de una función que verifique la segunda, es posible definir una que verifique ambas.
 \end{nota}
-\begin{proof}
-	$\boxed{\implies}$ Por definición de b/a, $\implies \exists c \in A$ tal que $a=bc$ y por ser A un dominio euclídeo, $\implies \exists q,r \in 		A : 	a = bq + r $ con $r=0 \vee \varphi(r) < \varphi(b)$. La solución 	es evidentemente correcta para $r = 0$, veamos que sucede para $r \neq 	0$.
-\\
-Supongamos $r \neq 0$, entonces $\varphi(r) < \varphi(b)$. 
-$$r = a - bq = bc - bq = b(c-q) \quad \quad c-q \neq 0$$
-$$\varphi(r) = \varphi(b(c-q)) \ge \varphi(b) \implies \textup{CONTRADICCIÓN}$$  
+
+
+\begin{nprop}
+  Si A es dominio euclídeo, entonces:
+
+  \[
+  \begin{array}{lll}
+    & b/a & (1) \\
+    \iff & \text{un resto de dividir $a$ entre $b$ es cero} & (2) \\
+    %%\iff & \text{cualquier resto de dividir $a$ entre $b$ es cero} & (3)
+  \end{array}
+  \]
+\end{nprop}
+
+\begin{proof}\hfill\\
+  %%\begin{itemize}
+  %%\item $\boxed{ (1) \iff (2) }$
+
+    $\boxed{\Longleftarrow}$ Trivial.
+
+  $\boxed{\Longrightarrow}$ Por definición de $b/a$, $\implies \exists c \in A$ tal que $a=bc$ y por ser $A$ un dominio euclídeo, $\exists q,r \in A : a = bq + r $
+  con $r=0 \vee \varphi(r) < \varphi(b)$. La solución 	es evidentemente correcta para $r = 0$, veamos que sucede para $r \neq 	0$.
+
+    Supongamos $r \neq 0$, entonces $\varphi(r) < \varphi(b)$.
+    $$r = a - bq = bc - bq = b(c-q) \quad \quad c-q \neq 0$$
+    $$\varphi(r) = \varphi(b(c-q)) \ge \varphi(b)$$
+    Llegando a una contradicción.
+ %% \end{itemize}
+
 \end{proof}
 
 \begin{nth}[Teorema de Euclides]
@@ -1077,15 +953,15 @@ $$\varphi(r) = \varphi(b(c-q)) \ge \varphi(b) \implies \textup{CONTRADICCIÓN}$$
 
 
 \begin{proof}
-Probaremos primero la unicidad. Supongamos 
-$$a=bq+r \quad \quad 0\leq r <\abs{b}$$   
-$$a=bq'+r' \quad \quad 0 \leq r' < \abs{b}$$ 
+Probaremos primero la unicidad. Supongamos
+$$a=bq+r \quad \quad 0\leq r <\abs{b}$$
+$$a=bq'+r' \quad \quad 0 \leq r' < \abs{b}$$
 
 distintos. Vamos a ver que $r=r'$ y $q=q'$
 
 \begin{itemize}
 	\item Si $r \neq r'$ ($\implies q\ne q'$), supongamos $r > r' \implies 0 < r - r' < \abs{b}$
-Ahora: 
+Ahora:
 $$ r-r' = a-bq - a +bq' = b(q' -q )$$
 $$r-r' > 0 \implies r - r' = \abs{b(q' -q)} = \abs{b}\abs{q' -q}$$
 
@@ -1098,58 +974,68 @@ Por lo que tenemos una contradicción con el comienzo de la suposición.
 	\item Ahora, si $r=r'\implies b(q' -q) = 0$ y $b\neq 0 \implies q' -q=0 \implies q' =q$
 \end{itemize}
 
-Probamos ahora la existencia. Sean $a,b \geq 0$
+Probamos ahora la existencia. Observemos que el caso general se puede reducir al caso $a \ge 0, b > 0$, de la
+siguiente forma:
+
+\begin{itemize}
+\item si $b<0$, entonces se toman $b' = -b, q' = -q$, y se escribe $a = b'q' +r, 0 \le r < |b'|$.
+\item si $a<0$ y $b>0$ (podemos asegurar que $b>0$ por el caso anterior), se toman $a' = -a$, $q' = -q -1, r' = b-r$
+  y se escribe $a = bq'+r', 0 \le r' < b$.
+\end{itemize}
+
+Por tanto, sean $a,b \geq 0$:
 
 \begin{itemize}
 	\item Si $ a < b \implies a = b*0 + a$, luego $q=0$ y $r=a$, ya los tenemos.
-	\item Si $a \geq b$, llamamos $R=\{a-bx: x\in \nat \quad a \geq bx\}\subseteq \nat$ que es no vacío, pues está al menos $x=1$.
-	
-	Ahora, por el principio de buena ordenación, $R$ tiene mínimo. Tomo $r=min(R)$. 
-	
-$r=a+bq$ para cierto $q \in \nat$ y $ r \geq 0$.
+	\item Si $a \geq b$, llamamos $R=\{a-bx: x\in \nat \quad a \geq bx\}\subseteq \nat$ que es no vacío, pues está al menos $ a-b \ (\text{para } x=1)$.
 
-Veremos ahora que $r < b$, por contradicción.
+	Ahora, por el principio de buena ordenación, $R$ tiene mínimo. Tomo $r=\min(R)$.
+
+$r=a-bq$ para cierto $q \in \nat$ y $ r \geq 0$.
+
+Veremos que $r < b$, por contradicción.
 
 Supongamos $ r \geq b\implies r' = r-b \geq 0 \implies r' = a-bq -b = a -b(q+1)\implies r' \in R$.
 
-Podemos ver que $r' < r$ (pues $r'=r-b$) $\implies  r'$ está en $R$ y es menor que el mínimo, luego es una contradicción y tenemos que $r < b$
+Podemos ver que $r' < r$ (pues $r'=r-b$) $\implies  r'$ está en $R$ y es menor que el mínimo, luego es una contradicción y tenemos que $r < b$.
 
 \end{itemize}
-Por último, vamos a probar que $0 \leq r < \abs{b}$
+%% Por último, vamos a probar que $0 \leq r < \abs{b}$
 
-Supongamos: 
-\[
-r=0 \implies a=bq \begin{cases}
-	-a = b(-q)\\
-	-a = (-b)q \\
-	 a = (-b)(-q)\\	
-\end{cases}
-\]
+%% Supongamos:
+%% \[
+%% r=0 \implies a=bq \begin{cases}
+%% 	-a = b(-q)\\
+%% 	-a = (-b)q \\
+%% 	 a = (-b)(-q)\\
+%% \end{cases}
+%% \]
 
-Ahora, supongamos $r > 0$:
+%% Ahora, supongamos $r > 0$:
 
-\begin{itemize}
-	\item $-a = b(-q) -r = b(-q) -b + b -r = b(-q-1) +(b-r)$ y como $0 < r < b \implies b > b-r > 0$
-	\item $-a = (-b)q -r = (-b)q + b - b -r = -b(q+1) + (b-r)$ y por el mismo motivo, $b > b-r > 0$
-	\item $a = (-b)(-q) +r \implies 0 < r < b = \abs{-b}$
-\end{itemize}
+%% \begin{itemize}
+%% 	\item $-a = b(-q) -r = b(-q) -b + b -r = b(-q-1) +(b-r)$ y como $0 < r < b \implies b > b-r > 0$
+%% 	\item $-a = (-b)q -r = (-b)q + b - b -r = -b(q+1) + (b-r)$ y por el mismo motivo, $b > b-r > 0$
+%% 	\item $a = (-b)(-q) +r \implies 0 < r < b = \abs{-b}$
+%% \end{itemize}
 
-De esta forma, hemos cubierto todos los casos y hemos acabado la demostración
+%% De esta forma, hemos cubierto todos los casos y hemos acabado la demostración
 \end{proof}
 
 \begin{ncor}
-$\ent$ es un dominio de Euclides con $\varphi = \abs{\;\cdot\;}: \ent \to \nat$
-\[
-\varphi(a) \begin{cases}
-	a  \quad \textup{si } a \ge 0\\
-	-a \quad \textup{si } a < 0
-	
-\end{cases}\]
+$\ent$ es un dominio de Euclides con
+  \[
+  \begin{array}{lll}
+  \varphi & = & \abs{\;\cdot\;}: \ent \to \nat \\
+  \restr{\varphi}{\nat} & = & 1_{\nat} \\
+  \restr{\varphi}{\ent \setminus \nat} & = & -1_{\ent \setminus \nat}
+\end{array}
+\]
 \end{ncor}
 
 \begin{nth}[Teorema de Euclides para polinomios]
 		$\forall f,g \in A[x]$ donde $g \neq 0 $ y su coeficiente líder es una unidad de $A$, existen polinomios:
-	
+
 	\[
 	q,r \in A[x] : f = gq + r \quad con \quad
 	 \begin{cases}
@@ -1161,81 +1047,83 @@ $\ent$ es un dominio de Euclides con $\varphi = \abs{\;\cdot\;}: \ent \to \nat$
 	y que son únicos.
 \end{nth}
 
-\newpage
+%\newpage
 \begin{proof}
-	
-	Sean : $f = \sum_{i=0}^n a_i x^i$ y $g = \sum_{i=0}^m b_i x^i$ con $b_m \in U(A)$
-	
+
+	Sean $f = \sum_{i=0}^n a_i x^i$ y $g = \sum_{i=0}^m b_i x^i$ con $b_m \in U(A)$
+
 	\begin{itemize}
-	
-	\item Si $n< m \implies f = g * 0 + f \implies \exists q,r\in A[x] : f = gq+r$ con $q=0$ y $r = f$
-	
+
+	\item Si $n< m \implies f = g * 0 + f \implies \exists q,r\in A[x] : f = gq+r$ con $q=0$ y $r = f$.
+
 	\item Si $n\geq m$, razonamos por inducción en $n=gr(f)$
 	\begin{itemize}
-	
-	\item Si $n=0 \implies m = 0$ por tanto $f=a_0$ y $g=b_0$ pero con $b_0 \in U(A)$
-	
+
+	\item Si $n=0 \implies m = 0$ por tanto $f=a_0$ y $g=b_0$ con $b_0 \in U(A)$
+
 	De esta forma:
-	
+
 	\[
 	f = a_0 = \frac{a_0}{b_0}b_0 = \frac{a_0}{b_0}b_0 + 0 = g\frac{a_0}{b_0}
 	\]
-	
-	Podemos tomar como hemos visto $q=\frac{a_0}{b_0}$ y $r=0$ y ya tenemos el q y r que buscábamos.
-	
-	\item Si $n> 0$, haremos la inducción
-	
-	Vamos a considerar que $\frac{a_n}{b_m} = a_n b_m^{-1} \in A$. Tomamos entonces $x^{n-m}$.
-	
-	Consideramos $x^{n-m}g(x)$ y establecemos $f_1 = f - \frac{a_n}{b_m}x^{n-m}g$. Recordaremos esto como $(1)$.
-	
-	Entonces, podemos ver que $gr(f_1) < n$. Por hipótesis de inducción $\implies \exists q,r \in A[x] : f_1 = gq_1 + r$, que consideraremos como (2).
-	
+
+	Podemos tomar como hemos visto $q=\frac{a_0}{b_0}$ y $r=0$ y tenemos el $q$ y $r$ que buscábamos.
+
+	\item Si $n> 0$, haremos la inducción.
+
+	  Consideramos $x^{n-m}g(x)$ y establecemos
+
+          $$f_1 = f - \frac{a_n}{b_m}x^{n-m}g\ \ (1)$$
+
+	  Entonces, podemos ver que $gr(f_1) < n$. Por hipótesis de inducción
+
+          $$ \exists q,r \in A[x] : f_1 = gq_1 + r \ \ (2)$$
+
 	Ahora, utilizando (1) y (2):
-	
+
 	 \[
-	 \implies f = f_1 +\frac{a_n}{b_m}x^{n-m}g = gq_1 + \frac{a_n}{b_m}x^{n-m}g +r = 
+	 \implies f = f_1 +\frac{a_n}{b_m}x^{n-m}g = gq_1 + \frac{a_n}{b_m}x^{n-m}g +r =
 	 \]
-	 
+
 	 \[
-	 g(q_1 + \frac{a_n}{b_m}x^{n-m}) + r
+	 g\left(q_1 + \frac{a_n}{b_m}x^{n-m}\right) + r
 	 \]
-	
-	Encontramos así el q y el r que queríamos, probando la existencia.
-	
+
+	Encontramos así el $q$ y el $r$ que queríamos, probando la existencia.
+
 	Vamos a probar ahora la unicidad.
-	
+
 	Sea $f=gq+r$ y $f= gq' +r'$ con
 	\[
     \begin{cases}
 		 r,r' \neq 0\\
 		  \quad o \\
- gr(r) < m 
+ gr(r) < m
  \\ gr(r') < m
-		   
+
 \end{cases}
 	\quad
 	\]
-	
+
 	Ahora, si $r\neq r'\implies r-r' \neq 0 \implies r-r' = g(q-q') \neq 0$.
 	Vemos que $gr(r-r') = gr(g)+ gr(q-q')$.
-	
+
  Como $q-q' \neq 0 \implies gr(q-q') \geq 0 $ y de esta forma: $gr(g)+ gr(q-q') \geq gr(g) = m$.
- 
+
  Sin embargo, habíamos dicho que $r,r'$ eran ambas de grado menor que m luego $gr(r-r') < m$, llegando a una contradicción y probando así el resultado.
-\end{itemize} 
-	
-	
+\end{itemize}
+
+
 \end{itemize}
 \end{proof}
 
 \begin{ncor}
-	Si $K$ es un cuerpo, entonces $K[x]$ es un D.E con función euclídea:
-	
+	Si $K$ es un cuerpo, entonces $K[x]$ es un D.E. con función euclídea:
+
 	\[
 	gr: K[x]-\{0\} \to \nat
 	\]
-	
+
 (función que asigna a cada polinomio su grado)
 \end{ncor}
 
@@ -1249,49 +1137,49 @@ $\ent$ es un dominio de Euclides con $\varphi = \abs{\;\cdot\;}: \ent \to \nat$
 	\[
 	\varphi: \ent[\sqrt{n}] \to \nat : \varphi(a+b\sqrt{n}) = \abs{N(a+b\sqrt{n})} = \abs{a^2 - nb^2}
 	\]
-	
-	
+
+
 \end{nth}
 \begin{proof}
 	Probaremos que $\forall \alpha, \beta \in \ent[\sqrt{n}]$ con $\beta \neq 0 \quad \quad \exists q,r \in \ent[\sqrt{n}] : \alpha = \beta q + r$ con $r=0$ ó $\abs{N(r)} < \abs{N(\beta)}$:
-	
+
 	\begin{itemize}
 	\item Si $\abs{N(\alpha)} < \abs{N(\beta)}$ Basta tomar $\alpha  =  \beta * 0 + \alpha$
-	
+
 	\item Si $\abs{N(\alpha)} \geq \abs{N(\beta)}$ consideramos entonces  $\frac{\alpha}{\beta} \in \rac[\sqrt{n}]$.
-	
+
 	Ahora, $\frac{\alpha}{\beta} = a_1 + a_2\sqrt{n}$ con $a_1, a_2 \in \rac $. Esos $a_1,a_2$ se obtienen usando el conjugado de $\beta$.
-	
+
 	Sean $q_1,q_2 \in \ent : \abs{a_1-q_1}\leq 1/2$ y $\abs{a_2-q_2}\leq 1/2$. Esto quiere decir que $q_1$ y $q_2$ son los enteros más cercanos a $a_1,a_2$ respectivamente.
-	
+
 	Sea $q=q_1+q_2\sqrt{n}$  y $r = \alpha - \beta q$.
-	
+
 	Tomo $\abs{N(r)} = \abs{N(\alpha - \beta q)} = \abs{N(\beta(\frac{\alpha}{\beta}+ q))} = \abs{N(\beta)}\abs{N(\frac{\alpha}{\beta}+ q)}$
-	
+
 	Queremos probar que: $\abs{N(\beta)}\abs{N(\frac{\alpha}{\beta}+ q)} < \abs{N(\beta)}$.
-	
+
 	Equivalentemente, queremos probar que:
 	\[
 	  \abs{N(\frac{\alpha}{\beta}+ q)} < 1 \implies \abs{N(a_1+a_2\sqrt{n}-q_1 -q_2\sqrt{n})} = \abs{N((a_1-q_1) + (a_2-q_2)\sqrt{n})} = \]
 	  \[
 	 = \abs{(a_1-q_1)^2 - n(a_2-q_2)^2} = m \in \rac
 	 \]
-	 
+
 Vamos a probarlo para los casos que habíamos anunciado en el teorema, $n = -1,-2,2,3$
 
 \begin{itemize}
 	\item $n=-1 \implies m= (a_1-q_1)^2 +(a_2-q_2)^2 \leq 1/4 + 1/4 = 1/2 \implies \abs{m} < 1$
-	
+
 	\item $n=-2 \implies m = (a_1-q_1)^2 +2(a_2-q_2)^2 \leq 1/4 + 1/2 = 3/4 \implies \abs{m} < 1$
-	
+
 	\item $n=2 \implies m = |(a_1-q_1)^2 -2(a_2-q_2)^2 |\implies -1/2 \leq m \leq 1/4 \implies \abs{m} < 1$
-	
+
 	\item $n=3 \implies m = |(a_1-q_1)^2 -3(a_2-q_2)^2| \implies -3/4 \leq m \leq 1/4 \implies \abs{m} < 1$
 \end{itemize}
 
 Por lo que queda probado el resultado para esos casos.
-	
-\end{itemize} 
+
+\end{itemize}
 \end{proof}
 
 \begin{ejemplo}
@@ -1322,31 +1210,56 @@ Viéndose así que el ejemplo está correcto.
 
 \end{ejemplo}
 
-\section{Máximo Común divisor. Dominios de Ideales principales. Ecuaciones Diofánticas en D.I.P.}
+\section{Máximo común divisor. Dominios de ideales principales. Ecuaciones diofánticas en D.I.P.}
 
 
 \begin{ndef}[Máximo común divisor]
 
-Dados $a,b \in A$ decimos que un elemento $d\in A$ es un mcd de a y b ($d=(a,b))$ si el conjunto de los divisores comunes a $a$ y a $b$ coinciden con el conjunto de los divisores de d. Esto es:
+Sea $A$ un anillo conmutativo. Dados $a,b \in A$ decimos que un elemento $d\in A$ es un \textit{mcd} de $a$ y $b$ ($d=(a,b)$) si el conjunto de los divisores comunes a $a$ y a $b$ coinciden con el conjunto de los divisores de $d$. Esto es:
 
 \begin{nlist}
 	\item $d/a$ y $d/b$
-	\item Si $c/a$ y $c/b \implies c/d$ 
-\end{nlist} 
-	
+	\item Si $c/a$ y $c/b \implies c/d$
+\end{nlist}
+
 \end{ndef}
 
-Propiedades:
+\begin{ndef}[Primos relativos]
+  Si $(a,b) = 1$, $a$ y $b$ se dicen \emph{primos relativos}.
+\end{ndef}
+
+\begin{ndef}[Ideal]
+  En un anillo conmutativo se llama ideal a un subconjunto suyo no vacío que es cerrado para la suma y que ``absorbe'' el producto en todo
+  el anillo. Formalmente, si $A$ es un anillo conmutativo, un subconjunto $\emptyset \not= I\subseteq A$ es un ideal si
+	\begin{nlist}
+		\item $a,b\in I \implies a+b\in I$
+		\item $a\in I, x\in A \implies ax \in I$
+	\end{nlist}
+\end{ndef}
+
+\begin{ndef}[Ideal principal]
+  Sea $A$ un anillo conmutativo. Si $a\in A$,
+
+  $$aA=(a)=\{ax: x\in A\}$$
+
+  es el ideal principal generado por $a$.
+\end{ndef}
+
+\begin{ndef}[DIP: dominio de ideales principales]
+	Un dominio de ideales principales es un dominio de integridad en el cual todo ideal es principal.
+\end{ndef}
+
+
+
+En un DIP, el máximo común divisor es único salvo asociados, y verifica algunas propiedades:
 \begin{nlist}
 
 	\item $(a,b) = (b,a)$
-	
+
 	\item Si $a \sim a'$ asociados y $b \sim b'$ también $\implies (a,b) = (a',b')$
-	
+
 	\item $(a,b) = a \iff a/b$. En particular, $(a,0) = a, \quad  \quad (a,1) = 1, \quad (a,u) = 1 \iff u \in U(A)$
-	
-	\item Si $(a,b) = 1$, a y b se dicen \underline{primos relativos}
-	
+
 	\item $((a,b),c) = (a,(b,c)) = (a,b,c)$
 	\item $(ac,bc) = c(a,b)$\\
 	\begin{proof}
@@ -1358,31 +1271,31 @@ Propiedades:
 	d/b \implies dc/bc\\
 \end{rcases} \implies dc/e \implies \exists u \in A : e = dcu
 	\]
-	
+
 	$\begin{rcases}e / ac \implies \exists x \in A : ac = ex \implies ac = dcux \implies a = dux\\
 	e/bc\implies \exists y \in A : bc = ey \implies bc = dcuy \implies b = duy\end{rcases} \implies \begin{rcases}du/a\\du/b\end{rcases} du/d \\\implies \exists v \in A : d = duv \stackrel{d\ne 0}{\implies} 1=uv \implies u\in U(A) \implies e \sim  dc$
 
-	
+
 \end{proof}
 
-	\item Si $c/a$ y $c/b\implies (\frac{a}{c},\frac{b}{c}) =  \frac{(a,b)}{c}$
-	
+	\item Si $c/a$ y $c/b\implies \left(\frac{a}{c},\frac{b}{c}\right) =  \frac{(a,b)}{c}$
+
 	\item
-	$(\frac{a}{(a,b)}, \frac{b}{(a,b)}) = 1$
-	
+	$\left(\frac{a}{(a,b)}, \frac{b}{(a,b)}\right) = 1$
+
 	\item Si $a/bc \implies a/(a,b)c$\\
 	\begin{proof}
 	Supongamos que $\exists x \in A : bc = ax  \implies (a,b)c = (ac,bc) = (ac,ax) = a(c,x) \implies a/(a,b)c$
-	
+
 \end{proof}
 
-\item Si $a/bc$ y $(a,b) = 1 \implies a/c$ 
+\item Si $a/bc$ y $(a,b) = 1 \implies a/c$
 
 \item Si $a/c$ y $b/c$ y $(a,b) = 1 \implies ab/c$
 	\item Si $(a,b)=1 $ y $a/bc \implies a/c$
 	\item Si $a/c$ , $b/c$ y $(a,b)=1 \implies ab/c$
 	\item Si $a/c \implies \exists x$ : $c=ax$. Y $b/c \implies b/ax$ con $(a,b)=1 \implies b/x \implies \exists y$ : $x=by$
-	Entonces: 
+	Entonces:
 	\[
 		\begin{cases}
 			c=ax \\
@@ -1392,16 +1305,16 @@ Propiedades:
 	\item Si $(a,b)=1$ y $(a,c)=1 \iff (a,bc)=1$ \\
 	\begin{proof}
 	$\boxed{\implies}$ Sabiendo que: $(ac,bc)=c(a,b)=c$
-	
+
 	Tenemos que: $1=(a,c)=(a,(ac,bc))=((a,ac),bc)=(a(1,c),bc)=(a,bc)$, por tanto: $1=(a,bc)$
-	
+
 	$\boxed{\Longleftarrow}$ $1=(a,bc)=(a(1,c),bc)=((a,ac),bc)=(a,(ac,bc))=(a,c(a,b))=(\frac{a}{(a,b)}(a,b),c(a,b))=(a,b)(\frac{a}{(a,b)},c)=1 \implies (a,b)\in U(A)\implies (a,b)=1\implies (a,c)\in U(A)\implies (a,c)=1$
 \end{proof}
 	\item $(a,b)=(a-kb,b)$ $\forall k \in A$
 	\item Si $d/b$, $d/a \iff d/(a-kb)$ \\
 	\begin{proof}
 	$\boxed{\implies}$ Por la propiedad de combinación lineal se confirma.
-	
+
 	$\boxed{\Longleftarrow}$ Igual que la otra implicación pero tomando $a=(a-kb)+kb$
 	\end{proof}
 \end{nlist}
@@ -1411,24 +1324,10 @@ En $\mathbb{Z}[\sqrt{n}]$ si $\alpha$ es un divisor propio de $\beta \implies N(
 \end{nota}
 
 \begin{ejemplo}
-Realizamos un ejemplo en el que se puede probar que, usando la Nota anterior, 3 y $(1+\sqrt{5})$ son irreducibles	
+Realizamos un ejemplo en el que se puede probar que, usando la Nota anterior, 3 y $(1+\sqrt{5})$ son irreducibles
 \end{ejemplo}
 
 
-\begin{ndef}[Ideal/Ideal Principal]
-	En un anillo se llama ideal a un subconjunto suyo no vacío que es cerrado para la suma y para múltiplos. Dicho de otra manera: \\
-	Si A es un anillo conmutativo, un subconjunto $\emptyset \not= I\subseteq A$, es un ideal si:
-	\begin{nlist}
-		\item $a,b\in I \implies a+b\in I$
-		\item $a\in I \implies ax \in I$
-	\end{nlist}
-	Si $a\in A$, $aA=(a)=$\{$ax: x\in A$\} es el ideal principal generado por a.
-\end{ndef}
-
-
-\begin{ndef}[DIP: Dominio de ideales principales]
-	Un DIP es un anillo en el cual todo ideal es principal.
-\end{ndef}
 \begin{nth}
 	Todo dominio euclídeo es un dominio de ideales principales: $DE \implies DIP$
 \end{nth}
@@ -1437,52 +1336,62 @@ Realizamos un ejemplo en el que se puede probar que, usando la Nota anterior, 3 
 	\begin{itemize}
 		\item Caso $I=\{ 0 \} = (0)= 0A \implies $ trivial
 		\item Consideremos $I\neq \{ 0\}$, $\emptyset \neq \{ \varphi (x): x\in I, x\neq 0\} \subseteq \mathbb{N}$, sea $\varphi (b)$ el mínimo de este conjunto, donde $b\in I, b\neq 0 \implies I=(b)$. Probamos esto con la doble inclusión:
-		$\boxed{\subseteq}$ $b\in I \implies (b)\subseteq I$ \\
-		$\boxed{\supseteq}$ $a\in I$; $\exists q,r\in A: a=bq+r$. Supongamos que $r\neq 0 \implies r=a-bq\in I$ con $\varphi (r) < \varphi (b)$, esto es imposible puesto que b es el mínimo, luego $r=0 \implies a\in (b) \implies I\subseteq (b)$
+		  $\boxed{\subseteq}$ $b\in I \implies (b)\subseteq I$.
+
+		$\boxed{\supseteq}$ Tomamos $a\in I$, por tanto $\exists q,r\in A: a=bq+r$. Supongamos que $r\neq 0 \implies r=a-bq\in I$ con $\varphi (r) < \varphi (b)$, esto es imposible puesto que $\varphi(b)$ es el mínimo, luego $r=0 \implies a\in (b)$.
 	\end{itemize}
 \end{proof}
 
 
 \begin{nth}
 	Si $A$ es un DIP, $\forall a,b \in A \quad \exists d = (a,b)$. Además, $\exists u,v \in A : d = au+bv$. A esta igualdad se le llama Identidad de Bezout, y u y v son los coeficientes de Bezout, que no son únicos.
-	
+
 \end{nth}
 
 \begin{proof}
 	Sea $\emptyset \ne I(a,b) = \{ax + by : x,y \in A\} \subseteq A$
-	
+
 	Vemos que:\\
-$(ax+by)+(ax'+by') = a(x+x') + b(y+y') \implies$ cerrado para la suma.\\
-$(ax+by)z = a(xz)+b(xz)\implies$ cerrado para el producto
+$(ax+by)+(ax'+by') = a(x+x') + b(y+y') \in I(a,b) \implies$ cerrado para la suma.\\
+$(ax+by)z = a(xz)+b(xz) \in I(a,b) \implies$ cerrado para el producto
 
 Ahora, como es un ideal $\implies \exists d\in A : I(a,b) = (d)$ con $(d)=\{dx: x \in A\}$.
 $d\in I(a,b) \implies \exists u,v \in A : d=au+bv$.
 
-Ahora, veamos que $d$ es mcd de a y b.\\
+Ahora, veamos que $d$ es \textit{mcd} de $a$ y $b$.\\
 $a\in I(a,b) \implies a \in (d) \implies d/a$\\
 $b\in I(a,b) \implies b \in (d) \implies b/d$
 
-Por lo que d es divisor común. Ahora, sea $c: c/a$ y $c/b \implies c/(au+bv=d) \implies c/d$.
-Hemos encontrado así un divisor común que es dividido por cualquier divisor común, por tanto es el mcd. 
+Por lo que $d$ es divisor común. Ahora, sea $c: c/a$ y $c/b \implies c/(au+bv=d) \implies c/d$.
+Hemos encontrado así un divisor común que es dividido por cualquier divisor común, por tanto es el \textit{mcd}.
 \end{proof}
 
 \subsection{Ecuaciones diofánticas en D.I.P.}
 
-En cualquier anillo, llamamos ecuaciones diofánticas a aquellas que son de la forma:
+En cualquier anillo $A$, llamamos ecuaciones diofánticas a aquellas que son de la forma:
 \[
-ax +by  = c
+ax +by  = c \quad a,b,c \in A
 \]
+
+\begin{nprop}[Lema de Euclides]
+  Sean $a,b,c \in A$, con $A$ un D.I.P., tales que $c/ab$ y $(c,a)=1$. Entonces $c/b$.
+\end{nprop}
+
+A continuación vamos a estudiar las soluciones de las ecuaciones diofánticas en un D.I.P., en tres pasos.
+Comenzaremos por dar una condición suficiente y necesaria para que una ecuación tenga solución,
+fácilmente verificable; en ese caso, daremos una solución particular y a partir de ella, la general.
+
 \begin{nlist}
 	\item Sea $d=(a,b)\implies$ entonces la ecuación tiene solución $\iff d/c$
-	\item Supongamos que tiene solución. Supongamos también que $d= au+bv \circledast$
+	\item Supongamos que tiene solución. Supongamos también que $d= au+bv$
 \[
 \frac{a}{d}= a',\quad \frac{b}{d}=b',\quad \frac{c}{d}=c'\implies da'x + db'y = dc' \implies d(a'x+b'y)=dc'\]
 \[ \implies a'x+b'y = c'
 \]
-Esta ecuación tiene las mismas soluciones que la ecuación diofántica inicial. Llamaremos a esta la ecuación 'reducida'.\\
-$\circledast\quad d/a ,\quad d/b \implies 1=a'u +b 'v $. Podemos hallar así los coeficientes de Bezout.\\
+Esta ecuación tiene las mismas soluciones que la ecuación diofántica inicial. Llamaremos a esta la ecuación ``reducida''.\\
 
-Como $c'= a'(c'u)+b'(c'v)$ y ahí tenemos una solución particular. Conociendo esta, podemos hallar TODAS las soluciones. Si llamamos $x_0 =c'u$ e $y_0 = c'v$
+
+Como $c'= a'(c'u)+b'(c'v)$ y ahí tenemos una solución particular. Conociendo esta, podemos hallar todas las soluciones. Si llamamos $x_0 =c'u$ e $y_0 = c'v$
 
 \item Solución general \[\begin{cases}
 	x = x_0 +kb'\\
@@ -1493,20 +1402,20 @@ Si $(x_0,y_0)$ es la solución particular, entonces la solución general es el c
 \begin{proof}[Demostración de iii)]
 
 \[
-a'x + b'y = a'(x_0 +kb') + b'(y_o - ka') = a'x_0 + a'kb' + b'y_0 - a'kb' = 
+a'x + b'y = a'(x_0 +kb') + b'(y_0 - ka') = a'x_0 + a'kb' + b'y_0 - a'kb' =
 \]
 \[
 a'x_0 +b'y_0 = c'
 \]
 
-Suponer ahora que (x,y) es cualquier solución:$\implies a'x +b'y = c'$. Por hipótesis: $a'x_0 +b'y_0 = c'$. Si restamos esas dos ecuaciones queda: $a'(x-x_0) +b(y-y_0) = 0 \implies a'(x-x_0) = b(y_0-y)$. Denotamos a esta ecuación como 3.
+Suponer ahora que $(x,y)$ es cualquier solución:$\implies a'x +b'y = c'$. Por hipótesis: $a'x_0 +b'y_0 = c'$. Si restamos esas dos ecuaciones queda: $a'(x-x_0) +b(y-y_0) = 0 \implies a'(x-x_0) = b(y_0-y)$. Denotamos a esta ecuación como 3.
 
 Ahora, $b'/(a'(x-x_0))$ pero $b'$ y $a'$ son primos entre sí, luego $b'/(x-x_0)\implies \quad \exists k \in A : (x-x_0) = kb'$. Llamamos a esta ecuación 1, y además despejando en ella vemos $x = x_0 + kb'$, una solución de x.
 
 Análogamente, podemos ver que $a/(b(y_0-y)) \implies a/(y_0-y) \implies \exists h \in A: y_0 -y = a'h \implies y = y_0 - ha'$, solución de y. Llamamos a esa ecuación la 2.
 
 Falta probar que $k = h$, pero sustituyendo las ecuaciones 1 y 2 en 3, vemos que $a'kb'  = b'ha' \implies k = h$
-	
+
 \end{proof}
 
 \end{nlist}
@@ -1515,16 +1424,16 @@ Falta probar que $k = h$, pero sustituyendo las ecuaciones 1 y 2 en 3, vemos que
 Supongamos que tenemos dos elementos $a,b$ y queremos hallar su mcd.
 
 \begin{itemize}
-	
+
 	\item Si $b=0 \implies (a,b) = (a,0) = a$. Igual si $a=0$
-	
+
 	\item Si $a \ne 0 \ne b$
-	
+
 	Construimos una sucesión: $r_1,r_2,\cdots, r_n, \cdots , r_m, r_{m+1} = 0$.\\
-	Recordamos que A es un D.E con función euclídea $\varphi : A-\{0\} \to \nat $\\
+	Recordamos que A es un D.E. con función euclídea $\varphi : A-\{0\} \to \nat $\\
 	Si $\varphi(a) \geq \varphi(b)\implies r_1 = a$ y $r_2 = b$. En el otro caso, lo hacemos al revés, es decir  $r_1 = b $ y $r_2 = a$.\\
 	Si $r_{n-1} \ne 0 \implies r_n= $ resto de dividir $r_{n-2}$ entre $r_{n-1} \implies$
-	
+
 	\[
 	r_{n-2} = r_{n-1}q_{n-2} + r_n \begin{cases}
 	 r_n = 0 \\
@@ -1546,25 +1455,24 @@ d = r_m = au + bv
 \end{cases}
 \quad
 \]
-	
+
 	\end{itemize}
 \end{nprop}
 
 \begin{ejemplo}
-	Un agricultor lleva al mercado 80 sandías y 30 melones. La venta le ha sido rentable, pues ha vendido cada pieza por más de 3 euros, que es lo que le costó producirlos. Vuelve a casa con 600 euros. Calcular precio de sandías y melones.\\
-	(El ejercicio se resuelve resolviendo la ecuación diofántica $80x +30y = 600$ , hallando primero la solución general que viene dada por $x = -60 + 3k$ ; $y = 180 - 8k$ y luego tomando que x e y tienen que ser mayores que 3, viendo que la solución es que $k=22$).
+  Un agricultor lleva al mercado 80 sandías y 30 melones. La venta le ha sido rentable, pues ha vendido cada pieza por más de 3 euros, que es lo que le costó producirlos. Vuelve a casa con 600 euros. Calcular precio de sandías y melones.
+
+	(El ejercicio se resuelve resolviendo la ecuación diofántica $80x +30y = 600$ , hallando primero la solución general que viene dada por $x = -60 + 3k$ ; $y = 180 - 8k$ y luego tomando que $x$ e $y$ tienen que ser mayores que 3, viendo que la solución es que $k=22$).
 \end{ejemplo}
 
 \section{Mínimo común múltiplo. Ecuaciones en congruencias}
 \begin{ndef}[Mínimo común múltiplo]
-	Sea $a, b \in A =DI \\ m \in A $ es un mínimo común múltiplo de a y b, notando por $m = mcm(a,b) = [a,b]$  \\
-Si se verifica que el conjunto de los múltiplos comunes a ambos es igual al conjunto de múltiplos de $m$. Esto implica: 
+	Sean $A$ un D.I., y $a, b \in A$. Entonces $m$ es un mínimo común múltiplo de $a$ y $b$,y lo notamos $m = mcm(a,b) = [a,b]$,
+si se verifica que $m$ es un múltiplo común de de $a$ y $b$ y que el conjunto de los múltiplos comunes a ambos es igual al conjunto de múltiplos de $m$, formalmente:
 \begin{enumerate}
-\item $a/m \ y \ b/m$
-\item Si $a/c$ y $b/c \Rightarrow m/c$ \\
+\item $a/m \text{ y } b/m$.
+\item Si $a/c$ y $b/c \Rightarrow m/c$.
 \end{enumerate}
-
-Del mismo modo se define para $[a_1, a_2, ..., a_r],r \in \mathbb{N}$.
 
 \textbf{Propiedades. }
 \begin{nlist}
@@ -1576,7 +1484,7 @@ Del mismo modo se define para $[a_1, a_2, ..., a_r],r \in \mathbb{N}$.
 \item $[ac,bc] =[a,b]c$\\
 
 \begin{proof}[Demostración del último.]
-	
+
 	Supongamos que $c\ne 0$, pues si no es trivial.\\
 	Como $c/ab\implies c/[ca,cb] \implies \exists q \in A : [ac,bc] = cq\quad (1)$\\
 	Por otro lado, sea $m = [a,b]; \implies a/m \quad y \quad b/m \implies ac/mc \quad y \quad bc/mc \implies cq/mc$.\\
@@ -1596,7 +1504,7 @@ Del mismo modo se define para $[a_1, a_2, ..., a_r],r \in \mathbb{N}$.
 	Consideramos $aA = (a)$, el ideal principal generado por a. De la misma forma, consideramos $bA = (b)$, el ideal principal generado por b.\\
 	Ahora, tomamos $aA \cap bA \implies$ los números que están simultáneamente en los múltiplos de ambos.
 	Ahora, esto es cerrado para sumas y para productos, por tanto también es un ideal.\\
-	Por último, por estar en un DIP $\implies$ el ideal es principal y por tanto:\\ $\implies aA\cap bA = mA \implies m = [a,b]$ 
+	Por último, por estar en un DIP $\implies$ el ideal es principal y por tanto:\\ $\implies aA\cap bA = mA \implies m = [a,b]$
 \end{proof}
 
 
@@ -1633,16 +1541,16 @@ $\implies d_1d /d \implies \exists x \in A : d = dd_1 x \implies 1 = d_1 x \impl
 $\implies m,k$ son asociados y como k era $mcd(m,m1) \implies$ m también lo es.
 \end{proof}
 
-\subsection{ Congruencias}
-Sea A un anillo, $I \subset A$ un ideal. $a,b \in A$ son 'congruentes módulo I' si $a-b \in I\\$(Equivalentemente, si $\exists x \in I : a = b+x$). La notaremos:
+\subsection{Congruencias}
+Sean $A$ un anillo, $I \subset A$ un ideal. $a,b \in A$ son ``congruentes módulo I'' si $a-b \in I$. Equivalentemente, si $\exists x \in I : a = b+x$. La notaremos:
 \[
-a \equiv b mod(I) \quad o \quad a \equiv_ I b
+a \equiv b \mod(I) \quad \text{ o } \quad a \equiv_I b
 \]
 Otra notación. En un DIP $I = (m) = mA$
 \[
-a \equiv bmod(mA) \to^{notacion} a \equiv b mod(m) ( \iff m/a-b \iff a-b = qm)
+a \equiv b \mod(mA) \to^{\text{notación}} a \equiv b \mod(m)\ (\iff m/a-b \iff a-b = qm)
 \]
-Para algún $q$ en el último paso, y en ese caso $\iff a = b+qm$ para algún q.\\
+Para algún $q$ en el último paso, y en ese caso $\iff a = b+qm$ para algún $q$.
 
 \textbf{Propiedades}
 
@@ -1650,64 +1558,67 @@ Para algún $q$ en el último paso, y en ese caso $\iff a = b+qm$ para algún q.
 	\item $\equiv$ es una relación de equivalencia.
 	\begin{itemize}
 		\item $a \equiv a$
-		\item $a \equiv b \iff b \equiv a$ (dem:\ $a-b = (-1)(b-a) \in I$)
-		\item $a \equiv b$ y $b \equiv c \implies a \equiv c$ (dem:\ $a-b\in I, b-c \in I \implies a-c \in I$)
+		\item $a \equiv b \iff b \equiv a$ (dem.:\ $a-b = (-1)(b-a) \in I$)
+		\item $a \equiv b$ y $b \equiv c \implies a \equiv c$ (dem.:\ $a-b\in I, b-c \in I \implies a-c \in I$)
 	\end{itemize}
-	
+
 	\item $a\equiv b \iff \forall c : a+ c \equiv b + c$
-	\item $a\equiv b$ y $c \equiv d \implies a+c \equiv b + d$ (dem: usando $(ii)$ y $(i)$)
+	\item $a\equiv b$ y $c \equiv d \implies a+c \equiv b + d$ (dem.: usando $(ii)$ y $(i)$)
 	\item $a \equiv 0 \iff a \in I$
-	\item $a \equiv b \implies \forall c : ac  \equiv bc$
-	\item $a \equiv b$, $c \equiv d \implies ac \equiv bd$ (dem:\ $(v)$ y luego uso\ $(i)$)
-	\item $ac \equiv bc mod(mc) $ y $c \ne 0 \implies a\equiv b mod(m)$\\
+	\item $a \equiv b \implies \forall c\in A : ac  \equiv bc$
+	\item $a \equiv b$, $c \equiv d \implies ac \equiv bd$ (dem.:\ $(v)$ y luego uso\ $(i)$)
+	\item $ac \equiv bc \mod(mc) $ y $c \ne 0 \implies a\equiv b \mod(m)$\\
 
 \begin{proof}
-	$ac \equiv bc mod(mc) \iff mc/(a-b)c \iff^{c\ne 0} m/a-b \iff a\equiv b mod(m)$
+	$ac \equiv bc \mod(mc) \iff mc/(a-b)c \iff^{c\ne 0} m/a-b \iff a\equiv b \mod(m)$
 \end{proof}
-	\item Si $(c,m) = 1$, entonces: $ac\equiv bcmod(m) \iff a \equiv bmod(m)$\\
+	\item Si $(c,m) = 1$, entonces: $ac\equiv bc\mod(m) \iff a \equiv b\mod(m)$\\
 	\begin{proof}
 	$ac\equiv bc \implies m/(a-b)c \implies$, como $(c,m) = 1 \implies m/a-b$
 \end{proof}
-	
-	
+
+
 \end{nlist}
 
-\subsection{Ecuaciones en Congruencias}
+\subsection{Ecuaciones en congruencias}
 \begin{nprop}[Ecuaciones en congruencias]
 
-Estudiaremos la ecuación $ax \equiv b mod(m)$ (1)
+  Estudiaremos la ecuación
+
+  $$ax \equiv b \mod(m) \  \ (1)$$
+
 \begin{itemize}
-	\item Si $m = 0 \implies$ la ecuación es $ax = b$
-	\item Si $a = 0\implies $ la ecuación es $0x \equiv 0 mod(m) \implies$ tiene solución: todo el anillo
-	\item $a,b \ne 0$
+	\item Si $m = 0 \implies$ la ecuación es $ax = b$.
+	\item Si $a = 0\implies $ la ecuación es $0x \equiv 0 \mod(m) \implies$ tiene solución: todo el anillo.
+	\item $a,b \ne 0$.
 	\begin{enumerate}
-	
-	\item Si $d = (a,m)$ la ecuación tiene solución $\iff  d/b$\\
-	\begin{proof}
-	(1), tiene solución $\iff \exists x \in A : ax \equiv bmod(m) \iff \exists x \in A : m/ax-b \iff \exists x,y \in A : (ax-b) = my \iff \exists x,y \in A: ax -my  = b$, que es una ecuación diofántica, que sabemos ya que tiene solución $\iff d =(a,m) \ y  \ d/b$
+
+	\item Si $d = (a,m)$ la ecuación tiene solución $\iff  d/b$. \\
+        \begin{proof}
+	(1) tiene solución $\iff \exists x \in A : ax \equiv b\mod(m) \iff \exists x \in A : m/ax-b \iff \exists x,y \in A : (ax-b) = my \iff \exists x,y \in A: ax -my  = b$, que es una ecuación diofántica, que sabemos ya que tiene solución $\iff d =(a,m) \ y  \ d/b$.
 \end{proof}
 	\item  Supongamos que tiene solución. Consideramos $a'= \frac{a}{d}$, $b'= \frac{b}{d}$ y $m' = \frac{m}{d}$.
-	
-	Ahora, usando $(1) = da'x \equiv db'mod(dm')$, esta es equivalente a $a'x \equiv b' mod(m')$ a la que llamaremos (2). Esta es su reducida. Tiene las mismas soluciones pero $(a',m') = 1$.
-	
+
+	Ahora, usando (1), $da'x \equiv db'\mod(dm')$, esta es equivalente a $a'x \equiv b' \mod(m')$ a la que llamaremos (2). Esta es su reducida. Tiene las mismas soluciones pero $(a',m') = 1$.
+
 	Podemos hallar los coeficientes de Bezout: $u,v \in A :  1 = a'u + b'v$. Esto nos lleva a ver que:
 	\[
-	a'u \equiv 1 mod(m') \implies a'ub' \equiv b' mod(m')
+	a'u \equiv 1 \mod(m') \implies a'ub' \equiv b' \mod(m')
 	\]
 	Y así tenemos que $x_0 = ub'$ es una solución particular.
-	
-	\item La solución general es de la forma: $x = x_0 +km' \quad k \in A$. Equivalentemente, es de la forma $x \equiv x_0 mod(m')$\\
+
+	\item La solución general es de la forma: $x = x_0 +km' \quad k \in A$. Equivalentemente, es de la forma $x \equiv x_0 \mod(m')$\\
 	\begin{proof}
-	Si $x_0$ es una solución particular $\implies a'x_0 \equiv b'mod(m')$\\
-	Si sustituimos $x_0$ por x pues son congruentes obtenemos: $a'x \equiv b' mod(m')$.\\
+	Si $x_0$ es una solución particular $\implies a'x_0 \equiv b'\mod(m')$\\
+	Si sustituimos $x_0$ por $x$ pues son congruentes obtenemos: $a'x \equiv b' \mod(m')$.\\
 	Vamos a suponer que:
 	\[
 	\begin{rcases}
-	a'x \equiv b' mod(m')\\
-	a' x_0 \equiv b' mod(m')
-\end{rcases} \implies a'x \equiv a'x_0 mod(m')
+	a'x \equiv b' \mod(m')\\
+	a' x_0 \equiv b' \mod(m')
+\end{rcases} \implies a'x \equiv a'x_0 \mod(m')
 	\]
-Por la transitividad. Pero $a'$ y $m'$ son primos entre sí, luego $x \equiv x_0 mod(m')$
+Por la transitividad. Pero $a'$ y $m'$ son primos entre sí, luego $x \equiv x_0 \mod(m')$
 \end{proof}
 
 \item Diremos que una solución particular $x_1$ es óptima si $x_1 = 0$ ó $\varphi(x_1) < \varphi(m')$ siendo $\varphi$ la función euclídea de A.\\
@@ -1717,39 +1628,38 @@ x_0 = m'q + x_1 \begin{cases}
 	x_1 = 0\\
 	o\\
 	\varphi(x_1) < \varphi(m')
-	
+
 \end{cases}
 \]
-Y $x_1$ es una solución parcial óptima. En este caso, la solución general óptima es: $x\equiv x_1 mod(m')$
+Y $x_1$ es una solución parcial óptima. En este caso, la solución general óptima es: $x\equiv x_1 \mod(m')$
 \end{enumerate}
 \end{itemize}
-	
+
 \end{nprop}
 
-\subsection{Sistemas de Ecuaciones en Congruencias}
+\subsection{Sistemas de ecuaciones en congruencias}
 
 En este caso, vamos a abordar un problema en el que tenemos un sistema de ecuaciones en congruencias, que sabemos que se puede expresar de la forma:
 
 \[
 \begin{rcases}
-	a_1x \equiv b_1 mod(m1)\\
-	a_2x \equiv b_2 mod(m2)
+	a_1x \equiv b_1 \mod(m1)\\
+	a_2x \equiv b_2 \mod(m2)
 \end{rcases}(1) \begin{rcases}
-	x \equiv a mod(m)\\
-	x \equiv b mod(n)
+	x \equiv a \mod(m)\\
+	x \equiv b \mod(n)
 \end{rcases}(2)
 \]
 
-\begin{nth}[Teorema Chino]
-	El sistema tiene solución $\iff a \equiv b mod((m,n))$
+\begin{nth}[Teorema chino del resto]
+	El sistema tiene solución $\iff a \equiv b \mod((m,n))$.
 \end{nth}
 \begin{proof}
-	Sea $d=(m,n)$. \\
-	Si tomamos $x = a+km; \quad \exists k: a+km \equiv b mod(n) \iff km \equiv b-a mod(n) \iff d/b-a \iff b\equiv amod(d)$
+	Sea $d=(m,n)$. Si tomamos $x = a+km; \quad \exists k: a+km \equiv b \mod(n) \iff km \equiv b-a \mod(n) \iff d/b-a \iff b\equiv a\mod(d)$.
 \end{proof}
 
 Ahora, supuesto que tiene solución, vamos a hallar las soluciones particular y general del problema.\\
-Si $y_0$ es una solución particular de $my \equiv b-a mod(n)$, entonces su solución general es: $$y = y_0 + k\frac{n}{(m,n)} \quad k \in A$$
+Si $y_0$ es una solución particular de $my \equiv b-a \mod(n)$, entonces su solución general es: $$y = y_0 + k\frac{n}{(m,n)} \quad k \in A$$
 Entonces $x_0 = a + my_0$ es una solución particular del sistema dado en (2) y por tanto la solución general de 2 viene dada por:
 
 \[
@@ -1759,127 +1669,163 @@ x = a +m(y_0 +  k\frac{n}{(m,n)}) \quad k \in A
  = a+my_0 + k \frac{mn}{(m,n)} = x_0 +k[m,n] \quad k \in A
 \]
 \[
-\implies x \equiv x_0 mod [m,n]
+\implies x \equiv x_0 \mod [m,n]
 \]
-Pero si $x_0 = [m,n]q + x_1$ con $x_1 = 0 $ ó $\varphi(x_1) < \varphi([m,n])$ entonces tenemos que $$x_0 \equiv x_1 mod([m,n])$$
+Pero si $x_0 = [m,n]q + x_1$ con $x_1 = 0 $ ó $\varphi(x_1) < \varphi([m,n])$ entonces tenemos que $$x_0 \equiv x_1 \mod([m,n])$$
 
 Y obtenemos que la solución general óptima de nuestro sistema es:
 \[
-x \equiv x_1 mod([m,n])
+x \equiv x_1 \mod([m,n])
 \]
 
 
 \begin{nth}[Teorema de Ruffini]
-	Si $f(x) \in A[x], \ a \in A$ entonces $f(a) =$ resto de dividir $f$ entre $x-a$.
+	Si $f(x) \in A[x], \ a \in A$ entonces $f(a)$ es el resto de dividir $f$ entre $x-a$.
 	Equivalentemente, $f = (x-a)q+r$ donde $r\in A$. Así, $f(a) = r$.
-	
-	En forma de congruencias: $f \equiv f(a)mod(x-a)$.
+
+	En forma de congruencias: $f \equiv f(a)\mod(x-a)$.
 \end{nth}
-\section{Anillos de Congruencias. Conjuntos Cocientes}
-
-Sea $A$ un anillo cualquiera. Sea también $I \subseteq A$ un Ideal de $A$.\\
-Sabemos que $a \equiv b mod(I) \iff a-b \in I$. Vamos a denotar:
-\[
-[a] = \{ b: b\equiv a mod(I)\} = \bar{a} = a + I
-\]
-Que sabemos que es un subconjunto de A y al que llamaremos la clase de congruencia de $a$.\\
-Denotaremos también:
-\[
- A/I = \{[a]: a \in A\}
-\]
+\section{Anillos de congruencias. Anillo cociente.}
 
 
-\textbf{Propiedades}:\\
-\begin{itemize}
-	\item $  [a]=[b] \iff a \equiv b mod (I) $
-	\item $[a] + [b] = [a+b]$
-	\item $[a][b] = [ab] $
-	\item Si $[a] = [a']$ y $[b] = [b'] \implies \begin{cases}
+\begin{ndef}[Clase de congruencia respecto de un ideal]
+  Sean $A$ un anillo conmutativo, $I \subseteq A$ y $a \in A$. Si definimos la relación de equivalencia
+
+  \[
+    a \circeq b \iff a - b \in I
+  \]
+
+  es decir, ``ser congruente módulo $I$'', entonces la clase de congruencia de $a$ respecto de $I$ es la clase de equivalencia de $a$ respecto de $\circeq$. La notamos
+
+  \[
+    [a] = \bar{a} = a+I
+  \]
+\end{ndef}
+
+
+
+\begin{ndef}[Anillo cociente]
+  Sean $A$ un anillo conmutativo e $I$ un ideal suyo. Entonces se define el anillo cociente de $A$ por $I$, $(A/I, \oplus, \odot)$:
+
+  \[
+  \begin{array}{l}
+    A/I = { [a] = a+I : a \in A} \\
+    %% Estas llaves son necesarias, sin ellas se invoca un error oscuro de LaTeX: https://www.sharelatex.com/learn/Errors/Missing_number,_treated_as_zero
+    {[a]} \oplus [b] = [a+b] \\
+    {[a]} \odot [b] = [ab]
+  \end{array}
+  \]
+\end{ndef}
+
+Se puede comprobar que estas operaciones están bien definidas y que con ellas $A/I$ es un anillo conmutativo. Probaremos que están bien definidas:
+
+Si $[a] = [a']$ y $[b] = [b'] \implies \begin{cases}
 	[a+b] = [a' +b']\\
 	[ab] = [a'b']
-\end{cases}$\\
+\end{cases}$
 
 \begin{proof}
-	$a\equiv_I a'$ y $b \equiv_I b' \implies \begin{cases}
+  \[
+  a\equiv_I a' \text{ y } b \equiv_I b' \implies \begin{cases}
 	a+b \equiv_I a'+b'\\
 	ab \equiv_I a'b'
-\end{cases}\implies \begin{cases}
+        \end{cases}\implies \begin{cases}
 	[a+b] = [a'+b']\\
 	[ab] = [a'b']
-\end{cases}$
+  \end{cases}
+  \]
 \end{proof}
-	\item $[0] = I$
-\end{itemize}
+
 
 \begin{nprop}
-	Si $f_i:A \to B$ es un homomorfismo de anillo, $Img(g) = \{f(a): a \in A\} \leq B$ es un subanillo. Entonces, $Ker(f) = \{a \in A: f(a) = 0\}$ es un ideal.
-	\begin{proof}
-	Vamos a probar que este ideal es cerrado para sumas y para múltiplos. Para ello, en ambos casos usaremos que $f$ es un homomorfismo.
-	\[
-	Si f(a) = 0 \ y \ f(b) = 0,\]\[
-	f(a+b) = f(a)+f(b) = 0 + 0 = 0\]\[
-	f(ab) = f(a)f(b) = 0*0 = 0
-	\]
+  Si $f:A \to B$ es un homomorfismo de anillos, $\ker(f) = \{a \in A: f(a) = 0\}$ es un ideal de $A$. \\
+
+  \begin{proof}
+   Vamos a probar que $\ker(f)$ es cerrado para sumas y para múltiplos. Para ello, en ambos casos usaremos que $f$ es un homomorfismo.
+
+  \[
+     \text{Si } a,b \in \ker(f) \implies
+     \begin{cases}
+       f(a+b) = f(a)+f(b) = 0 + 0 = 0 \\
+       f(ab) = f(a)f(b) = 0*0 = 0
+     \end{cases}
+  \]
 \end{proof}
-Además, $f$ es un monomorfismo $\iff Ker(f) = 0$
-\begin{proof}
+
+Además, $f$ es un monomorfismo $\iff \ker(f) = 0$
+\begin{proof}\hfill\\
 	\boxed{\Rightarrow} Trivial\\
-	\boxed{\Leftarrow} Si $f(a) = f(b) \implies f(a-b) = 0 \implies a-b \in Ker(f)$ pero hemos dicho que $Ker(f) = 0 \implies a-b = 0 \implies a = b$
+	\boxed{\Leftarrow} Si $f(a) = f(b) \implies f(a-b) = 0 \implies a-b \in \ker(f)$ pero hemos dicho que $\ker(f) = 0 \implies a-b = 0 \implies a = b$.
 \end{proof}
 \end{nprop}
 
-\begin{nth}[Teorema de Isomorfía]
-	Si $f:A \to B$ es un homomorfismo, se induce un isomorfismo de anillos:
-	\[
-	A/Ker(f) \cong Im(f)
-	\]
-	\[
-	F:[a] \longmapsto f(a)
-	\]
-	
-Además, $F$ está bien definida: es biyectiva y, por tanto, es un isomorfismo.
+\begin{nth}[Teorema de isomorfía]
+  Si $f:A \to B$ es un homomorfismo, se induce un isomorfismo de anillos:
+
+  \[
+  \begin{array}{lrll}
+    F: &  A/\ker(f) & \cong & \img(f) \\
+       & [a] & \mapsto & f(a)
+  \end{array}
+  \]
+
 
 \begin{proof}
-	Vamos a probar que está bien definida (inyectividad y sobreyectividad) y que es un homomorfismo.
-	
-	Veamos primero que si $[a] = [b] \implies f(a) = f(b)$\\
-	Si $[a] = [b] \implies a \equiv b mod(Ker(f)) \implies a = x+b$ para algún $x\in Ker(f)$\\
-	$\implies f(a) = f(b+x) = f(b) +f(x) = f(b) + 0 = f(b)$\\
-	
-	Vamos a ver ahora que es un homomorfismo $F:[a] \mapsto f(a)$
-	\begin{itemize}
-		\item $F([a]+[b]) = F([a+b]) = f(a+b)$ Pero como f es un homomorfismo por hipótesis $\implies f(a)+f(b) = F[a] + F[b]$
-		\item $F([a][b]) = F([ab]) = f(ab)$ pero f vuelve a ser un homomorfismo, luego $f(a)f(b) = F[a]F[b]$
-		\item $F(1) = f(1) = 1$
-\end{itemize}
-Probamos la inyectividad:\\
-Suponemos $F[a] = F[b] \implies f(a) = f(b) \implies f(a-b) = 0 \implies a-b \in Ker(f) \implies a \equiv bmod(Ker(f)) \implies [a] = [b]$.
-%Tomo $[a] \in Ker(F) \implies F[a] = 0 \implies f(a) = a \implies a \in Ker(f) \implies [a] = [0] = 0$
+  Para probar el resultado tenemos que probar tres cosas:
 
-Probamos la sobreyectividad:\\
-Sea $b \in Im(f) \implies \exists a \in A : f(a) = b \implies F[a] = f(a) = b$. Como $f$ es sobreyectiva, $\forall b \in Im(f), \ \exists [a]$ que se aplica en $b$.
+  \begin{nlist}
+  \item $F$ está bien definida.
+  \item $F$ es biyectiva.
+  \item $F$ es un homomorfismo de anillos.
+  \end{nlist}
+
+  Vamos a probar que está bien definida. Es decir, que sin importar el representante de la clase de congruencia que tomemos,
+  el valor de la aplicación para esa clase es el mismo. Esto es, $[a] = [b] \implies F([a]) = F([b])$.
+
+  Si $[a] = [b] \implies a-b \in \ker(f) \implies f(a-b) = 0 \implies F([a]) = f(a) = f(b) = F([b])$.
+
+  Vamos a ver ahora que es un homomorfismo
+  \begin{itemize}
+		\item $F([a]+[b]) = F([a+b]) = f(a+b) = f(a)+f(b) = F([a]) + F([b])$
+		\item $F([a][b]) = F([ab]) = f(ab) = f(a)f(b) = F([a])F([b])$
+		\item $F([1]) = f(1) = 1$
+  \end{itemize}
+
+Probamos la inyectividad:
+
+$F([a]) = F([b]) \implies f(a) = f(b) \implies f(a-b) = 0 \implies a-b \in \ker(f) \implies a \equiv b\mod(\ker(f)) \implies [a] = [b]$.
+%Tomo $[a] \in \ker(F) \implies F[a] = 0 \implies f(a) = a \implies a \in \ker(f) \implies [a] = [0] = 0$
+
+La sobreyectividad es trivial por la sobreyectividad de $f$ en su imagen.
+
 \end{proof}
 
 \end{nth}
 
 \begin{nprop}
-	Sea $A$ un Dominio Euclídeo con función euclídea $\varphi :A-\{0\} \to \nat$ tal que en $A$ hay unicidad de cocientes y restos (Esto es: $\forall a,b \in A: b\ne 0 \implies \exists ! q,r\in A : a=bq+r \begin{cases}
-	r = 0 \\
+  Sea $A$ un dominio euclídeo con función euclídea $\varphi :A-\{0\} \to \nat$ tal que en $A$ hay unicidad de cocientes y restos. Esto es:
+
+  $$\forall a,b \in A: b\ne 0 \implies \exists ! q,r\in A : a=bq+r \text{ y } \begin{cases}
+	r = 0 \text{ o} \\
 	\varphi(r) < \varphi(b)
-\end{cases}$). Si seleccionamos un $b \in A, b \ne 0$ tal que $\varphi(1) < \varphi(b)$ entonces:\\
-$\forall a \in A, R_b(a)=$ resto de dividir a entre b; $R_b(a) = r \iff \begin{cases}
-	a \equiv r mod(b)\\
+  \end{cases}$$
+
+  Si seleccionamos un $b \in A, b \ne 0$ tal que $\varphi(1) < \varphi(b)$ entonces:\\
+
+  $$\forall a \in A, R_b(a) = r \iff \begin{cases}
+	a \equiv r \mod(b) \text{ y} \\
 	r = 0 \quad o \quad \varphi(r) < \varphi(b)
-\end{cases}$
+  \end{cases}$$
+
 Ahora, llamaremos: $$ A_b = \{ R_b(a): a \in A\} \subseteq A$$ que cumple:
 
 \begin{enumerate}
 	\item Si $r\in A_b \implies R_b(r) = r$
-	\item $R_b(a+a') = R_b(R_b(a) + R_b(a'))$\\
+	\item $R_b(a+a') = R_b(R_b(a) + R_b(a')) \ \ \forall a,a' \in A$ \\
 	\begin{proof}
-	$R_b(a+a') \equiv a+a' \equiv_b R_b(a) +R_b(a') \equiv_b R_b(R_b(a) + R_b(a'))$
+	$R_b(a+a') \equiv_b a+a' \equiv_b R_b(a) +R_b(a') \equiv_b R_b(R_b(a) + R_b(a'))$.
 \end{proof}
-	\item $R_b(aa') = R_b(R_b(a)R_b(a'))$
+	\item $R_b(aa') = R_b(R_b(a)R_b(a')) \ \ \forall a,a' \in A$
 \end{enumerate}
 
 Además, se define la suma y el producto de $r,r' \in A_b$ de la forma:
@@ -1891,59 +1837,65 @@ Además, se define la suma y el producto de $r,r' \in A_b$ de la forma:
 Con estas operaciones, $A_b$ es un anillo.
 \end{nprop}
 
+\begin{nprop}[Isomorfismo entre unidades]
+  Sean $A$ y $B$ anillos conmutativos, y $f: A \to B$ un isomorfismo. Entonces $\restr{f}{U(A)} : U(A) \to U(B)$
+  es un isomorfismo.
+\end{nprop}
 
-Se comprueba que si $f: A \to B$ es un isomorfismo, entonces:
+\begin{proof}
+  $a \in U(A) \implies \exists a^{-1} : aa^{-1} = 1 \implies f(a)f(a^{-1}) = 1 \implies f(a) \in U(B) \text{ y } f(a)^{-1} = f(a^{-1})$.
+  El resto de propiedades de isomorfismo se deducen de que $f$ es un isomorfismo.
+\end{proof}
 
-Si $a \in U(A)$,$\exists a^{-1}: aa^{-1} = 1\implies f(a)f(a^{-1}) = f(1) = 1 \implies f(a) \in U(B)$
+\begin{nprop}[Isomorfismo entre divisores de cero]
+  Sean $A$ y $B$ anillos conmutativos, y $f: A \to B$ un isomorfismo. Entonces $\restr{f}{\rdiv_0(A)} : \rdiv_0(A) \to \rdiv_0(B)$
+  es un isomorfismo.
+\end{nprop}
 
-Así, surge la aplicación: $f: U(A) \to U(B)$ isomorfismo en la que si $b\in U(B) \implies \exists b^{-1} \in B : bb^{-1} = 1$
+\begin{proof}
+  Análoga a la anterior: $a \in \rdiv_0(A) \implies \exists a' \in A, a' \ne 0 : aa' = 0 \implies f(a)f(a') = 0 \text{ y } f(a') \ne 0$.
+\end{proof}
 
-
-Pero también:\\
- $\begin{rcases}
-	\exists a \in A: f(a) = b\\
-	\exists a' \in A: f(a') = b'
-\end{rcases} f(aa') = f(a)f(a') =bb' = 1 \implies aa' = 1 \implies a \in U(A)$
-
-\begin{ndef}[Divisores de Cero]
-	Si a es divisor de cero de $A$, $\exists a'\ne 0 : aa' = 0 \implies f(a)f(a') = 0$ con $f(a') \ne 0 \implies f(a)$ es divisor de cero en $B$
-	
-	Análogamente, surge el isomorfismo entre los divisores de cero de dos Anillos A y B:
-	$$f: DivCero(A) \to DivCero(B)$$ Si b es divisor de B y $b=f(a)$ para cierto $a \in A\implies  a \in $ D. Cero de A.
-	
-	$\implies \exists b' \ne 0 : bb' = 0$
-	
-	Luego:
-	
-	Si $b' = f(a')\implies f(a)f(a') = 0 \implies f(aa') = 0 \implies aa' = 0$ y con $a'\ne 0 \implies a$ es divisor de cero de A.
-\end{ndef}
 
 \begin{nprop}
-		Sea A un D.E. con función euclídea $\varphi$ donde hay unicidad en cocientes y restos y si $m\in A: m\ne 0$ y $ \varphi(1) < \varphi(m)$.
-	
-		Consideramos $A_m = \{R_m(a): a \in A\}$ donde, como ya sabemos, $\begin{cases}
+  Sean $A$ un D.E. con función euclídea $\varphi$, en el que hay unicidad en cocientes y restos; y $m\in A: m\ne 0$ con $ \varphi(1) < \varphi(m)$.
+
+  Consideramos $A_m = \{R_m(a): a \in A\}$ donde, como ya sabemos,
+
+  $$\begin{array}{l}
 	r+r' = R_m(r+r')\\
 	rr' = R_m(rr')
-\end{cases}$ Veamos que es un homomorfismo.\\
-\begin{proof}
-	$R_m(a+b) = R_m(a) + R_m(b) = R_m(R_m(a)+R_m(b))$ donde la primera suma es en A, la segunda es en $A_m$ y la tercera dentro del paréntesis vuelve a ser en $A$\\
-	$R_m(ab) = R_m(a)R_m(b) = R_m(R_m(a)R_m(b))$ luego el producto también está bien definido.\\
-	Por último: $R_m(1) = 1$ por $\varphi(1) < \varphi(m)$
+  \end{array}$$
+
+  Veamos que $R_m$ es un homomorfismo.\\
+  \begin{proof}
+    Notando por $\oplus$ la suma en $A_m$,
+
+    \[
+    \begin{array}{l}
+      R_m(a+b) = R_m(R_m(a)+R_m(b)) = R_m(a) \oplus R_m(b) \\
+      R_m(ab) = R_m(a)R_m(b) = R_m(R_m(a)R_m(b))
+    \end{array}
+    \]
+
+    Por último: $R_m(1) = 1$ por $\varphi(1) < \varphi(m)$.
 \end{proof}
 \end{nprop}
-Además, $Im(R_m) = A_m$ y $Ker(R_m) = (m) = mA = \{mx : x\in A\}$.
 
-También hay un isomorfismo:
+Además, $\img(R_m) = A_m$ y $\ker(R_m) = (m) = mA = \{mx : x\in A\}$.
 
-\[
-A/(m)  \cong A_m
-\]\[
-[a]\mapsto R_m(a)
-\]\[
-[r] \mapsfrom r
-\]
+\begin{ncor}
+  Sean $A$ un DE y $m \in A$. Entonces $A/(m)$ y $A_m$ son isomorfos con
 
-De esta forma, podemos llevarnos los problemas a otros anillos para facilitar su resolución.
+  \[
+  \begin{array}{lrll}
+    F : & A/(m) & \cong & A_m \\
+        & [a] & \mapsto & R_m(a)
+  \end{array}
+  \]
+\end{ncor}
+
+
 
 \begin{nprop} Sea $a \in A$
 	\begin{nlist}
@@ -1955,29 +1907,75 @@ De esta forma, podemos llevarnos los problemas a otros anillos para facilitar su
 \end{nprop}
 \begin{proof}
 	Vamos a probar i) y iii). Luego ii) y iv) son consecuencia del isomorfismo entre $A/(m)$ y $A_m$.\\
-	Sea $[a] \in U(A/(m)) \iff \exists x \in A: [a][x] = [1] \iff \exists x \in A : ax \equiv 1mod(m) \iff mcd(a,m) = 1$.
-	
-	Sea $a \in A/(m) : a \notin U(A/(m)) \implies mcd(a,m) = d \ne 1$. Ahora, sea $a = da'$ y $m=dm'$
-	Pero m no divide a $m'$ pues en otro caso: $m'=mx \implies m' = dm'x \implies 1 = dx \implies d \in U(A)$, contradicción.
-	Ahora, tomo $[a][m'] = [am'] = [da'm'] = [a'm'] = [0]$ por ser un múltiplo de m' (congruencia módulo m'), así que [a] es divisor de cero.
+
+        $\boxed{i)}$ Sea $[a] \in U(A/(m)) \iff \exists x \in A: [a][x] = [1] \iff \exists x \in A : ax \equiv 1\mod(m) \iff (a,m) = 1$.
+
+	$\boxed{iii)}$ Sea $a \in A$. Entonces la aplicación dada por $x \mapsto ax$ puede ser
+
+        \begin{itemize}
+        \item Inyectiva: entonces es sobreyectiva por ser $A/(m)$ finito. Por tanto, existe $x \in A$ tal que $ax = 1$, luego $a$ es una unidad.
+        \item No inyectiva: entonces existen $u,v \in A, \ u \ne v$ tales que $au = av$, luego $a(u-v) = 0$ y $u-v \ne 0$.
+        \end{itemize}
+
+        %% TODO: poner que unidades y div. de cero son disjuntos en una proposición.
+        Ahora, si esta aplicación no es sobreyectiva, entonces no puede ser inyectiva (de nuevo porque $A/(m)$ es finito), por tanto $a$ es divisor de cero.
+        Si es sobreyectiva, $a$ es una unidad. Además, sabemos que los divisores de cero y las unidades de un anillo son disjuntos.
 \end{proof}
 
 \begin{ncor}
 	En las mismas condiciones, son equivalentes:
-	
+
 	\begin{nlist}
-	\item m es irreducible
-	\item A/(m) ó $(A_m)$ es DI
-	\item A/(m) ó $(A_m)$ es un cuerpo
+	\item m es irreducible.
+	\item $A/(m)$  (resp. $(A_m)$) es un D.I.
+	\item $A/(m)$ ó (resp. $(A_m)$) es un cuerpo.
 \end{nlist}
 \end{ncor}
-\begin{proof}
+\begin{proof}\hfill \\
 	$\boxed{iii) \implies ii)}$ Todo cuerpo es un dominio de integridad.\\
 	$\boxed{ii) \implies iii)}$ Supongamos $[a] \in A/(m) $ si $[a] \ne [0]$ entonces, por la proposición anterior, $a$ es una unidad.
-	
+
 	$\boxed{i) \implies iii)}$ Sea $[a] \in A/(m), [a] \ne [0] = 0 \implies m$ no divide a $a \implies (a,m) = 1$, como m es irreducible, sus únicos divisores son m y 1 salvo asociados $\implies [a] \in U(A/(m))$
-	
-	$\boxed{ii)\implies i)}$ Supongamos que m no es irreducible $\implies m = ab$ con a y b divisores propios $\implies m$ no divide a $a$ y m no divide a $b$ $\implies [a] \ne 0 $ y $[b] \ne 0$ en $A/(m)$ pero $[a][b] = [ab] = [m] = [0] = 0$ y como [a] y [b] son distintos de cero $\implies A/(m)$ no es DI, en contradicción con la hipótesis.
+
+	$\boxed{ii)\implies i)}$ Supongamos que $m$ no es irreducible $\implies m = ab$ con $a$ y $b$ divisores propios $\implies m$ no divide a $a$ y $m$ no divide a $b$ $\implies [a] \ne 0 $ y $[b] \ne 0$ en $A/(m)$ pero $[a][b] = [ab] = [m] = [0] = 0$ y como $[a]$ y $[b]$ son distintos de cero $\implies A/(m)$ no es D.I., en contradicción con la hipótesis.
+\end{proof}
+
+\begin{ndef}[Característica de una anillo]
+  Sea $(A, +, \cdot)$. Su característica es el menor $n \in \nat$ tal que
+  \[
+     \underbrace{1 + \dots + 1} = 0_{n \text{ sumandos}}
+  \]
+
+   donde $1$ es el elemento neutro multiplicativo del anillo. De no existir tal número, se dice que tiene característica cero.
+\end{ndef}
+
+\begin{nprop}
+  La característica de un cuerpo finito es distinta de cero.
+\end{nprop}
+
+\begin{proof}
+  Solo hay que observar que, de ser cero, el cuerpo tendría infinitos elementos, pues al sumar 1 (que no es el elemento neutro para la adición) se obtiene un elemento distinto.
+\end{proof}
+
+\begin{nprop}
+  Si $(F, +, \cdot)$ es un cuerpo finito, entonces su característica es un número primo.
+\end{nprop}
+
+\begin{proof}
+  Sea $p$ la característica de $F$. Razonando por contradicción, supongamos que $p = ab$, con $a$ y $b$ distintos de uno, por tanto distintos de $p$.
+  Entonces $\sum_{i=1}^a \sum_{i=1}^b 1 = 0$. Como $b$ no es la característica de $F$, $q := \sum_{i=1}^b 1 \ne 0$. Luego $q \sum_{i=1}^a 1 = 0$. Como $a$ tampoco
+  es la característica de $F$, $\sum_{i=1}^a 1$ es un divisor de cero no nulo, lo cual es una contradicción con la hipótesis de que $F$ es un cuerpo.
+\end{proof}
+
+\begin{nprop}
+  Si $F$ es un cuerpo finito, entonces $|F| = p^n$, con $p, n \in \nat$ y $p$ la característica de $F$.
+\end{nprop}
+
+%% TODO: Demostrar que $F$ es un cuerpo sobre $\mathbb{Z}_p$
+\begin{proof}
+  Por las propiedades de $F$ como cuerpo, se puede comprobar que $F$ es un espacio vectorial sobre $\ent_{p}$.
+  Ahora, su dimensión es necesariamente finita, sea esta $n$. Entonces, si $\{v_1, \dots, v_n\}$ es una base del espacio,
+  sabemos que cada vector del mismo se expresa de forma única como $a_1v_1 + \dots + a_nv_n$, con $a_i \in \ent_{p}$, por tanto el espacio tiene $p^n$ elementos.
 \end{proof}
 
 En $\ent_n$ si $p \geq 2$ es un irreducible y $\ent_p $ es un cuerpo. En general, si $K$ es un cuerpo y $f(x) = \sum a_i x^i \in K[x]$ es de grado $n \implies K[x]_{f(x)}$
@@ -1993,7 +1991,7 @@ Vamos a intentar ahora encontrar una solución para una ecuación $ax = b$ en $\
 
 \begin{enumerate}
 	\item Tiene solución $\iff d =(a,n)/b$
-	
+
 	\item Si tiene solución, tiene exactamente $d$ soluciones distintas.
 \end{enumerate}
 
@@ -2002,20 +2000,20 @@ Utilizaremos el siguiente isomorfismo para simplificar esta prueba: $\ent_n \con
 \begin{enumerate}
 	\item $\exists x \in Z_n :  ax = b \iff \exists[x] \in \ent/(n) : [a][x] = [b] \iff \exists x \in \ent /(n) : ax \equiv_n b \iff d/b$. Quedando probado 1.
 	\item  Para demostrar 2., suponemos que d/b.\\
-	 Sean $a' = \frac{a}{b}, b' = \frac{b}{d}, n' = \frac{n}{d}$. Recuperamos la propiedad anterior, $a'x \equiv b'mod(n')$. De este expresión obtenemos la solución óptima: $x_0 : a'x_0 \equiv b'mod(n'), 0 \le x_0 \textless n'$. Siendo la solución general, $x \equiv x_0 mod(n')$.\\
+	 Sean $a' = \frac{a}{b}, b' = \frac{b}{d}, n' = \frac{n}{d}$. Recuperamos la propiedad anterior, $a'x \equiv b'\mod(n')$. De este expresión obtenemos la solución óptima: $x_0 : a'x_0 \equiv b'\mod(n'), 0 \le x_0 \textless n'$. Siendo la solución general, $x \equiv x_0 \mod(n')$.\\
 Ahora, si $x = x_0 + kn' \quad k \in \ent$, los $x$ que satisfacen nuestro problema original son los restos de estos elementos:\quad $\{x_0,\ x_0 + n',\ x_0 +2n',...,\ x_0 + (d-1)n'\}$, si $k \in \ent, 0 \le k \textless d \implies x_0 + kn' \textless \frac{n}{d} + (d-1)\frac{n}{d} = \frac{dn}{d} = n$. Por tanto, estas son las únicas soluciones.
 
 Podemos expresar las soluciones como $\{ [x] \in \ent /(n) : x = x_0 + kn', k \in \ent\}$. Si $k \in \ent \ y \ k = qd + r \ con \ 0 \le r \textless d, \ x_0 + kn' = x_0 + (qd + r)n' = x_0 + rn' + qdn'= x_0 + rn' +qn \implies [x_0 + kn'] = [x_0 + rn']$. Las soluciones de la ecuación original serán $\{[x_0],\ [x_0 + n'],\ [x_0 +2n'],...,\ [x_0 + (d-1)n']\} \subseteq \ent /(n) \cong \ent _n, \forall r, 0 \le r \le d - 1.$
 $\{x_0,\ x_0 + n',\ x_0 +2n',...,\ x_0 + (d-1)n'\} \subseteq \ent _n$
 \end{enumerate}
-	
-	
-	
+
+
+
 \end{proof}
 
 \section{Función de Euler.}
 \[
-  \varphi : \mathbb{N}-\{0\} \longrightarrow \mathbb{N}  
+  \varphi : \mathbb{N}-\{0\} \longrightarrow \mathbb{N}
 \]
 
 definida de la siguiente forma $\forall n\ge 1$:
@@ -2049,11 +2047,11 @@ $U(A\times B) = U(A)\times U(B)$
 \end{ndef}
 
 \begin{nota} Un anillo producto nunca es un cuerpo.
-  
+
 \end{nota}
 
 \begin{nth}[Versión clásica del teorema chino del resto.]
-Si $(m,n)=1 \implies \mathbb{Z}_{mn} \cong \mathbb{Z}_m \times \mathbb{Z}_n \iff \mathbb{Z}_{|(mn)} = \mathbb{Z}_{|(m)} \times \mathbb{Z}_{|(n)}$ 
+Si $(m,n)=1 \implies \mathbb{Z}_{mn} \cong \mathbb{Z}_m \times \mathbb{Z}_n \iff \mathbb{Z}_{|(mn)} = \mathbb{Z}_{|(m)} \times \mathbb{Z}_{|(n)}$
 \end{nth}
 
 \begin{proof}
@@ -2066,13 +2064,13 @@ Probaremos que es sobreyectivo:\\\\
 $([b]_m,[c]_n)$ ¿$\forall b,c \in \mathbb{Z}\quad \exists a \in \mathbb{Z} : [a]_m = [b]_m \text{ y } [a]_n = [c]_n$?
 
 ¿$\forall b,c \in \mathbb{Z}\quad \exists a \in \mathbb{Z} : \begin{cases}
-  a \equiv b mod(m)\\
-  a \equiv c mod(n)
-\end{cases}$?$ \iff b \equiv c mod(m,n) \implies b \equiv_1 c$
+  a \equiv b \mod(m)\\
+  a \equiv c \mod(n)
+\end{cases}$?$ \iff b \equiv c \mod(m,n) \implies b \equiv_1 c$
 
 Sí es sobreyectiva.
 
-$ker(f) = (mn)$, pues $m$ y $n$ son primos entre sí. Ahora, como $f$ es sobreyectiva, por el teorema de isomorfía tenemos el resultado.
+$\ker(f) = (mn)$, pues $m$ y $n$ son primos entre sí. Ahora, como $f$ es sobreyectiva, por el teorema de isomorfía tenemos el resultado.
 \end{proof}
 
 \begin{ncor}
@@ -2084,7 +2082,7 @@ $ker(f) = (mn)$, pues $m$ y $n$ son primos entre sí. Ahora, como $f$ es sobreye
 \end{proof}
 \begin{nota}
   Como sabemos (aunque no lo hayamos probado), si $n\in \mathbb{N}, n= p_1^{e_1}\dots p_n^{e_n} \text{ con } p_i \ne p_j,\; p_i\ \text{primo de $\mathbb{Z}$ (irreducible)}$. Así, $\varphi(n) = \varphi(p_1^{e_1})\dots\varphi(p_n^{e_n})$.
-  
+
   $\varphi(p^e) = p^e(1-\frac{1}{p}) = p^e-p^{e-1}$
 \end{nota}
 
@@ -2099,12 +2097,12 @@ Por tanto, $ a^{\varphi(m)-1} = a^{-1} $ en $ \mathbb Z_{m} $
 
 
 \begin{nth}[Teorema de Euler]
-	$ \forall a \in \mathbb Z $ si $(a,m) = 1 \implies a^{\varphi(m)} \equiv 1 $ mod(m)
+	$ \forall a \in \mathbb Z $ si $(a,m) = 1 \implies a^{\varphi(m)} \equiv 1 \mod(m)$.
 \end{nth}
 
 
 \begin{nth}[Teorema pequeño de Fermat]
-	Si p es irreducible, $ \forall a \in \mathbb Z, $ $ a^{p} \equiv a \cdot mod(p) $ 
+	Si p es irreducible, $ \forall a \in \mathbb Z, $ $ a^{p} \equiv a \cdot \mod(p) $
 \end{nth}
 
 
@@ -2120,12 +2118,12 @@ Por tanto, $ a^{\varphi(m)-1} = a^{-1} $ en $ \mathbb Z_{m} $
 $ m = p, $ $ a \neq 0 $ en  $ \mathbb Z_{p}$ (si $a=0$ es trivial) $ \implies (a,p) = 1 \implies a^{\varphi(p)} = 1 $ en $ \mathbb Z_{p} $
 
 $ \varphi(p) = p(1-\frac{1}{p}) = p-1 \implies a^{p-1} = 1 $ en $ \mathbb Z_{p} \implies a^p=a $ en $ \mathbb Z_{p} $
-	
+
 \end{proof}
 
 
 
-\section{Dominio de Factorización Única (DFU)}
+\section{Dominio de factorización única (DFU)}
 
 Un Dominio de Integridad, A, es llamado un DFU si $\forall a \in A, a\ne 0$ y $a\notin U(A)$, entonces $\exists$ irreducibles $q_1 ,...,q_r \in A : a = q_1 ...q_r$ tales que la factorización es esencialmente única en el sentido de que si $q_1' ,...,q_s' \in A $ con $q_j$ irreducible $\implies r = s$ y $\exists \sigma:\{1,...,r\} \cong \{1,...,s\}$ una permutación tal que $q_i'$ es asociado con $q_{\sigma(i)}$
 
@@ -2136,7 +2134,7 @@ Un Dominio de Integridad, A, es llamado un DFU si $\forall a \in A, a\ne 0$ y $a
 \begin{itemize}
 \item $\forall p \in \mathcal{P}$, p es un irreducible
 \item $\forall p, q \in \mathcal{P}$, $p$ y $q$ no son asociados entre sí
-\item $\forall p $ irreducible de A, $\exists q \in \mathcal{P} : p \sim q$   
+\item $\forall p $ irreducible de A, $\exists q \in \mathcal{P} : p \sim q$
 \end{itemize}
 
 Supongamos ahora que estamos en un DFU y hemos seleccionado un conjunto $\mathcal{P}$.
@@ -2159,18 +2157,18 @@ $\forall a \in A,\ a \ne 0\ \exists p_1,...,p_s \in \mathcal{P}$ con $p_i \ne p_
 	\item 0 en otro caso. $e(p,a) = 0 \quad \forall p \notin \{p_1,...,p_s\}$
 
 \end{nlist}
-	
+
 	Vamos a asumir a partir de ahora que $a^0  = 1 $ en cualquier anillo. Así, podemos ver que:
-	
+
 	$$\forall a \in A, \quad a = u(\prod _{p \in \mathcal{P}}p^{e(p,a)})$$
 \end{ndef}
 
 \textbf{Propiedades:}
 \begin{nlist}
 	\item $e(p,ab) = e(p,a) + e(p,b)$.\\
-	
+
 	\begin{proof}
-	
+
 	Con el $a$ anterior y $b= v(\prod _{p \in \mathcal{P}}p^{e(p,b)})$. Entonces $ab = uv(\prod _{p \in \mathcal{P}}p^{e(p,a)+ e(p,b)})$
 \end{proof}
 
@@ -2178,11 +2176,11 @@ $\forall a \in A,\ a \ne 0\ \exists p_1,...,p_s \in \mathcal{P}$ con $p_i \ne p_
 
 \begin{proof}
 	$\boxed{\Rightarrow} \quad \exists b: c =ab \implies \forall p \in \mathcal{P}, \quad e(p,c) = e(p,ab) = e(p,a)+e(p,b) \geq e(p,a) $
-	
-	$\boxed{\Leftarrow} $ ¿Existe un $b$ tal que $ab= c$? 
-	
+
+	$\boxed{\Leftarrow} $ ¿Existe un $b$ tal que $ab= c$?
+
 	Si $c$ es: $c = v(\prod _{p \in \mathcal{P}}p^{e(p,c)})$
-	
+
 	Si tomamos $b = (u^{-1}v)(\prod _{p \in \mathcal{P}}p^{e(p,c) - e(p,a)}) $ y multiplicamos por $a$, obtenemos $c$.
 \end{proof}
 \end{nlist}
@@ -2196,7 +2194,7 @@ En un DFU existen mcd y mcm de cualesquiera elementos. Así:
 \[
 [a,b] = (\prod _{p \in \mathcal{P}}p^{max\{e(p,a),e(p,b)\}})
 \]
-	
+
 \end{nprop}
 \begin{proof}
 	Probaremos el caso del mcd, el caso de mcd se hace de la misma forma.\\
@@ -2205,10 +2203,10 @@ En un DFU existen mcd y mcm de cualesquiera elementos. Así:
 
 \begin{ndef}[Elemento Primo]
 	Si $A$ es un D.I. un elemento $p\in A , p \notin U(A), p \ne 0$ es llamado “primo" si se verifica la siguiente propiedad:
-	
+
 	Si $p$ no divide a un elemento $a$ ni a un elemento $b \implies p$ no divide a su producto.\\
-	Equivalentemente: si $p/ab \implies p/a$ o $p/b$  
-	
+	Equivalentemente: si $p/ab \implies p/a$ o $p/b$
+
 \end{ndef}
 
 \begin{nprop}
@@ -2220,10 +2218,10 @@ En un DFU existen mcd y mcm de cualesquiera elementos. Así:
 \begin{proof}
 	\begin{nlist}
 	\item Sea $p$ un elemento primo. Supongamos que $p=ab$, producto de dos elementos, bastaría ver que uno de ellos es un asociado solo. Ahora, como $p/p \implies p/ab \implies  p/a $ o $p/b \implies a \sim p$ o $b \sim p$
-	
+
 	\item $p \in \mathcal{P}$, veamos que $p$ es primo.
-	
-Supongamos que $p/ab$. Veamos que $p$ divide a $a$ o a $b$. 
+
+Supongamos que $p/ab$. Veamos que $p$ divide a $a$ o a $b$.
 Si $p/ab\implies e(p,ab) \geq 1$ pero sabemos que $e(p,ab) = e(p,a)+e(p,b) \implies e(p,a) \geq 1$ o $e(p,b) \geq 1$. Si ocurre lo primero, $p/a$ y si ocurre lo segundo $p/b$ luego si $p$ divide a un producto, entonces $p$ divide a uno de los dos elementos del producto.
 \end{nlist}
 \end{proof}
@@ -2246,18 +2244,18 @@ Si $p/ab\implies e(p,ab) \geq 1$ pero sabemos que $e(p,ab) = e(p,a)+e(p,b) \impl
 \end{nth}
 \begin{proof}
 	Que $(i)\implies (ii)$ es trivial. Veamos que $(ii) \implies (i)$
-	
+
 	Lo único que falta para probar que es un DFU es probar que las factorizaciones son únicas. Sea $a= p_1...p_r = q_1...q_s$ con $p_i,q_j$ irreducibles. Vamos a ver que $r=s$. Para ello, vamos a hacer una inducción en $r$.
-	
+
 	\begin{itemize}
 	\item Caso $r=1 \implies p_1 = q_1...q_s$. Ahora, ¿puede ser $s>1$? Los $q$ no son unidades, pues son irreducibles, por tanto, si $s$ fuese mayor que 1 serían los divisores propios de $p_1$, pero eso no puede ocurrir porque $p_1$ es irreducible. Como no se puede dar que $s>1$ $\implies$ $s=1=r \implies p_1 = q_1$
-	
+
 	\item Si $r> 1$ y usando la hipótesis de inducción, entonces $s > 1$.
-	
+
 	Nos fijamos en $p_1$, que es claro que divide a $a\implies p/(q_1...q_s)\implies^{p_1 \ primo} \exists j : p_1 /q_j$ y reordenando podemos suponer que $p_1/q_1$.
-	
-	Esto implica que $p_1 \sim q_1 \implies \exists u \in U(A): q_1 = up_1$. Ahora nos podemos llevar la expresión a la igualdad de a($a= p_1...p_r = q_1...q_s$ ) $\implies p_1...p_r = up_1q_2...q_s $ y podemos reducir dividiendo por $p_1$ y nos queda $p_2...p_r = uq_2...q_s$. 
-	
+
+	Esto implica que $p_1 \sim q_1 \implies \exists u \in U(A): q_1 = up_1$. Ahora nos podemos llevar la expresión a la igualdad de a($a= p_1...p_r = q_1...q_s$ ) $\implies p_1...p_r = up_1q_2...q_s $ y podemos reducir dividiendo por $p_1$ y nos queda $p_2...p_r = uq_2...q_s$.
+
 	Ahora, usando la hipótesis de inducción, nos queda en cada lado $r-1$ elementos y $s-1$ elementos y por tanto $r-1 =s-1\implies r=s$
 \end{itemize}
 
@@ -2274,16 +2272,16 @@ Entonces, $(p,ab) = 1 \implies$ $p$ es primo relativo con el producto, por tanto
 \end{proof}
 
 	\textbf{Lema previo:} En un DIP, toda cadena ascendente de ideales es estacionaria. En otras palabras, si A es un DIP, $I_1 \subseteq I_2 \subseteq ... \subseteq I_{n}$ es una sucesión de ideales creciente respecto a la inclusión (cada uno está incluido en el siguiente). $\implies \exists m : I_m = I_{m+1} = ... = I_{m+k} \quad k \geq 1$.
-	
+
 	\begin{proof}[Demostración del lema.]
-	Podemos ver que: 
+	Podemos ver que:
 	\[
 	I = U_{n\geq 1} I_n = \{a \in A : \exists n \ con \ a \in I_n\} \quad \forall a,b \in I \implies \exists n: a,b \in I_n\]\[ \implies a+b \in I_n \implies a+b \in I
 	\]
 	Realizando la prueba análoga para el producto, I es un ideal y por estar en un DIP, es principal $\implies \exists a \in A : I = (a) = \{ax : x \in A\}$. Que es no vacío, pues $a \in I$.
-	
-	Si $a\in I$, en particular estará en alguno de los $I_i$ de la unión $\implies \exists m : a \in I_m \implies (a) \subseteq I_m$, pero  $I = (a) \subseteq I_m \subseteq I_{m+k} \subseteq I \implies I_i = I_j$ para todo $i$ y $j$. 
-	
+
+	Si $a\in I$, en particular estará en alguno de los $I_i$ de la unión $\implies \exists m : a \in I_m \implies (a) \subseteq I_m$, pero  $I = (a) \subseteq I_m \subseteq I_{m+k} \subseteq I \implies I_i = I_j$ para todo $i$ y $j$.
+
 \end{proof}
 
 \begin{nth}
@@ -2291,20 +2289,20 @@ Entonces, $(p,ab) = 1 \implies$ $p$ es primo relativo con el producto, por tanto
 \end{nth}
 \begin{proof}
 	Tenemos que probar que en un DIP todo elemento se puede descomponer como producto de irreducibles. Para ello, vamos a negar la tesis. Supongamos que estamos en un DIP y que en ese anillo existen elementos distintos de cero que no son unidades y no se pueden descomponer como producto de irreducibles.
-	
+
 	Supongamos que $a$ es un elemento de esa “clase”. Entonces $\exists  \ a'$ divisor propio de $a$ que también es de esa “clase de elementos”.
-	
+
 	Podemos asegurar que $a$ no es un irreducible, pues no admite factorización en irreducibles y si fuera irreducible, él mismo sería una factorización como irreducibles. $\implies \exists b,c : a = bc$ con b y c divisores propios. Entonces, uno de los dos (b ó c) no puede admitir una factorización como producto de irreducibles, pues si no, $a$ admitiría esa factorización. Entonces, llamamos $a'$ a $b$ o a $c$ según sea el que no admita esa factorización.
-	
+
 	Ahora, vamos a construir una sucesión $\{a_n\} \in A$ con $a_1 = a,\ a_{n+1}=a'_n$. Cada elemento siguiente, es un divisor propio del anterior y es de la “clase” que establecimos al principio (no es cero, ni una unidad, ni se puede factorizar en producto de irreducibles). Esto implica que $a_{n+1} = a_n'$ y $a_{n+1}$ no es sociado con $a_n$.
-	
+
 	Si consideramos los ideales principales generados por los elementos de esta sucesión, podemos ver que (como $a_{n+1}$ es divisor de $a_n$):
-	
+
 	\[
 	\implies (a_1) \subset (a_2) \subset ... \subset (a_n) \subset (a_{n+1}) \subset ...	\]
-	
+
 	Y en esta cadena no hay igualdades, pues si $(a_n) = (a_{n+1}) \implies a_{n+1} \in (a_n) \implies a_n/ a_{n+1}$ y esto no puede ocurrir.
-	
+
 	Pero esto contradice el lema que hemos visto anteriormente, por tanto hemos probado así que todos los elementos deben tener una factorización y por tanto estamos en un DFU.
 \end{proof}
 
@@ -2314,19 +2312,19 @@ Entonces, $(p,ab) = 1 \implies$ $p$ es primo relativo con el producto, por tanto
 \end{nprop}
 \begin{proof}
 	Como $\alpha$ es un divisor de $\beta$ entonces $\exists \gamma \in \ent[\sqrt n] : \beta = \alpha \gamma \implies N(\beta) = N(\alpha)N(\gamma) \implies N(\alpha)/N(\beta)$.
-	
+
 	Ahora, la norma de $\alpha$ no puede ser ni 1, ni -1 pues si no sería una unidad y, por tanto, no sería divisor propio; $\alpha$ no puede ser un asociado pues si no, $\gamma$ sería un divisor propio también, luego $N(\alpha)$ tiene que ser un divisor propio de $N(\beta)$
 
 \end{proof}
 \begin{ncor}
-	Si $N(\alpha) = \pm p$ con $p $ un primo de $\ent, p\geq 2\implies \alpha$ es irreducible en $\ent[\sqrt n]$ 
+	Si $N(\alpha) = \pm p$ con $p $ un primo de $\ent, p\geq 2\implies \alpha$ es irreducible en $\ent[\sqrt n]$
 \end{ncor}
 \begin{ncor}
 	Si $\alpha$ es primo en $\ent[\sqrt n]\implies N(\alpha) = \pm p $ ó $\pm p^2$ con $p \geq 2 $ un primo de $\ent$. Además, si $N(\alpha) = \pm p^2 \implies \alpha \ y \ p$ son asociados en $\ent[\sqrt n]$
 \end{ncor}
 \begin{proof}
 	Supongamos que $\alpha \in \ent[\sqrt n]$, primo. Consideramos su norma: $N(\alpha)$ que no es ni 1 ni -1 pues si no sería una unidad. Así: $N(\alpha) = p_1...p_r$ con $p_i\in \ent$ primos, lo que implica que $\alpha \bar{\alpha} = p_1...p_r \implies \alpha/p_1...p_r $ pero $\alpha$ es primo, luego $\exists i \in \{1,...,r\}: \alpha / p_i \implies \exists p \geq 2 $ primo de $\ent$ tal que $\alpha / p \ en \ \ent[\sqrt n]$.
-	
+
 	 Esto implica $p = \alpha \beta \ con \ \beta \in \ent[\sqrt n] \implies p^2 = N(\alpha) N(\beta) \implies N(\alpha)/p^2 \implies N(\alpha) = \pm p$ ó $\pm p^2$, como queríamos.\\
 	 Si $N(\alpha) = p^2 \implies N(\beta) = 1 \implies \beta$ es una unidad $\implies \alpha$ y $p$ son asociados
 \end{proof}
@@ -2336,49 +2334,49 @@ Entonces, $(p,ab) = 1 \implies$ $p$ es primo relativo con el producto, por tanto
 
 \begin{ejemplo}
 	Factorizar $2i$ y $11+7i$ en producto de irreducibles(primos por estar en un DFU).
-	
+
 	\begin{enumerate}
 	\item Primero, calcularemos su norma. $N(11+7i) = 11^2 + 7^2 = 170$
 	\item Factorizamos la norma en $\ent$. $170 = 2*85 = 2*5 *17$.
 	\item Ahora, los factores irreducibles serán los enteros de Gauss cuya norma sea un primo o el cuadrado de un primo. Por tanto, un divisor de este número será un entero de Gauss $Z[i]$ cuya norma sea un divisor de la norma de $11+7i$, por tanto su norma será 2, 5 ó 17.
 	\item  $N(a+bi) = a^2 +b^2 = 2 \iff a=\pm 1$ y $b= \pm 1.$ Los enteros de Gauss de norma 2 son: $1+i,1-i,-1+i,-1-i$, es decir $1+i$ y sus 3 asociados.
-	\item Ahora, tenemos que plantearnos si $1+i / 11+7i$, vemos que la división es: $11+7i/1+i = 9-2i\in \ent[i]$. Además, como $1+i$ tiene norma 2, que es un primo de $\ent$ luego ya tenemos un irreducible por el corolario 8. 
+	\item Ahora, tenemos que plantearnos si $1+i / 11+7i$, vemos que la división es: $11+7i/1+i = 9-2i\in \ent[i]$. Además, como $1+i$ tiene norma 2, que es un primo de $\ent$ luego ya tenemos un irreducible por el corolario 9.1.
 	\item Tenemos que repetir el proceso para $9-2i$.
 	\item Su norma es $N(9-2i) = 5*17$ pues es el de antes quitándole el irreducible cuya norma vale 2.
 	\item Buscamos los enteros de Gauss cuya norma valga 5. $N(a+bi) = a^2 +b^2 = 5 \iff a = \pm 1$ y $b =\pm 2$ ó $a \pm 2$ y $b = \pm 1$.
-	
+
 	Estos son: $1+2i$ y sus asociados para el primer caso y $2+i$ y sus asociados para el segundo caso.
-	
-	\item Ahora, tenemos que ver si estos dividen a $9-2i$. 
+
+	\item Ahora, tenemos que ver si estos dividen a $9-2i$.
 	\begin{itemize}
 	\item $9-2i/2+i  = \frac{16}{5} + \frac{13}{5}i \notin \ent[i]$
 	\item $9-2i /1+2i = 1-4i \in \ent[i]$
 \end{itemize}
 
 Por lo que tenemos que $11+7i = (1+i)(1+2i)(1-4i)$ y ahora tenemos justo 3 irreducibles con las normas que buscábamos, luego tenemos hecha la factorización en irreducibles.
-	
+
 \end{enumerate}
 
 Ahora, haciendo lo mismo para $2i$ vemos que $2i = (1+i)^2$.
 
-	
+
 \end{ejemplo}
 \begin{ejemplo}[2]
 	Vamos a factorizar 180 en $\ent[i\sqrt2]$. Para ello, vemos que $180 = 2^2 * 3^2 * 5$. Recordamos que en este anillo, $N(a+b\sqrt2) = a^2 +2b^2$ y $U(\ent[i\sqrt2]) = \pm 1$
-	
-	Ahora, como $N(2) = 4$, un divisor propio del 2 tendrá por norma un divisor propio del 4 en $\ent$. En $\ent$, sólo el 2 es divisor propio del 4. Por ello, tenemos que plantearnos la ecuación $a^2+2b^2 = 2$. Entonces, los únicos elementos que hay que tienen son $\sqrt{-2}$ y $-\sqrt{-2}$. 
+
+	Ahora, como $N(2) = 4$, un divisor propio del 2 tendrá por norma un divisor propio del 4 en $\ent$. En $\ent$, sólo el 2 es divisor propio del 4. Por ello, tenemos que plantearnos la ecuación $a^2+2b^2 = 2$. Entonces, los únicos elementos que hay que tienen son $\sqrt{-2}$ y $-\sqrt{-2}$.
 	Ahora vemos si alguno de estos divide a 2:
 	\[
 	\frac{2}{\sqrt{-2}} =  \frac{2*(-\sqrt{-2})}{\sqrt{-2}*(-\sqrt{-2})}= \frac{2(-\sqrt{-2})}{2} = -\sqrt{-2} \ \in \ent[i\sqrt2]
 	\]
 	Ahora, como $N(\sqrt{-2})=2$ que es un primo en $\ent \implies \sqrt{-2}$ es un primo de $\ent[\sqrt{-2}] = \ent[i\sqrt2]$ y por ello $2=-(\sqrt{-2})^2$.
-	
+
 	Seguimos, haciendo lo mismo con el 3. $N(3) = 9$. ¿Existen a y b : $a^2 + 2b^2 = 3$? Vemos que tomando $a=\pm 1$ y $b=\pm1$ se puede llegar a la igualdad. Es decir, tenemos los elementos: $\{1+\sqrt{-2}, \ 1-\sqrt{-2}, \ -1-\sqrt{-2}, \ - 1 + \sqrt{-2}\}$.
-	
+
 	Probamos dividiendo $3/(1+\sqrt{-2}) = 1 - \sqrt{-2}\implies 3 = (1+\sqrt{-2})(1-\sqrt{-2})$ y ambos son irreducibles.
-	
+
 	Hacemos lo mismo con el 5. Tenemos que discutir la ecuación: $a^2+2b^2 = 5$. Sin embargo, en este caso no hay ningún elemento que tenga solución luego 5 es primo en $\ent[i\sqrt2]$.
-	
+
 	Por tanto, la factorización de 180 en $\ent[i\sqrt2]$ es: $180 = (\sqrt{-2})^4*(1+\sqrt{-2})^2*(1-\sqrt{-2})^2*5$
 \end{ejemplo}
 
@@ -2394,11 +2392,11 @@ Vamos a plantearnos qué elementos del anillo $\ent$ tienen norma 2 o norma 3.
 	\item En la ecuación $a^2+5b^2 = 3$ tampoco hay soluciones en este anillo.
 \end{itemize}
 	Como no tiene divisores propios, entoces este elemento es irreducible. Su conjugado, por el mismo motivo, también es un irreducible.
-	
+
 	Ahora, por la norma de $1+i\sqrt5$ hemos obtenido una factorización del 6 en producto de irreducibles. Pero el 6 también es $2*3$ en este anillo. Esta podría ser otra factorización en irreducibles de 6 en $\ent [i\sqrt5]$. El 2 no tiene ningún divisor propio en este anillo, pues es el único divisor de 4 en $\ent$ luego el 2 es irreducible en este anillo. Lo mismo ocurre con el 3.
-	
+
 	Por tanto, tenemos dos descomposiciones del 6 en producto de irreducibles, que no son iguales ni asociados luego este anillo no puede ser un DFU.
-	
+
 	Ahora, el 2 es un irreducible, \underline{¿es 2 primo?} Vemos que $2/6$, y $6 = (1+i\sqrt5)(1-i\sqrt5)$. Si fuese primo, necesitaríamos $2/1+i\sqrt5$ ó $2/1-i\sqrt5$ y eso no ocurre pues sus normas no se dividen en $\ent$ por tanto el 2 no es primo.
 \end{ejemplo}
 
@@ -2417,19 +2415,20 @@ Si $f \in A[x],\ gr(f) \geq 1$, se define su contenido como el m.c.d. de sus coe
 Se dice que $f$ es primitivo si $c(f) = 1$. El contenido es único salvo asociados.
 \end{ndef}
 \textbf{Lema.} $ \ c(af) = ac(f)$. Esta propiedad es consecuencia directa de que $(ab,ac) = a(b,c)$
+
 \textbf{Lema.} Todo $f: gr(f) \geq 1$ se puede factorizar de la forma $f = af'$ con $f'$ primitivo. Además, esta factorización es esencialmente única.
 \begin{proof}
 	Sea $f$ un polinomio y $a = c(f)$. Entonces, $a/a_i \ \forall i$. Tomamos $a_i' = \frac{a_i}{a} \in A$. Sea también $f' = \sum a_i'x^i$. Ahora, si tomáramos $af'= \sum aa_i' x^i = f \implies a = c(f) = c(af') = ac(f') \implies c(f') = 1$ simplificando por a, luego hemos encontrado una factorización $f=af'$.
-	
+
 	Además, podemos ver que la factorización es única, pues si $f=bg$ con $c(g)=1$ y $f=af'$, entonces $a = c(f) = b c(g) = b \implies a=b$ y $g=f'$
 \end{proof}
 
 \textbf{Lema.} Todo $\phi,\ gr(\phi) \geq 1$ se puede factorizar de forma esencialmente única como $\phi = \frac{a}{b} f$ con $f$ primitivo.
 \begin{proof}
 	Sea $\phi = \sum \frac{a_i}{b_i} x^i$. Tomamos $b= \prod b_i \implies b_i/b \ \forall i \implies b_i /ba_i \ \forall i \implies b \phi = \sum \frac{ba_i}{b_i}x^i$ Pero el numerador es un múltiplo del denominador, luego $g = \sum \frac{ba_i}{b_i}x^i \in A[x]$.
-	
+
 	De esta forma, $b\phi = af \implies \phi = \frac{a}{b} f$.
-	
+
 	Además, veamos que es única. Sea ahora $\phi = \frac{c}{d} f'$ con $f'$ primitivo$\implies \frac{a}{b} f = \frac{c}{d} f' \implies daf=bcf' \implies da = bc$ y $f=f'$
 \end{proof}
 
@@ -2438,20 +2437,20 @@ Enunciaremos también un lema muy importante, el lema de Gauss.\\
 \textbf{Lema de Gauss.} Sea A un DFU. Si tenemos $f,g \in A[x]\implies c(fg) = c(f)c(g)$. En particular, el producto de polinomios primitivos es primitivo.\\
 \begin{proof}
 	Probaremos en primer lugar que el producto de polinomios primitivos es primitivo. Sean $f= \sum a_i x^i $ y $g= \sum b_j x^j$ ambos en $A[x]$ y primitivos. Consideramos también su producto $fg = \sum c_k x^k$. Sabemos que  $c_k = \sum_{i+j=k}a_ib_j$. Negaremos la tesis e intentaremos llegar a una contradicción.
-	
-	Supongamos que $fg$ no es primitivo. Entonces, $c(fg) \ne 1$. Como A es un DFU, el contenido se podrá expresar como un producto de primos (irreducibles). Existirá al menos un primo que lo divida. $\exists p $ primo de $A$ con $p/c(fg) \implies p/c_k \ \forall k$. Sin embargo, ese p no puede dividir a $a_i \ \forall i$ pues f es primitivo. Por la misma razón, no puede dividir a todos los $b_j$. 
-	
+
+	Supongamos que $fg$ no es primitivo. Entonces, $c(fg) \ne 1$. Como A es un DFU, el contenido se podrá expresar como un producto de primos (irreducibles). Existirá al menos un primo que lo divida. $\exists p $ primo de $A$ con $p/c(fg) \implies p/c_k \ \forall k$. Sin embargo, ese p no puede dividir a $a_i \ \forall i$ pues f es primitivo. Por la misma razón, no puede dividir a todos los $b_j$.
+
 	Por tanto, sea $r$ el primer índice tal que $p$ no divide a $a_r$. Tomemos también $s$ el primer índice tal que $s$ no divide a $b_s$. Ahora, vamos a fijarnos en el coeficiente $c_{r+s}$ de $fg$. Este coeficiente se expresa como:
 	 \[c_{r+s} = \sum _{i+j=r+s}a_ib_j = \sum _{i+j =r+s \ \ i < r}a_ib_j + a_rb_s + \sum_{i+j=r \ \ i > r}a_ib_j\]
 	 De esta expresión, podemos ver que $p/c_{r+s}$, que $\forall i < r$ entonces $p/a_ib_j \implies p/\sum_{i+j =r+s}a_ib_j$ por dividir a los $a_i$. Ocurre lo mismo con el mismo en el término de $i > r $ pues p divide a $b_j$. Si despejáramos $a_rb_s$ veríamos que $p/a_rb_s$ pues divide a todos los sumandos, pero p es un primo, por tanto si divide a un producto tiene que dividir a alguno de los factores, pero como habíamos dicho que no divide a ninguno de los dos, hemos llegado a una contradicción y, por tanto, $fg$ es primitivo.
-	 
+
 	 Ahora demostraremos c(fg) = c(f)c(g). Podemos poner $f=af'$ con $f'$ primitivo e igual con $g=bg'$. Entonces $fg= abf'g'\implies c(fg)=c(abf'g') = abc(f'g')$ pero $f'$ y $g'$ son primitivos luego su contenido es 1. Así, el contenido de f es $a$ y el de g es $b$ luego $c(fg) = c(f)c(g)$ probando así el lema.
 \end{proof}
 \newpage
-\textbf{Lema.} 
+\textbf{Lema.}
 \begin{nlist}
 	\item Si $a \in A$, $a$ es irreducible en A[x] $\Leftrightarrow$ $a$ es irreducible en A.
-	\item Si $gr(f) \geq 1$, f es irreducible en A[x] $\Leftrightarrow$ f es primitivo y es irreducible en K[x]. 
+	\item Si $gr(f) \geq 1$, f es irreducible en A[x] $\Leftrightarrow$ f es primitivo y es irreducible en K[x].
  \end{nlist}
 
 \begin{proof}
@@ -2460,15 +2459,15 @@ $(ii)$ $\displaystyle \boxed{\Rightarrow}\ $ Si f es irreducible, el contenido t
 Como c(f)/f, si f es irreducible $\Rightarrow$ c(f) = 1 $\Rightarrow$ f es primitivo. Vamos a probar que es irreducible en K[x] por contradicción. Supongamos que f no es irreducible en K[x] $\Rightarrow$ f = $\phi \psi$ con $gr(\phi) \geq 1$ y $gr(\psi) \geq 1$
 $$
  \left .
-      \begin{matrix} 
+      \begin{matrix}
         \phi =  \frac{a}{b}g : g\ es\ primitivo\\
         \psi =  \frac{c}{d}h : h\ es\ primitivo
-      \end{matrix} 
-   \right \} 
+      \end{matrix}
+   \right \}
    \Longrightarrow \quad f = \frac{a}{b} \frac{c}{d} gh \Rightarrow bdf = acgh
   $$
   Aplicando contenidos sobre esta igualdad nos queda, $c(bdf) = c(acgh) \Rightarrow bdc(f) = acc(gh) \Rightarrow bd = ac \Rightarrow f = gh $ CONTRADICCIÓN f es irreducible y ninguno es unidad ya que el grado es mayor o igual que 1.
-  
+
 $\displaystyle \boxed{\Leftarrow}\ $Suponemos que $f=gh$ en A[x], $g$ y $h$ no unidades. Entonces, $gr(g)$ y $gr(h)$ es mayor o igual que 1. (Suponemos $gr(g)=0$, $g = a \in A; f=ah \Rightarrow 1 = ac(h) \Rightarrow g=a \in U(A)=U(A[x])$, llegamos a una contradicción con la suposición inicial).  \\
 $f=gh$ se da en K[x] y muestra que f no es irreducible en K[x], contradicción con la hipótesis.
 En K[x] no hay irreducibles de grado 0, las constantes tienen inverso.
@@ -2488,7 +2487,7 @@ Sea $f \in$ A[x], $f \neq 0$ y $f \notin$ U(A[x])=U(A)
 	\item Caso general, $gr(f) \geq 1$ y $f$ no primitivo. Tomamos $f=af'$
 con $f'$ primitivo. $c(f) = a \neq 0,\ a \notin$ U(A)\\
 $^{(1)}$ Como $f_i$ son primitivos
-\end{itemize} 
+\end{itemize}
 \end{proof}
 
 
@@ -2504,13 +2503,13 @@ En lo sucesivo, vamos a notar $A\subseteq K = Q(A)$. De esta forma, también suc
 \end{ncor}
 \begin{proof}
 	Supongamos que $f/gh$ en $A[x]\subseteq K[x]$. Como $f$ es irreducible en $A[x]$, lo  es en $K[x]$ y $K[x]$ es un DFU por ser K un cuerpo, entonces $f$ es primo en $K[x]$. Entonces, podemos asegurar que o bien $f/g$ o bien $f/h$ en $K[x]$.
-	
+
 	Para lo que sigue, supongamos que $f/g$ en $K[x]$ (Si quisiéramos para hacerlo para $h$, sólo habría que cambiar las letras). Entonces, $f\phi = g $ y $\phi = \frac{a}{b}f'$ con $f'$ un polinomio de $K[x]$ primitivo. Esto implica: $$\frac{a}{b}ff'=g \implies aff' = bg(1)$$
-	
+
 	Ahora, calcularemos los contenidos aplicando el lema de Gauss. Como f y $f'$ son primitivos,
-	
+
 	$$ a c(f)c(f') = bc(g) \implies a = bc(g)$$
-	
+
 	Ahora, si nos llevamos esta igualdad a (1) obtenemos:
 	\[
 	bc(g)ff'=bg \implies f(c(g)f')=g \implies f/g \ en \ A[x]
@@ -2522,20 +2521,20 @@ En lo sucesivo, vamos a notar $A\subseteq K = Q(A)$. De esta forma, también suc
 	De esta forma, podemos ver por inducción que cualquier anillo de la forma $A[x_1,...,x_r] $ es un DFU si A es un DFU.
 \end{nota}
 \begin{nota}[2]
-	En $\ent$ hay infinitos primos. 
+	En $\ent$ hay infinitos primos.
 
 \end{nota}
 
 Vamos a intentar ahora a buscar una factorización de un $f \in A[x]$. ¿Cuándo es f irreducible?
 
  Sabemos que $gr(f) = 0 \iff f = p \in A$ que sería irreducible si $p$ lo es en A.
- 
+
  Supongamos ahora que $gr(f) \geq 1$, $f$ es irreducible en $A[x] \iff$ f es primitivo e irreducible en $K[x]$
 
 \begin{nota}
 	Si K es un cuerpo, todo polinomio de grado 1 es irreducible.
 	\begin{proof}
-	Supongamos que $\phi = \phi_1 \phi_2 \implies 1 = gr(\phi) =  gr(\phi_1)+gr(\phi_2) \implies \phi_1$ es una unidad o lo es $\phi_2$, luego necesariamente $\phi$ es irreducible.  
+	Supongamos que $\phi = \phi_1 \phi_2 \implies 1 = gr(\phi) =  gr(\phi_1)+gr(\phi_2) \implies \phi_1$ es una unidad o lo es $\phi_2$, luego necesariamente $\phi$ es irreducible.
 \end{proof}
 \end{nota}
 
@@ -2560,12 +2559,12 @@ Pero, $6x+5$ es un polinomio de grado 1, primitivo en $\ent[x]$. Además, 2 y 5 
 
 \begin{nprop}
 	Sea $f=a_0+a_1x+...+a_nx^n \in A[x]$. Entonces $f$ tiene un factor irreducible de grado 1 en $K[x]$ si y solamente si tiene una raíz en $K$.
-	
+
 	Equivalentemente, $(a,b)=1$ y $f(\frac{a}{b})=0 \iff bx-a/f$ en $A[x]$. En tal caso, esta posible raíz verifica que $a/a_0$ y $b/a_n$ en $A$.
 \end{nprop}
 \begin{proof}
 	Si tenemos que $f(\frac{a}{b})=0 \iff x-\frac{a}{b}/f$ en $K[x]$.
-	
+
 	$\boxed{\Rightarrow}$ Esto implica que $f=(x-\frac{a}{b})\phi$ con $\phi=\frac{c}{d}g$ con $g \in$ A primitivo, $$\implies f= \frac{c}{d}(x-\frac{a}{b})g = \frac{c}{bd}(bx-a)g \implies bdf=c(bx-a)g$$
 	Si aplicamos contenidos:
 	\[
@@ -2576,7 +2575,7 @@ Pero, $6x+5$ es un polinomio de grado 1, primitivo en $\ent[x]$. Además, 2 y 5 
 	f=(bx-a)(c(f)g)
 	\]
 	Por tanto, $bx-a/f$ en $A[x]$.
-	
+
 	$\boxed{\Leftarrow}$ Si $f=(bx-a)g \implies f(\frac{a}{b}) = (b\frac{a}{b}-a)g(\frac{a}{b})=0$
 \end{proof}
 \textbf{Criterio de la raíz:}
@@ -2623,13 +2622,13 @@ f(x)= 6(x+\frac{1}{2})(x^3-3x+7) \quad \in \rac[x]
 	\]
 	Y por tanto habría que buscar sus raíces entre $\{\pm 1, \pm \frac{1}{2}, \pm 3 \pm \frac{3}{2}\}$ y veríamos que en $\frac{3}{2}$ el polinomio evaluado da cero, por tanto factoriza como:
 	\[
-	2*5*(2x-3)(x^2+2x+2) 
+	2*5*(2x-3)(x^2+2x+2)
 	\]
 	Y podemos ver que $x^2+2x+2$ no tiene raíces y por tanto ese es el polinomio descompuesto en primos.
 \end{ejemplo}
 \begin{ejemplo}[3]
-	Consideremos el polinomio: $x^4+x^3+x^2+x+1$ en $\ent_2[x]$. ¿Este polinomio es irreducible?. \\Estamos en $\ent_2$, luego sustituyendo el 0 y el 1 vemos que no tiene de raíces. Como no tiene raíces no tiene factores de grado 1. 
-	
+	Consideremos el polinomio: $x^4+x^3+x^2+x+1$ en $\ent_2[x]$. ¿Este polinomio es irreducible?. \\Estamos en $\ent_2$, luego sustituyendo el 0 y el 1 vemos que no tiene de raíces. Como no tiene raíces no tiene factores de grado 1.
+
 	Ahora, si no fuese irreducible habría que descomponerlo como 2 factores de grado 2. Si dividimos por el polinomio $x^2+x+1$, que es irreducible en $\ent_2[x]$ el resto no es 0, luego no es divisible y por tanto el polinomio inicial ya es irreducible en $\ent_2[x]$.
 \end{ejemplo}
 
@@ -2637,7 +2636,7 @@ f(x)= 6(x+\frac{1}{2})(x^3-3x+7) \quad \in \rac[x]
 	Sea $f(x)=a_0+a_1x+...+a_nx^n \in A[x]$ primitivo y siendo $A$ un DFU.
 Si existe un primo $p\in A$ cumpliendo alguna de estas dos:
 	\begin{enumerate}
-	\item $p/a_i \ \ \forall i = 0,...,n-1$ y $p^2$ no divide a $a_0$ 
+	\item $p/a_i \ \ \forall i = 0,...,n-1$ y $p^2$ no divide a $a_0$
 	\item $p/a_i \ \ \forall i=1,...,n$ y $p^2$ no divide a $a_n$
 \end{enumerate}
 Entonces $f$ es irreducible.
@@ -2645,25 +2644,25 @@ Entonces $f$ es irreducible.
 \end{nprop}
 \begin{proof}
 	Vamos a demostrarlo para el primer caso, la demostración para el segundo es equivalente. Vamos a negar la tesis y veremos qué ocurre.
-	
-	Supongamos que $f=(b_0+...+b_mx^m)(c_0+...+c_rx^r)$ con $r+m=n$ y $r,m \geq 1$. Entonces, $a_0=b_0c_0$ para que fuera el producto. Como $p$ es primo, tiene que dividir a $b_0$ o a $c_0$. Además, no puede dividir a ambos pues si no $p^2$ dividiría a $a_0$. Supongamos que $p/b_0$ y por tanto que no divide a $c_0$. 
-	
+
+	Supongamos que $f=(b_0+...+b_mx^m)(c_0+...+c_rx^r)$ con $r+m=n$ y $r,m \geq 1$. Entonces, $a_0=b_0c_0$ para que fuera el producto. Como $p$ es primo, tiene que dividir a $b_0$ o a $c_0$. Además, no puede dividir a ambos pues si no $p^2$ dividiría a $a_0$. Supongamos que $p/b_0$ y por tanto que no divide a $c_0$.
+
 	Supongamos también que $p$ no divide a $a_n$ pues si no, formaría parte del contenido. Además, como hemos obtenido una factorización, $a_n = b_mc_r$ y como $p$ no divide a $a_n$ entonces no divide ni a $b_m$ ni a $c_r$.
-	
+
 	Sea $i$ el primer índice tal que $p$ no divide a $b_i$. Es claro que $0<i \leq m < n$, que existirá pues al menos es el último. Como lo habíamos factorizado, entonces $a_i = b_ic_0+(b_{i-1}c_1+...+b_0c_i)$. Entonces, $p/b_j \ \ \forall j < i \implies p/b_ic_0$ pero $p$ es primo luego divide o a $b_i$ o a $c_0$, pero ya habíamos dicho que no dividía a ninguno de los dos anteriormente en la demostración, luego hemos llegado a una contradición. Por tanto, f es irreducible.
 \end{proof}
 
 \begin{ejemplo}
-	Podemos ver que $3x^7-70x^3+140 \in \ent[x]$ por el criterio de Eisenstein para el primo $p=5$, que divide a todos los coeficientes menos al coeficiente líder pero su cuadrado $p^2 = 25$ no divide a ninguno de los coeficientes. 
+	Podemos ver que $3x^7-70x^3+140 \in \ent[x]$ por el criterio de Eisenstein para el primo $p=5$, que divide a todos los coeficientes menos al coeficiente líder pero su cuadrado $p^2 = 25$ no divide a ninguno de los coeficientes.
 \end{ejemplo}
 \begin{ejemplo}[2]
 	El polinomio : $y^3 + x^2y^2 +xy + x \in \ent[x,y]$, pues el primo $p=x$ divide a todos los coeficientes menos al líder y su cuadrado no divide a todos los coeficientes.
 \end{ejemplo}
 
-\begin{nprop}[Cambio de Anillo]
+\begin{nprop}[Cambio de anillo]
 	Sean A y B dominios de integridad (así, el grado del producto es el producto de los grados). Sea $\phi : A[x] \to B[x]$ un homomorfismo en el que $gr(\phi(f))  \leq gr(f)$.
-	
-	Si $f\in A[x] : gr(\phi(f))= gr(f)$ y $\phi(f)$ no tiene divisores de grado $r \implies f$ tampoco tiene divisores de grado $r$ 
+
+	Si $f\in A[x] : gr(\phi(f))= gr(f)$ y $\phi(f)$ no tiene divisores de grado $r \implies f$ tampoco tiene divisores de grado $r$
 \end{nprop}
 \begin{proof}
 	Supongamos que $f=gh$ donde $gr(f) = n$, $gr(g) = r$ y $gr(h) = s$ con $r+s = n$.
@@ -2675,9 +2674,9 @@ Entonces $f$ es irreducible.
 \end{proof}
 \begin{ejemplo}
 	$x^4+1$ es irreducible en $\ent[x]$.
-	
+
 	Si tomamos $\phi:\ent[x] \to \ent[x]$ que lleva $x \mapsto x+1$ el homomorfismo de evaluación en $x+1$. ($\phi(\sum a_i x^i) = \sum a_i (x+1)^i$).
-	
+
 	Así, $\phi(x^4+1) = (x+1)^4+1 = x^4 +4x^3 +6x^2 +4x + 2 \in \ent[x]$, que es irreducible por el criterio de Eisenstein para el primo $p=2$. Ahora, por el criterio del cambio de anillo, entonces $x^4+1$ es también irreducible en $\ent[x]$
 \end{ejemplo}
 
@@ -2697,19 +2696,19 @@ Entonces $f$ es irreducible.
 \end{itemize}
 \begin{ejemplo}
 	Sea $f = x^4 +3x^2 -2x +5 \in \ent[x]$. Si le aplicamos el criterio de reducción módulo un primo, en este caso el 2, el polinomio queda: $R_2(f) = x^4 + x^2 +1 \in \ent_2[x]$ y por el criterio de reducción, como este polinomio no tiene divisores de grado ni 1 ni 3 entonces podemos asegurar que $f$ tampoco los tiene.
-	
+
 	Si lo volvemos a hacer para el primo $p=3$, queda $R_3(f) = x^4 + x + 2 \in \ent_3[x]$ , que nos da exactamente la misma información que la reducción anterior. Como conocemos los mónicos de $\ent_3[x]$, dividimos este polinomio entre los 3 irreducibles mónicos de $\ent_3[x]$ y vemos que los restos son no nulos. Así, este polinomio es irreducible en $\ent_3[x]$ y por el criterio de reducción módulo un primo, el polinomio primero es irreducible en $\ent[x]$.
 \end{ejemplo}
 
 
 
-\section{Matrices sobre Anillos conmutativos}
+\section{Matrices sobre anillos conmutativos}
 Sea $K$ un cuerpo, y consideremos $\mathcal{M}_{mxn}(K)$ y  $\mathcal{M}_{n}(K)$. Imaginemos ahora que $A\leq K$ es un subanillo. De esta forma, podemos concebir las matrices que están en este conjunto: $\mathcal{M}_{mxn}(A)$ ó  $\mathcal{M}_{n}(A)$ .
 
-Así, si sumáramos dos matrices que estuvieran en  $\mathcal{M}_{mxn}(A)$, nos quedaría una matriz cuyas entradas están en el subanillo A. Lo mismo ocurre con la multiplicación. 
+Así, si sumáramos dos matrices que estuvieran en  $\mathcal{M}_{mxn}(A)$, nos quedaría una matriz cuyas entradas están en el subanillo A. Lo mismo ocurre con la multiplicación.
 
 
-Podemos considerar también:
+Podemos considerar también el \emph{Grupo Lineal} que se define como:
 \[
 GL_n(K) = U (\mathcal{M}_n(K)) = \{ M \in \mathcal{M}_n(K) :  \ \exists M^{-1} \in \mathcal{M}_n(K) \ \ con \ \ MM^{-1} = M^{-1}M = I_n\}
 \]
@@ -2776,7 +2775,7 @@ Si:
  \end{array} \right)   \]
  Y multiplicáramos $P_1N$, entonces quedaría $F_k' = F_k $ si $k \ne i$ con $i$ el número de fila que contenía el elemento $a$ y $F_i'=F_i+aF_j$. Lo mismo ocurriría con las columnas si...\\
 \textbf{FALTA CONTENIDO DE MATRICES, añadirla.}
- 
+
 
 
 \begin{nota}
@@ -2820,12 +2819,12 @@ C_k \mapsto C_k - q C_1
 		\[ \begin{pmatrix}
 			 a_{11} \hdots  a_{1k} \hdots \\
 			   \hdots &  \\
-		\end{pmatrix} 
+		\end{pmatrix}
 		\xrightarrow{C_k - qC_1}
 		\begin{pmatrix}
 			 a_{11} \hdots  b_{1k} \hdots \\
 			   \hdots &  \\
-		\end{pmatrix} 
+		\end{pmatrix}
 \]
 Reiteramos el proceso las veces que haga falta, hasta encontrarnos una matriz que sea de la forma $(b_{ij})$. Ahora, si $b_{11}$ no divide a $b_{k1}$, entonces este último se expresará como $b_{k1} = b_{11}q' + c_{k1}$ con $c_{k1}\ne 0$ y $\varphi(c_{k1}) < \varphi(b_{11})$
 
@@ -2842,7 +2841,7 @@ Tras una serie de pasos, llegaremos a una matriz equivalente a la original en la
  0 & c_{22} & \cdots & c_{2n} \\
  \vdots &  & \ddots& \\
  0 & c_{m2} & \cdots & c_{mn} \\
-\end{pmatrix} 
+\end{pmatrix}
 \]
 
 Donde $b_{11}/ c_{ij}$ para cada $i$ y $j$. Ahora, lo que haremos es tomar la submatriz que empieza en $c_{22}$ y volveremos a realizar el mismo proceso.
@@ -2850,93 +2849,93 @@ Donde $b_{11}/ c_{ij}$ para cada $i$ y $j$. Ahora, lo que haremos es tomar la su
 \begin{ejemplo}
 	Sea $A \in \mathcal{M}_{3x2}$ tal que:
 	\[
-	A = 
+	A =
 	\begin{pmatrix}
  14 & 10 \\
  22 & 14\\
- 10 & 10\\ 
-\end{pmatrix} 
+ 10 & 10\\
+\end{pmatrix}
 	\]
 	Ahora, tomamos el número que tenga $\varphi$ menor, en este caso el 10 y hacemos transformaciones elementales para llevarlo a la primera posición.
 	\[\begin{pmatrix}
  14 & 10 \\
  22 & 14\\
- 10 & 10\\ 
+ 10 & 10\\
 \end{pmatrix} \xrightarrow{C_2,\ C_1}
 	\begin{pmatrix}
  10 & 14 \\
  14 & 22\\
- 10 & 10\\ 
+ 10 & 10\\
 \end{pmatrix} \xrightarrow{C_2\ -\ C_1} \begin{pmatrix}
  10 & 4 \\
  14 & 8\\
- 10 & 0\\ 
+ 10 & 0\\
 \end{pmatrix}\xrightarrow{C_2,\ C_1}
 \begin{pmatrix}
  4 & 10 \\
  8 & 14\\
- 0 & 10\\ 
+ 0 & 10\\
 \end{pmatrix}\xrightarrow{C_2\ -\ 2C_1}  \begin{pmatrix}
  4 & 2 \\
  8 & -2\\
- 0 & 10\\ 
+ 0 & 10\\
 \end{pmatrix}
 	\]
 	\[
-	\xrightarrow{C_2\ -\ C_1}
+	\xrightarrow{C_2, C_1}
 	\begin{pmatrix}
  2 & 4 \\
  -2 & 8\\
- 10 & 0\\ 
+ 10 & 0\\
 \end{pmatrix} \xrightarrow{C_2\ -\ 2C_1}
 \begin{pmatrix}
  2 & 0 \\
  -2 & 12\\
- 10 & -20\\ 
+ 10 & -20\\
 \end{pmatrix}\xrightarrow{F_2\ +\ F_1}
 \begin{pmatrix}
  2 & 0 \\
  0 & 12\\
- 10 & -20\\ 
-\end{pmatrix} \xrightarrow{F_3\ -\ F_1}  
+ 10 & -20\\
+\end{pmatrix} \xrightarrow{F_3\ -\ F_1}
 \begin{pmatrix}
  2 & 0 \\
  0 & 12\\
- 0 & -20\\ 
-\end{pmatrix} 
+ 0 & -20\\
+\end{pmatrix}
 	\]
 	Y ahora, tendríamos que hacer lo mismo atendiendo a la submatriz resultante:
 	\[
 	\begin{pmatrix}
  2 & 0 \\
  0 & 12 \\
- 0 & -20 \\ 
-\end{pmatrix}\xrightarrow{F_3\ +\ 2F_2} 
+ 0 & -20 \\
+\end{pmatrix}\xrightarrow{F_3\ +\ 2F_2}
 \begin{pmatrix}
   2 & 0 \\
   0 & 4 \\
-  0 & 12 \\ 
+  0 & 12 \\
 \end{pmatrix}\xrightarrow{F_3\ -\ 3F_2}
 \begin{pmatrix}
   2 & 0 \\
   0 & 4 \\
-  0 & 0 \\ 
-\end{pmatrix}  
+  0 & 0 \\
+\end{pmatrix}
 	\]
 	Y nos queda la matriz:
 	\[
 	\begin{pmatrix}
  2 & 0 \\
  0 & 4\\
- 0 & 0\\ 
-\end{pmatrix} 
+ 0 & 0\\
+\end{pmatrix}
 	\]
 	Que es equivalente a la inicial.
 \end{ejemplo}
 
 \begin{ndef}[Rango de la matriz]
 	El entero $r$ tal que $M$ tiene al menos un menor de orden $r$ no nulo y todos los de orden $r+1$ son nulos se llama Rango de la matriz.
-\end{ndef} 
+\end{ndef}
 
 Vamos a definir ahora $\Delta_s(M) = mcd\{$ menores de orden s de M no nulos$\}$
 Así, $\Delta_1(M)$ sería el máximo común divisor de todos los $m_{ij}$ (si $M$ está normalizada será $d_1$). Ahora, con esta definición, podemos decir que:
@@ -2961,7 +2960,7 @@ Si $Q \in GL_n(A) \implies \Delta_s (M) = \Delta(MQ)$
 
 De las implicaciones anteriores, obtenemos como conclusión:
 
-$\forall \ P,\ Q \ \ \ \Delta_s(PMQ) = \Delta_s(M) \ \ \forall s \implies$ 
+$\forall \ P,\ Q \ \ \ \Delta_s(PMQ) = \Delta_s(M) \ \ \forall s \implies$
 si $M$ y $M'$ son equivalentes, entonces $\Delta_s(M) = \Delta_s(M') \ \forall s$\\
 Si $M \sim M' \sim \begin{pmatrix}
  d_{1}'&  &  & & \\
@@ -3010,7 +3009,7 @@ Si $I \leq A$ es un ideal, si tomamos $M= A/I$, entonces se verfican:
 
 \begin{ndef}[Submódulos]
 	Si M es un A-Módulo, un submódulo es $\emptyset \ne N \subseteq M$ que es cerrado para sumas ($x,y\in N \implies x+y \in N$) y para múltiplos($a\in A,\ x\in N \implies ax\in N$).
-	
+
 	Con estas operaciones de suma y producto restringidas, $N$ también es un A-módulo. Por tanto, todo submódulo es un módulo.
 \end{ndef}
 \begin{nprop}
@@ -3081,13 +3080,13 @@ Si $I \leq A$ es un ideal, si tomamos $M= A/I$, entonces se verfican:
 \end{ndef}
 \begin{ejemplo}
 	Si $m\in A$, $A/(m)$ es un A-módulo ( $[a]+[b] = [a+b]$ y $a[b] = [ab]$. Si A tiene unicidad de cocientes y restos ($\ent,K[x]$), entonces $A_m$ es un A-módulo con $r+r' = R_m(r+r')$ y $ar = R_m(ar)$.
-	
+
 	Recordemos que existe un isomorfismo entre $A/(m) \cong A_m$ que lleva $[a] \mapsto R_m(a)$
 \end{ejemplo}
 
 \begin{ejemplo}[2]
 	Si $M_1,...,M_n$ son A-módulos, su “producto" $M_1 \times ... \times M_n =  \prod M_i$ es un A-módulo con $(x_1,...,x_n) + (y_1,...,y_n) = (x_1+y_1,...,x_n+y_n)$  y $a(x_1,...,x_n)= (ax_1,...,ax_n)$
-	
+
 		Supongamos que $M_1,...,M_n$ son submódulos de M y que $M = M_1 \oplus ... \oplus M_n = \oplus_i M_i$
 	Entonces, existe:
 	\begin{align}
@@ -3097,7 +3096,7 @@ Si $I \leq A$ es un ideal, si tomamos $M= A/I$, entonces se verfican:
 que es un isomorfismo.
 \end{ejemplo}
 
-\section{Clasificación de los módulos finitamente generados sobre un Dominio Euclídeo.}
+\section{Clasificación de los módulos finitamente generados sobre un dominio euclídeo.}
 
 Para comprenderlo mejor, vamos a ver primero un caso particular sencillo.
 \subsection{Módulos cíclicos}
@@ -3119,7 +3118,7 @@ Dado un cierto $x\in M$, podemos ver el conjunto $\{a : ax = 0\} \subseteq A$. E
 \end{nprop}
 \begin{proof}
 	$\forall i \ \mu(M)x_i = 0 \implies \forall i=1,...,r, \ \ \mu(x_i) / \mu(M)$.
-	
+
 	Por tanto, si $a\in A: \mu(x_i)/a \ \forall i \implies ax_i = 0 \ \forall i \implies a\sum_i a_ix_i = \sum_i a_i(ax_i) = 0$
 	$\implies ax = 0 \ \forall x \in M \implies \mu(M) / a$
 \end{proof}
@@ -3127,11 +3126,11 @@ Dado un cierto $x\in M$, podemos ver el conjunto $\{a : ax = 0\} \subseteq A$. E
 En particular, si estamos en un módulo cíclico (generado por un único elemento), entonces $\mu(M) = \mu(x)$ salvo asociados.
 
 \begin{nota}
-	En estos casos, si $\mu(x) = 0$, la aplicación $\varphi: A \to M$ que lleva a cada elemento de A en M de forma $a \mapsto ax$, es lineal, sobreyectiva y es inyectiva, pues $ker(\varphi) = \{0\}$ (el anulador minimal es el cero), por tanto, es un isomorfismo, $M \cong A$.
+	En estos casos, si $\mu(x) = 0$, la aplicación $\varphi: A \to M$ que lleva a cada elemento de A en M de forma $a \mapsto ax$, es lineal, sobreyectiva y es inyectiva, pues $\ker(\varphi) = \{0\}$ (el anulador minimal es el cero), por tanto, es un isomorfismo, $M \cong A$.
 \end{nota}
 
 \begin{nota}
-	Si $\mu(M) = \mu(x) \ne 0$, la aplicación $\varphi :A/\mu(x) \to M$ tal que $[a]\mapsto ax$ está bien definida ( si $a \equiv b mod(\mu(x)) \implies a = b+q\mu(x) \implies ax = bx +q\mu(x)x = bx$), es lineal, sobreyectiva e inyectiva (si $\varphi([a]) = 0 \implies ax = 0 \implies  \mu(x)/a \implies [a] = 0$) , por lo que
+	Si $\mu(M) = \mu(x) \ne 0$, la aplicación $\varphi :A/\mu(x) \to M$ tal que $[a]\mapsto ax$ está bien definida ( si $a \equiv b \mod(\mu(x)) \implies a = b+q\mu(x) \implies ax = bx +q\mu(x)x = bx$), es lineal, sobreyectiva e inyectiva (si $\varphi([a]) = 0 \implies ax = 0 \implies  \mu(x)/a \implies [a] = 0$) , por lo que
 	\[
 	M  \cong A/(\mu(M))
 	\]
@@ -3143,11 +3142,11 @@ En particular, si estamos en un módulo cíclico (generado por un único element
 	\langle x_1,...,x_n : \sum_{i=1}^n a_{i1}x_i = 0,...,\sum_{i=1}^n a_{im}x_i = 0 \rangle
 	\]
 	Donde $(x_1,...,x_n)$ es un sistema de generadores de $M$ y las expresiones de la derecha son relaciones de dependencia lineal entre ellos verificadas en el módulo tales que cualquier relación de dependencia entre $x_1,...,x_n$ es combinación lineal de las que aparecen en la presentación
-	
+
 \end{ndef}
 
 \begin{nprop}
-		Si 
+		Si
 	\[
 	\langle x_1,...,x_n : \sum_{i=1}^n a_{i1}x_i = 0,...,\sum_{i=1}^n a_{im}x_i = 0 \rangle
 	\]
@@ -3156,40 +3155,40 @@ En particular, si estamos en un módulo cíclico (generado por un único element
 	\mathcal{M}_R = \begin{pmatrix}
  a_{11} & \cdots & a_{1n}\\
  \vdots & & \vdots\\
- a_{m1} & \cdots & a_{mn} 
-\end{pmatrix} 
+ a_{m1} & \cdots & a_{mn}
+\end{pmatrix}
 	\]
 	cuyas filas son exactamente los coeficientes que aparecen en la presentación la llamamos “matriz de relaciones de los generadores de M".
-	
+
 	Decir entonces que las combinaciones lineales de la presentación son cero, es lo mismo que decir:
 	\[
 	\begin{pmatrix}
  a_{11} & \cdots & a_{1n}\\
  \vdots & & \vdots\\
- a_{m1} & \cdots & a_{mn} 
+ a_{m1} & \cdots & a_{mn}
 \end{pmatrix} \begin{pmatrix}
  x_1  \\
  \vdots\\
- x_n 
+ x_n
 \end{pmatrix} =  \begin{pmatrix}
  0  \\
  \vdots\\
  0
-\end{pmatrix} 
+\end{pmatrix}
 	\]
 \end{nprop}
 
-	
+
 	Si tenemos un módulo $A^n$, podemos ver que este es libre y finitamente generado, además de que tiene una base (la canónica de $\mathbb{R}^n$). Vamos a considerar una aplicación $\varphi: A^n \to M$ tal que $\varphi:(a_1,...a_n) = a_1x_1+...+a_nx_n$. Esta aplicación es un epimorfirmo.
 
 \begin{nprop}
 	\[
-	\sum_{i=1}^n a_i x_i  = 0 \iff (a_1,...,a_n) \in Ker(\varphi)
+	\sum_{i=1}^n a_i x_i  = 0 \iff (a_1,...,a_n) \in \ker(\varphi)
 	\]
-	En particular, que se verifiquen las relaciones de dependencia que aparecen en la presentación, significa que $F_1,...,F_m \in Ker(\varphi)$.
-	Y decir que cualquier relación de dependencia entre $x_1,...,x_n$ es combinación lineal de las que aparecen en la presentación significa que si $F=(a_1,...a_n) \in Ker(\varphi) \implies F$ es combinación lineal de $F_1,...,F_m$, por tanto, estamos diciendo que
+	En particular, que se verifiquen las relaciones de dependencia que aparecen en la presentación, significa que $F_1,...,F_m \in \ker(\varphi)$.
+	Y decir que cualquier relación de dependencia entre $x_1,...,x_n$ es combinación lineal de las que aparecen en la presentación significa que si $F=(a_1,...a_n) \in \ker(\varphi) \implies F$ es combinación lineal de $F_1,...,F_m$, por tanto, estamos diciendo que
 	\[
-	Ker(\varphi) = (F_1,...,F_m)
+	\ker(\varphi) = (F_1,...,F_m)
 	\]
 \end{nprop}
 
@@ -3210,18 +3209,18 @@ Realizando estas operaciones, siempre podemos llegar a obtener la forma normal d
 	\[
 	M : \langle \ \  y_1,...,y_n : \ d_1y_1 = 0 \ ,..., \ d_ry_r = 0 \ \  \rangle
 	\]
-	
+
 \end{nprop}
-Es más, si ahora consideráramos un nuevo epimorfismo $\varphi: A^n \to M$ tal que $\varphi (a_1,...a_n) = \sum a_i y_i$ y 
+Es más, si ahora consideráramos un nuevo epimorfismo $\varphi: A^n \to M$ tal que $\varphi (a_1,...a_n) = \sum a_i y_i$ y
 \[
-Ker(\varphi)= \ \langle\  d_1e_1 \ \ , .... , \ \ d_r e_r \ \rangle
+\ker(\varphi)= \ \langle\  d_1e_1 \ \ , .... , \ \ d_r e_r \ \rangle
 \]
 con $e_i$ el vector de la base canónica (tiene un 1 en la posición i-ésima y lo demás son ceros).
 
 \begin{nprop}
 	Se puede comprobar que:
 	\[
-	ay_i = 0 \implies \varphi (ae_i) = 0 \implies ae_i \in Ker(\varphi) \implies ae_i = b_1d_1e_1+...+b_rd_re_r
+	ay_i = 0 \implies \varphi (ae_i) = 0 \implies ae_i \in \ker(\varphi) \implies ae_i = b_1d_1e_1+...+b_rd_re_r
 	\]
 	\[
 	\implies b_1d_1e_1+...+b_rd_re_r - ae_i = 0
@@ -3236,10 +3235,10 @@ con $e_i$ el vector de la base canónica (tiene un 1 en la posición i-ésima y 
 	$M \oplus_i Ay_i$, todo elemento de M se expresa de forma única como combinación lineal de elementos de $A$
 \end{nprop}
 \begin{proof}
-	Supongamos que $\sum a_i y_i = 0 \implies \varphi(\sum a_i e_i ) = 0 \implies \sum a_ie_i \in Ker (\varphi) $\\
+	Supongamos que $\sum a_i y_i = 0 \implies \varphi(\sum a_i e_i ) = 0 \implies \sum a_ie_i \in \ker (\varphi) $\\
 	$\implies a_1e_1+...+ a_re_r+...+a_ne_n = b_1d_1e_1+...+b_rd_re_r \implies a_i = 0 \ \ \forall i > r$\\
 	$\implies a_iy_i = 0$
-	
+
 	Y si $i \leq r\implies a_i = b_id_i \implies a_iy_i = 0$
 \end{proof}
 También podemos decir, si $d_1 = ... = d_s = 1 \implies y_1 = y_2 = ... = y_s = 0$ y, por tanto, tendríamos que:
@@ -3268,7 +3267,7 @@ La unicidad de estos invariantes es consecuencia de la unicidad de los invariant
 \end{ncor}
 \begin{ncor}
 	Si el rango de un módulo ($n-r$) es mayor que cero, entonces $\mu(M) = 0$.\\
-	
+
 	Si $n-r$ = 0, entonces $\mu(M) $ es el mayor de los factores invariantes, el $d_r$.
 \end{ncor}
 
@@ -3287,7 +3286,7 @@ Tenemos también que $\mu(x) = d \iff dx = 0$ y $mx = 0 \implies d/m$.
 Si $M=\ent x$ y $\mu(x) = 0 \implies M \cong \ent$
 
 \begin{nth}[Teorema de estructura en grupos abelianos]\hfill \\
-	Para todo grupo abeliano finitamente generado $M$ existen enteros positivos $d_1,...,d_s$ con $d_i \geq 2$ tales que $d_i/d_{i+1}$ y existe un $r> 0$ tal que 
+	Para todo grupo abeliano finitamente generado $M$ existen enteros positivos $d_1,...,d_s$ con $d_i \geq 2$ tales que $d_i/d_{i+1}$ y existe un $r> 0$ tal que
 	\[
 	M \cong \ent_{d_1} \times ... \times \ent_{d_s} \times \ent^n
 	\]
@@ -3315,48 +3314,48 @@ Si $M=\ent x$ y $\mu(x) = 0 \implies M \cong \ent$
 \end{ejemplo}
 \begin{proof}[Solución]
 	Lo primero que habría que hacer es construir la matriz de relaciones.
-	
+
 	\[
 	\begin{pmatrix}
  12 & 26 & 13 \\
  6 & 12 & 6 \\
- 6 & 26 & 13 
-\end{pmatrix} 
+ 6 & 26 & 13
+\end{pmatrix}
 	\]
-	
+
 	Y ahora buscamos su forma normal de Schmidt, para ver cuál es el rango de esta matriz.
-	
+
 	\[
 	\begin{pmatrix}
  12 & 26 & 13 \\
  6 & 12 & 6 \\
- 6 & 26 & 13 
+ 6 & 26 & 13
 \end{pmatrix} \sim
 \begin{pmatrix}
  6 & 12 & 6 \\
  12 & 26 & 13 \\
- 6 & 26 & 13 
+ 6 & 26 & 13
 \end{pmatrix} \sim^{C_2 - 2C_1}
 \begin{pmatrix}
  6 & 0 & 6 \\
  12 & 2 & 13 \\
- 6 & 14& 13 
-\end{pmatrix} 
-	\] 
+ 6 & 14& 13
+\end{pmatrix}
+	\]
 	Seguimos haciendo este método a llegar a una de la forma de Schmidt y nos queda la matriz:
 	\[
 	\begin{pmatrix}
  1 & 0 & 0 \\
  0 & 6 & 0 \\
- 0 & 0 & 0 
-\end{pmatrix} 
+ 0 & 0 & 0
+\end{pmatrix}
 	\]
 	(comprobar si está bien).
-	
-	Así, los factores invariantes de la matriz son 1 y 6, y los factores invariantes de M serán , de los obtenidos de la matriz, los que no sean unidades, por lo que en este caso es el 6. Cuidado, porque si aparecieran dos 6, los factores invariantes serían $\{6,6\}$. 
-	
-	El rango de M, es el número de columnas nulas de esta matriz, que es 1. 
-	
+
+	Así, los factores invariantes de la matriz son 1 y 6, y los factores invariantes de M serán , de los obtenidos de la matriz, los que no sean unidades, por lo que en este caso es el 6. Cuidado, porque si aparecieran dos 6, los factores invariantes serían $\{6,6\}$.
+
+	El rango de M, es el número de columnas nulas de esta matriz, que es 1.
+
 	Por tanto, la descomposición cíclica es:
 	\[
 	M \cong \ent_6 \times \ent
@@ -3364,7 +3363,7 @@ Si $M=\ent x$ y $\mu(x) = 0 \implies M \cong \ent$
 \end{proof}
 
 \begin{ejemplo}
-	Sea 
+	Sea
 	\[
 	M: \langle \ x,y,z :  2x+y+3z = 0  \ , \ 3x+6y-2z = 0 \ , \ 2x+4y+4z = 0 \ \rangle
 	\]
@@ -3373,24 +3372,24 @@ Si $M=\ent x$ y $\mu(x) = 0 \implies M \cong \ent$
 \begin{proof}[Solución]:
 
 De nuevo, hallamos su matriz y le hacemos su forma normal de Schmidt
-	
+
 \[
 	\begin{pmatrix}
  2& 1  & 3 \\
  3 & 6 & -2 \\
- 2 & 4 & 4 
+ 2 & 4 & 4
 \end{pmatrix}  \sim 	\begin{pmatrix}
  1 & 0 & 0 \\
  0 & 1 & 0 \\
- 0 & 0 & 48 
-\end{pmatrix} 
+ 0 & 0 & 48
+\end{pmatrix}
 \]
 Y hacemos el mismo procedimiento de antes para hallar sus invariantes (solo el 48), su rango (0) y su descomposición cíclica
 \[
-M \cong \ent_{48} 
+M \cong \ent_{48}
 \]
 
-	
+
 \end{proof}
 
 \begin{nprop}
@@ -3407,7 +3406,7 @@ Si $d = p_1^{e_1}...p_r^{e_r}$ con $p_i$ primo distintos entre sí y $e_i \geq 1
 	M \cong \ent_{d_1} \times ... \times \ent_{d_s} \times \ent^r
 	\]
 	con $d_i \geq 2 $ y $d_i / d_{i+1}$, entonces, la descomposición de invariantes en primos estará dada por los mismos primos pero si $d_i = p_1^{e_{i1}}...p_r{e_{ir}}$ y tenedremos $0 \leq e_{ij} \leq e_{i+1j}$
-	
+
 	Así, podemos tener:
 	\[
 	M \cong \prod_i^s \prod_j ^k \ent_{p_i^{e_{ij}}} \times \ent^r
@@ -3419,12 +3418,9 @@ Si $d = p_1^{e_1}...p_r^{e_r}$ con $p_i$ primo distintos entre sí y $e_i \geq 1
 	\[
 	\ent_3 \times \ent_9 \times \ent_5 \times \ent_{25} \times \ent_{125} \ent_7
 	\]
-	
+
 Sus invariantes serían $d_1 = 9*125*7 = 7875$, $d_2 = 3*5^2 = 75$, $d_3 = 5$ y ahora los ordenamos, quedando que: $d_3 = 9*125*7 = 7875$, $d_2 = 3*5^2 = 75$, $d_3 = 5$, por lo que su descomposición cíclica sería:
 \[
 \ent_5 \times \ent_{75} \times \ent_{7875}
 \]
 \end{ejemplo}
-
-\end{document}
-
